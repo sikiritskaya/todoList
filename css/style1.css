@@ -1,0 +1,327 @@
+/*RESET.CSS*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/*END RESET.CSS*/
+/* font-family: $font;
+    color: $color_text;
+    background-color: $background_color; */
+/* $color:#000; */
+body {
+  background-color: #d3d3d3;
+  color: #000;
+}
+
+body .color {
+  background-color: #ffb6c1;
+}
+
+body .wrapper {
+  max-width: 1920px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+body .wrapper .center {
+  max-width: 1285px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+body .wrapper .center header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 70px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: "Lato", sans-serif;
+  font-size: 30px;
+  /* .plus{
+                    width: 5%;
+                    a{
+                        @include a_text($font);
+                    }
+                } */
+}
+
+body .wrapper .center header .startHeader {
+  width: 25%;
+}
+
+body .wrapper .center header .startHeader .burger {
+  padding-right: 30px;
+}
+
+body .wrapper .center header .startHeader a {
+  text-decoration: none;
+  color: #000;
+}
+
+body .wrapper .center header .search {
+  position: relative;
+  width: 30%;
+}
+
+body .wrapper .center header .search i {
+  position: absolute;
+  top: 35%;
+  font-size: 20px;
+  left: 9px;
+}
+
+body .wrapper .center header .search #search {
+  height: 30px;
+  padding-left: 40px;
+}
+
+body .wrapper .center header .search span {
+  position: absolute;
+  right: 0;
+  display: none;
+}
+
+body .wrapper .center header .user {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  width: 45%;
+}
+
+body .wrapper .center header .user a {
+  text-decoration: none;
+  color: #000;
+}
+
+body .wrapper .center header .user p {
+  padding-left: 30px;
+}
+
+body .wrapper .center header .user #user {
+  padding-left: 10px;
+}
+
+body .wrapper .center header .user #bell {
+  padding-left: 30px;
+}
+
+body .main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding-top: 30px;
+  font-size: 30px;
+  font-weight: 300;
+}
+
+body .main .er_message {
+  display: none;
+}
+
+body .main .menu {
+  width: 35%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+body .main .menu .tasks {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+body .main .menu .tasks .choose_task {
+  margin-bottom: 15px;
+}
+
+body .main .menu .tasks .choose_task a {
+  text-decoration: none;
+  color: #000;
+}
+
+body .main .menu .tasks .choose_task a i {
+  padding-right: 20px;
+}
+
+body .main .menu .tasks .choose_task:first-child a i {
+  color: blue;
+  font-size: 27px;
+}
+
+body .main .menu .tasks .choose_task:nth-child(2) a i {
+  color: yellow;
+}
+
+body .main .menu .tasks .choose_task:nth-child(3) a i {
+  color: red;
+}
+
+body .main .menu .tasks .choose_task:last-child a i {
+  color: #ff00aa;
+}
+
+body .main .menu .accordeon {
+  font-weight: 700;
+  margin-bottom: 15px;
+  overflow: hidden;
+  /* &:hover{
+                &::after{
+                    content: '\002B'; 
+                    float: right;
+                }
+            } */
+}
+
+body .main .menu .accordeon a {
+  display: inline-block;
+  text-decoration: none;
+  color: #000;
+}
+
+body .main .menu .accordeon a::before {
+  content: '\203A';
+  float: left;
+  padding-right: 37px;
+  padding-left: 10px;
+}
+
+body .main .menu .accordeon a i {
+  font-size: 20px;
+  opacity: 0;
+  /*   width: 50%;
+                        text-align: end; */
+}
+
+body .main .menu .accordeon:hover a i {
+  opacity: 1;
+}
+
+body .modals #regist_form {
+  width: 40%;
+  background-color: #fff;
+  font-size: 20px;
+  text-align: center;
+  padding: 40px;
+  position: relative;
+}
+
+body .modals #regist_form span {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+body .modals #regist_form h2 {
+  font-weight: 900;
+  padding-bottom: 20px;
+}
+
+body .modals #regist_form h2 i {
+  padding-left: 10px;
+}
+
+body .modals #regist_form .er_message {
+  display: none;
+}
+
+body .modals #regist_form .message-show {
+  display: block;
+}
+
+body .modals #regist_form .form_input {
+  margin: 20px;
+}
+
+body .modals #regist_form .btn_enter {
+  margin: 20px;
+}
+
+body .modals #regist_form .btn_enter #btn_enter {
+  background-color: #ffb6c1;
+}
+
+body .modals #regist_form .remember {
+  margin-bottom: 40px;
+}
+
+body .modals #regist_form .remember .er_message {
+  display: none;
+}
+
+body .modals #regist_form .problems {
+  margin: 20px;
+}
+
+body .modals #regist_form .problems a {
+  text-decoration: none;
+  color: #000;
+}
+
+body .modals #regist_form .problems #registration {
+  font-weight: bold;
+  padding-left: 5px;
+}
+
+.er_message {
+  display: none;
+}
+/*# sourceMappingURL=style1.css.map */

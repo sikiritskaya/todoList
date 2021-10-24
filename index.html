@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>main</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/style1.css">
+    
+    <!-- font-family: 'Lato', sans-serif; -->
+</head>
+<body>
+    <section class="wrapper color">
+        <div class="center">
+            <header>
+                <div class="startHeader">
+                    <a href="#" class="burger">
+                        <i class="fas fa-bars"></i> 
+                    </a>
+                    <a href="#">
+                        <i class="fas fa-home"></i>
+                    </a>
+                </div>
+                <div class="search">
+                    <i class="fas fa-search"></i> 
+                    <input id="search" placeholder="Search" > 
+                    <span>X</span> 
+                </div>
+                <div class="user">
+                    <a href="#" id="plus">
+                        <i class="fas fa-plus"></i>
+                    </a>
+                    <p>Hello user</p>
+                    <a href="#" id="user">
+                        <i class="fas fa-user"></i>
+                    </a>
+                    <a href="#" id="bell">
+                        <i class="far fa-bell"></i>
+                    </a>
+                </div>
+            </header>
+        </div>
+    </section>
+    <section class="wrapper">
+        <div class="center main">
+            <div class="menu">
+                <div class="tasks">
+                    <div class="choose_task">
+                        <a href="#" id="inbox">
+                            <!-- <i class="fas fa-download"></i> -->
+                            <i class="fas fa-box"></i>
+                            <!-- <i class="fas fa-sort"></i> -->
+                            <!-- <i class="fas fa-inbox"></i> -->
+                            <span>Inbox</span>
+                        </a>
+                    </div>
+                    <div class="choose_task">
+                        <a href="#" id="inbox">
+                            <i class="fas fa-calendar-day"></i>
+                            <span>Today</span>
+                        </a>
+                    </div>
+                    <div class="choose_task">
+                        <a href="#" id="inbox">
+                            <i class="far fa-calendar-alt"></i>
+                            <span>Upcoming</span>
+                        </a>
+                    </div>
+                    <div class="choose_task">
+                        <a href="#" id="statistics">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Statistics</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="accordeon">
+                    <div id="projects">
+                        <a href="#">Projects <i class="fas fa-plus"></i></a>
+                    </div>
+                </div>
+                <div class="accordeon">
+                    <div id="marks">
+                        <a href="#">Labels <i class="fas fa-plus"></i></a>
+                    </div>
+                </div>
+                <div class="accordeon">
+                    <div id="filter">
+                        <a href="#">Filters <i class="fas fa-plus"></i></a>
+                    </div>
+                </div>
+                
+                <!-- <div class="choose_task">
+                    <a href="#" id="settings">
+                        <i class="fas fa-cog"></i>
+                        <span>Settings</span>
+                    </a>
+                </div> -->
+               
+                <!-- 
+                <i class="far fa-question-circle"></i>
+             -->
+                
+                
+
+            </div>
+            <div class="main_page">
+                <p>hello</p>
+               
+            </div>
+        </div>
+    </section>
+    <section class="wrapper">
+        <div class="center modals">
+            <form id="regist_form">
+                <span>X</span>
+                <h2>Login<i class="fas fa-lock"></i></h2>
+                <div class="form_input">
+                    <label class="form_ans" for="q1"><i class="fas fa-at"></i>
+                        <input type="text" id="q1" placeholder="enter your email" pattern="[a-zA-Z0-9!#$%&amp;'*+\/=?^_`{|}~.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*">
+                    </label>
+                    <p class="er_message" id="er-mes1">Поле не может быть пустым</p>
+                </div>
+                <div class="form_input">
+                    <label class="form_ans" for="q2"><i class="fas fa-key"></i>
+                        <input type="password" id="q2" placeholder="enter your password">  
+                    </label>
+                    <p class="er_message" id="er-mes2">Поле не может быть пустым</p>
+                </div>    
+                <div class="btn_enter">
+                    <button type="submit" id="btn_enter">Enter</button>
+                </div>
+                <div class="remember">
+                    <input type="checkbox" id="stayOn" checked>
+                    <label for="stayOn">Remember me</label>
+                </div>
+                <div class="problems">
+                    <a href="#" id="forgot_pasw">Forgot your password?</a>
+                <div>
+                <div class="problems">
+                    <p>Don't have an account yet?<a href="#" id="registration">Sign up</a></p>
+                </div>
+                
+            </form>
+            <form id="regist_form2">
+                <h2>Sign up</h2>
+                <div class="form_input">
+                    <label class="form_ans" for="creator"><i class="fas fa-user"></i>
+                        <input type="text" name="creator" id="creator" placeholder="Enter your name">
+                    </label>
+                    <p class="er_message" id="er-mes3">Поле не может быть пустым</p>
+                </div>
+                <div class="form_input">
+                    <label class="form_ans" for="q11"><i class="fas fa-at"></i>
+                        <input type="email" id="q11" placeholder="enter your email" pattern="[a-zA-Z0-9!#$%&amp;'*+\/=?^_`{|}~.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*">
+                    </label>
+                    <p class="er_message" id="er-mes4">Поле не может быть пустым</p>
+                </div>
+                <div class="form_input">
+                    <label class="form_ans" for="q21"><i class="fas fa-key"></i>
+                        <input type="password" id="q21" placeholder="enter your password">  
+                    </label>
+                    <p class="er_message" id="er-mes5">Поле не может быть пустым</p>
+                </div>
+                <div class="form_input">
+                    <label class="form_ans" for="q22"><i class="fas fa-key"></i>
+                        <input type="password" id="q22" placeholder="confirm your password">  
+                    </label>
+                    <p class="er_message" id="er-mes6">Поле не может быть пустым</p>
+                    <p class="er_message" id="er-mes7">пароль не совпадает</p>
+                </div>
+                
+                <div class="btn_enter">
+                    <button type="submit" id="btn_submit">Submit</button>
+                </div>
+                <div class="remember">
+                    <input type="checkbox" id="confirm" checked>
+                    <label for="confirm">Confirm <a href="#">agreements</a></label>
+                    <p class="er-message" id="er-mes8">Необходимо подписать соглашение</p>
+                </div>
+                <div class="problems">
+                    <p>Doesn't work?<a href="#" id="registration">Help<i class="far fa-question-circle"></i></a></p>
+                </div>
+            </form>
+        </div>
+    </section>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,289 @@
+/*RESET.CSS*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+} 
+
+/*END RESET.CSS*/
+
+    /* font-family: $font;
+    color: $color_text;
+    background-color: $background_color; */
+$font: 'Lato', sans-serif;
+$color_text: #000;
+$color_form:#fff;
+$color_background:#ffb6c1;
+$color_page:#d3d3d3;
+/* $color:#000; */
+@mixin a_text($color_text){
+    text-decoration: none;
+    color:$color_text;
+}
+
+body{  
+    background-color: $color_page;
+    color:$color_text;  
+    .color{
+        background-color: $color_background
+    }
+    .wrapper{
+        max-width: 1920px;
+        width: 100%;
+        margin: 0 auto;
+        .center{
+            max-width: 1285px;
+            width: 100%;
+            margin: 0 auto;
+            //background-color: aqua;
+            header{  
+                display: flex;
+                height: 70px;
+                align-items: center;
+                font-family: $font;
+                font-size: 30px;
+                
+                .startHeader{
+                    width: 25%;
+                    .burger{
+                        padding-right: 30px;
+                    }
+                    a{
+                        @include a_text($color_text);
+                    }
+                   
+                }
+                .search{
+                    position: relative;
+                    width: 30%;
+                    i{
+                        position: absolute;
+                        top: 35%;
+                        font-size: 20px;
+                        left: 9px;
+                        
+                    }
+                    #search{
+                        height: 30px;
+                        padding-left: 40px;
+                    }
+                    span{
+                        position: absolute;
+                        right: 0;
+                        display: none;
+                    }
+                }
+                /* .plus{
+                    width: 5%;
+                    a{
+                        @include a_text($font);
+                    }
+                } */
+                .user{
+                    display: flex;
+                    justify-content: flex-end;
+                    width: 45%;
+                    a{
+                        @include a_text($color_text);
+                    }
+                    p{
+                        padding-left: 30px;
+                    }
+                    #user{
+                        padding-left: 10px;
+                    }
+                    #bell{
+                        padding-left: 30px;
+                    }
+                }
+            }
+        } 
+    }
+    .main{
+       display: flex;
+       padding-top: 30px;
+       font-size: 30px;
+       font-weight: 300;
+       .er_message{
+        display: none;
+     }
+       .menu{
+           width: 35%;
+           display: flex;
+           flex-direction: column;
+           
+           .tasks{
+                display: flex;
+                flex-direction: column;
+                .choose_task{
+                    margin-bottom: 15px;
+                    a{
+                        @include a_text($color_text);
+                        i{
+                            padding-right: 20px;   
+                        }
+                    }
+                    &:first-child a{
+                        i{
+                        color: blue;
+                        font-size: 27px;
+                        }
+                    }
+                    &:nth-child(2) a{
+                        i{
+                        color:yellow;
+                        }
+                    }
+                    &:nth-child(3) a{
+                        i{
+                            color:red;
+                        }
+                    }
+                    &:last-child a{
+                        i{
+                            color:rgb(255, 0, 170);
+                        }
+                    }
+
+                }
+               
+           }
+           .accordeon{
+               font-weight: 700;
+               margin-bottom: 15px;
+               overflow: hidden;
+           
+            /* &:hover{
+                &::after{
+                    content: '\002B'; 
+                    float: right;
+                }
+            } */
+            a{
+                display: inline-block;
+                &::before{
+                    content: '\203A';
+                    float: left;
+                    padding-right: 37px;
+                    padding-left: 10px;
+                }
+                @include a_text($color_text);
+                    i{
+                        font-size: 20px;
+                        opacity: 0;
+                      /*   width: 50%;
+                        text-align: end; */
+                    }
+                
+            }
+            &:hover{
+                a{
+                    i{
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+       }
+    }
+    .modals{
+        #regist_form{
+            width: 40%;
+            background-color: $color_form;
+            font-size: 20px;
+            text-align: center;
+            padding: 40px;
+            position: relative;
+            span{
+                position: absolute;
+                right: 0;
+                top:0;
+            }
+            h2{
+                font-weight: 900;
+                padding-bottom: 20px;
+                i{
+                    padding-left: 10px;
+                }
+            }
+            .er_message{
+                display: none;
+            }
+            .message-show{
+                display: block;
+            }
+            .form_input{
+                margin: 20px;
+            }
+            .btn_enter{
+                margin: 20px;
+                #btn_enter{
+                    background-color: $color_background;
+                }
+            }
+            .remember{
+                margin-bottom: 40px;
+                .er_message{
+                    display: none;
+                }
+                
+            }
+            .problems{
+                margin: 20px;
+                a{
+                    @include a_text($color_text);
+                }
+                #registration{
+                    font-weight: bold;
+                    padding-left: 5px;
+                }
+                
+            }
+        }
+        
+    }
+
+}
+.er_message{
+    display: none;
+ }
+

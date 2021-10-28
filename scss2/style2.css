@@ -1,0 +1,274 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/*END RESET.CSS*/
+/* font-family: $font;
+    color: $color_text;
+    background-color: $background_color; */
+/* $color:#000; */
+.modals .modal_window {
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #d4d1d1;
+  opacity: 0;
+}
+
+.modals #regist_form {
+  margin: 0 auto;
+  border-radius: 5px;
+  position: relative;
+  width: 40%;
+  background-color: #fff;
+  font-size: 14px;
+  text-align: center;
+  padding: 40px;
+  z-index: 100;
+}
+
+.modals #regist_form span {
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 25px;
+}
+
+.modals #regist_form span:hover {
+  cursor: pointer;
+}
+
+.modals #regist_form h2 {
+  font-weight: 900;
+  padding-bottom: 20px;
+}
+
+.modals #regist_form h2 i {
+  padding-left: 10px;
+}
+
+.modals #regist_form .er_message {
+  display: none;
+}
+
+.modals #regist_form .message-show {
+  display: block;
+}
+
+.modals #regist_form .form_input {
+  margin: 20px;
+}
+
+.modals #regist_form .btn_enter {
+  margin: 20px;
+}
+
+.modals #regist_form .btn_enter #btn_enter {
+  background-color: #f7c5cdee;
+}
+
+.modals #regist_form .remember {
+  margin-bottom: 40px;
+}
+
+.modals #regist_form .remember .er_message {
+  display: none;
+}
+
+.modals #regist_form .problems {
+  margin: 20px;
+}
+
+.modals #regist_form .problems a {
+  text-decoration: none;
+  color: #000;
+}
+
+.modals #regist_form .problems #registration {
+  font-weight: bold;
+  padding-left: 5px;
+}
+
+.modals #regist_form2 {
+  border-radius: 5px;
+  width: 40%;
+  background-color: #fff;
+  font-size: 14px;
+  text-align: center;
+  padding: 40px;
+  position: relative;
+  margin: 0 auto;
+  z-index: 200;
+}
+
+.modals #regist_form2 span {
+  position: absolute;
+  font-size: 25px;
+  right: 0;
+  top: 0;
+}
+
+.modals #regist_form2 span:hover {
+  cursor: pointer;
+}
+
+.modals #regist_form2 h2 {
+  font-weight: 900;
+  padding-bottom: 20px;
+}
+
+.modals #regist_form2 h2 i {
+  padding-left: 10px;
+}
+
+.modals #regist_form2 .er_message {
+  display: none;
+}
+
+.modals #regist_form2 .message-show {
+  display: block;
+}
+
+.modals #regist_form2 .form_input {
+  margin: 20px;
+}
+
+.modals #regist_form2 .btn_enter {
+  margin: 20px;
+}
+
+.modals #regist_form2 .btn_enter #btn_submit {
+  background-color: #f7c5cdee;
+}
+
+.modals #regist_form2 .remember {
+  margin-bottom: 40px;
+}
+
+.modals #regist_form2 .remember .er_message {
+  display: none;
+}
+
+.modals #regist_form2 .remember a {
+  color: #000;
+}
+
+.modals #regist_form2 .problems {
+  margin: 20px;
+}
+
+.modals #regist_form2 .problems a {
+  text-decoration: none;
+  color: #000;
+}
+
+.modals #regist_form2 .problems #registration {
+  font-weight: bold;
+  padding-left: 5px;
+}
+
+.modals .er_message {
+  display: none;
+}
+
+.add_task {
+  width: 40%;
+  background-color: #fff;
+  font-size: 14px;
+  text-align: center;
+  padding: 40px;
+  position: relative;
+  margin: 0 auto;
+  z-index: 200;
+}
+
+.add_task span {
+  position: absolute;
+  font-size: 25px;
+  right: 0;
+  top: 0;
+}
+
+.add_task span:hover {
+  cursor: pointer;
+}
+
+.add_task .modal_add #editor1 {
+  border: none;
+  width: 100%;
+}
+
+.add_task .modal_add #editor1:focus {
+  outline: none;
+}
+
+.add_task .modal_add #editor2 {
+  border: none;
+  width: 100%;
+}
+
+.add_task .modal_add #editor2:focus {
+  outline: none;
+}
+
+.add_task .modal_add .add_descr_task {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.er_message {
+  display: none;
+}
+/*# sourceMappingURL=style2.css.map */

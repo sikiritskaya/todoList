@@ -52,8 +52,9 @@ table {
 $font: 'Lato', sans-serif;
 $color_text: #000;
 $color_form:#fff;
-$color_background:#ffb6c1;
-$color_page:#d3d3d3;
+$color_background:#f7c5cdee;
+$color_page:#f1f1f1;
+$color_hover: #d4d1d1;
 /* $color:#000; */
 @mixin a_text($color_text){
     text-decoration: none;
@@ -80,7 +81,7 @@ body{
                 height: 70px;
                 align-items: center;
                 font-family: $font;
-                font-size: 30px;
+                font-size: 18px;
                 
                 .startHeader{
                     width: 25%;
@@ -141,16 +142,16 @@ body{
     .main{
        display: flex;
        padding-top: 30px;
-       font-size: 30px;
+       font-size: 14px;
        font-weight: 300;
        .er_message{
         display: none;
-     }
+        }
        .menu{
-           width: 35%;
+           width: 25%;
            display: flex;
            flex-direction: column;
-           
+           margin-right: 30px;
            .tasks{
                 display: flex;
                 flex-direction: column;
@@ -164,126 +165,100 @@ body{
                     }
                     &:first-child a{
                         i{
-                        color: blue;
-                        font-size: 27px;
+                        color: rgb(176, 176, 230);
+                        font-size: 13px;
                         }
                     }
                     &:nth-child(2) a{
                         i{
-                        color:yellow;
+                        color:rgb(240, 243, 87);
                         }
                     }
                     &:nth-child(3) a{
                         i{
-                            color:red;
+                            color:rgb(159, 241, 221);
                         }
                     }
                     &:last-child a{
                         i{
-                            color:rgb(255, 0, 170);
+                            color:rgb(58, 101, 121);
                         }
                     }
 
                 }
                
-           }
-           .accordeon{
+            }
+            .panel{
+            display: none;
+            }
+            .accord{
+                padding-left: 37px;
+                p{
+                    padding-bottom: 10px;
+                    a{
+                        @include a_text($color_text)
+                    }
+                }
+            }
+            .accordeon{
+                //margin-top: 15px;
                font-weight: 700;
                margin-bottom: 15px;
                overflow: hidden;
-           
-            /* &:hover{
-                &::after{
-                    content: '\002B'; 
-                    float: right;
-                }
-            } */
-            a{
-                display: inline-block;
-                &::before{
+              // width: 90%;
+               &::before{
                     content: '\203A';
                     float: left;
-                    padding-right: 37px;
+                    padding-right: 23px;
                     padding-left: 10px;
-                }
+                } 
+                /* &:not(.test){
+                    &::before{
+                        content: '\203A';
+                        float: left;
+                        padding-right: 37px;
+                        padding-left: 10px;
+                         
+                    }
+                } */
+                a{
+                display: inline-flex;
+                justify-content: space-between;
+                width: 220px;
                 @include a_text($color_text);
                     i{
-                        font-size: 20px;
+                        font-size: 15px;
                         opacity: 0;
-                      /*   width: 50%;
-                        text-align: end; */
                     }
-                
-            }
+                }
             &:hover{
+                background-color: $color_hover;
+                transition: 0.5s;
+                border-radius: 4px; 
                 a{
                     i{
                         opacity: 1;
                     }
                 }
             }
+          
+        }
+        .test{
+            &::before{
+                content: '\203A';
+                float: left;
+                margin-top: 10px;
+                padding-right: 23px;
+                padding-left: 10px;
+                transform: rotate(90deg); 
+                transition: 0.5s;
+            }
         }
        }
-    }
-    .modals{
-        #regist_form{
-            width: 40%;
-            background-color: $color_form;
-            font-size: 20px;
-            text-align: center;
-            padding: 40px;
-            position: relative;
-            span{
-                position: absolute;
-                right: 0;
-                top:0;
-            }
-            h2{
-                font-weight: 900;
-                padding-bottom: 20px;
-                i{
-                    padding-left: 10px;
-                }
-            }
-            .er_message{
-                display: none;
-            }
-            .message-show{
-                display: block;
-            }
-            .form_input{
-                margin: 20px;
-            }
-            .btn_enter{
-                margin: 20px;
-                #btn_enter{
-                    background-color: $color_background;
-                }
-            }
-            .remember{
-                margin-bottom: 40px;
-                .er_message{
-                    display: none;
-                }
-                
-            }
-            .problems{
-                margin: 20px;
-                a{
-                    @include a_text($color_text);
-                }
-                #registration{
-                    font-weight: bold;
-                    padding-left: 5px;
-                }
-                
-            }
+       .er_message{
+        display: none;
         }
-        
     }
-
 }
-.er_message{
-    display: none;
- }
+
 

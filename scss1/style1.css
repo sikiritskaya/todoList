@@ -110,9 +110,9 @@ body .wrapper .center header .search {
   width: 30%;
 }
 
-body .wrapper .center header .search i {
+body .wrapper .center header .search #icon1 {
   position: absolute;
-  top: 35%;
+  top: 25%;
   font-size: 20px;
   left: 9px;
 }

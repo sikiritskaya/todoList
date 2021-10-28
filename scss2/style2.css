@@ -61,10 +61,19 @@ table {
   left: 0;
   background-color: #d4d1d1;
   opacity: 0;
+  z-index: 10;
+  /* animation: fadeIn 250ms ease-in-out;
+        @keyframes fadeIn {
+            from {
+            opacity: 0;
+            }
+            to {
+            opacity: 1;
+            } */
 }
 
 .modals #regist_form {
-  margin: 0 auto;
+  margin: -240px auto;
   border-radius: 5px;
   position: relative;
   width: 40%;
@@ -145,7 +154,7 @@ table {
   text-align: center;
   padding: 40px;
   position: relative;
-  margin: 0 auto;
+  margin: -240px auto;
   z-index: 200;
 }
 
@@ -223,22 +232,10 @@ table {
   width: 40%;
   background-color: #fff;
   font-size: 14px;
-  text-align: center;
   padding: 40px;
   position: relative;
-  margin: 0 auto;
-  z-index: 200;
-}
-
-.add_task span {
-  position: absolute;
-  font-size: 25px;
-  right: 0;
-  top: 0;
-}
-
-.add_task span:hover {
-  cursor: pointer;
+  margin: -240px auto;
+  z-index: 400;
 }
 
 .add_task .modal_add #editor1 {
@@ -268,7 +265,40 @@ table {
           justify-content: space-between;
 }
 
+.add_task .modal_add .btn_task {
+  margin-top: 20px;
+}
+
+.add_task .modal_add .btn_task #add_newtask:hover {
+  background-color: #f7c5cdee;
+}
+
+.add_task .modal_add .btn_task #cancel:hover {
+  background-color: #f7c5cdee;
+}
+
 .er_message {
   display: none;
+}
+
+#hello {
+  width: 40%;
+  background-color: #fff;
+  font-size: 14px;
+  padding: 40px;
+  position: relative;
+  margin: -240px auto;
+  z-index: 400;
+}
+
+#hello span {
+  position: absolute;
+  font-size: 25px;
+  right: 0;
+  top: 0;
+}
+
+#hello span:hover {
+  cursor: pointer;
 }
 /*# sourceMappingURL=style2.css.map */

@@ -27,9 +27,9 @@
                     </a>
                 </div>
                 <div class="search">
-                    <i class="fas fa-search"></i> 
+                    <i class="fas fa-search" id="icon1"></i> 
                     <input id="search" placeholder="Search" > 
-                    <span>X</span> 
+                    <span><i class="fas fa-times"></i></span> 
                 </div>
                 <div class="user">
                     <a href="#" id="plus" title="add new task">
@@ -196,11 +196,13 @@
                 </div>
             </form>
             <div class="add_task er_message"> 
-                <span id="closeModal3"><i class="fas fa-window-close"></i></span> 
                 <div class="modal_add">
-                    
-                    <div class="task_input"><input id="editor1" type="text" placeholder="name ot the task"></div>
-                    <div class="task_input"><textarea id="editor2" placeholder="description"></textarea></div>
+                    <div class="task_input">
+                        <input id="editor1" type="text" placeholder="e.g., send mail">
+                    </div>
+                    <div class="task_input">
+                        <textarea id="editor2" placeholder="Description"></textarea>
+                    </div>
                     <br><br>
                     <div class="add_descr_task">
                         <button>schedule</button>
@@ -211,10 +213,14 @@
                         </p>
                     </div>
                     <div class="btn_task">
-                        <button>ADD</button>
-                        <button>CLOSE</button>
+                        <button id="add_newtask">Add</button>
+                        <button id="cancel">Cancel</button>
                     </div>
                 </div>
+            </div>
+            <div class="er_message" id="hello">
+                <span id="closeModal3"><i class="fas fa-window-close"></i></span>
+                <p>"Не составлять планов - значит запланировать своё поражение" (Бенджамин Франклин)</p>
             </div>
         </div>
     </section>

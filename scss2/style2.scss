@@ -71,9 +71,18 @@ $color_hover: #d4d1d1;
         left: 0;
         background-color: $color_hover;
         opacity: 0;
+        z-index: 10;
+        /* animation: fadeIn 250ms ease-in-out;
+        @keyframes fadeIn {
+            from {
+            opacity: 0;
+            }
+            to {
+            opacity: 1;
+            } */
     }
     #regist_form{
-        margin: 0 auto;
+        margin: -240px auto;
         border-radius: 5px;
         position: relative;
         width: 40%;
@@ -140,7 +149,7 @@ $color_hover: #d4d1d1;
         text-align: center;
         padding: 40px;
         position: relative;
-        margin: 0 auto;
+        margin: -240px auto;
         z-index: 200;
         span{
             position: absolute;
@@ -203,20 +212,10 @@ $color_hover: #d4d1d1;
         width: 40%;
         background-color: $color_form;
         font-size: 14px;
-        text-align: center;
         padding: 40px;
         position: relative;
-        margin: 0 auto;
-        z-index: 200;
-        span{
-            position: absolute;
-            font-size: 25px;
-            right: 0;
-            top: 0;
-            &:hover{
-                cursor: pointer;
-            }
-        }
+        margin: -240px auto;
+        z-index: 400;
         .modal_add{   
             #editor1{
                 border: none;
@@ -236,8 +235,39 @@ $color_hover: #d4d1d1;
                 display:flex;
                 justify-content: space-between;
             }
+            .btn_task{
+                margin-top: 20px;
+                #add_newtask{
+                    &:hover{
+                        background-color: $color_background;
+                    }
+                }
+                #cancel{
+                    &:hover{
+                        background-color: $color_background;
+                    }
+                }
+            }
         }
     } 
     .er_message{
         display: none;
+    }
+    #hello{
+        width: 40%;
+        background-color: $color_form;
+        font-size: 14px;
+        padding: 40px;
+        position: relative;
+        margin: -240px auto;
+        z-index: 400;
+        span{
+            position: absolute;
+            font-size: 25px;
+            right:0;
+            top:0;
+            &:hover{
+                cursor: pointer;
+            }
+        }
     }

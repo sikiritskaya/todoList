@@ -21,6 +21,7 @@ let modalLogin = document.querySelector('#regist_form')
 let header = document.querySelector('header')
 let search = document.querySelector('#search')
 let addTask = document.querySelector('.add_task')
+let helloModal=document.querySelector('#hello')
 
 //закрыть окно
 /* document.querySelector('#closeModal2').addEventListener('click',()=>{
@@ -48,7 +49,7 @@ document.addEventListener('click',(e)=>{
         addTask.classList.remove('er_message')
         document.querySelector('.modal_window').style.opacity="0.5"
     }
-    if(e.target.closest('#closeModal3')){
+    if(e.target.closest('#cancel')){
         addTask.classList.add('er_message')
         document.querySelector('.modal_window').style.opacity="0"
     }
@@ -60,13 +61,26 @@ document.addEventListener('click',(e)=>{
         modalRegist.classList.add('er_message')
         document.querySelector('.modal_window').style.opacity="0"
     }
+    if(e.target.closest('#closeModal3')){
+        helloModal.classList.add('er_message')
+        document.querySelector('.modal_window').style.opacity="0"
+    }
 })
 //поиск
 search.addEventListener('focus', ()=>{
     search.style.width = '100%'
     search.nextElementSibling.style.cssText=`
-    display = inline;        
+    display: block;        
     right: -42px;
     top: 9px;
     `  
 })
+
+//приветствие
+
+
+const hello = setTimeout(()=>{
+    helloModal.classList.remove('er_message')
+    document.querySelector('.modal_window').style.opacity="0.5"
+}, 2000)
+document.addEventListener('DOMContentLoaded', hello)

@@ -57,16 +57,17 @@
                             <!-- <i class="fas fa-sort"></i> -->
                             <!-- <i class="fas fa-inbox"></i> -->
                             <span>Inbox</span>
+                            <span>0</span>
                         </a>
                     </div>
                     <div class="choose_task">
-                        <a href="#" id="inbox">
+                        <a href="#" id="today">
                             <i class="fas fa-calendar-day"></i>
                             <span>Today</span>
                         </a>
                     </div>
                     <div class="choose_task">
-                        <a href="#" id="inbox">
+                        <a href="#" id="upcoming">
                             <i class="far fa-calendar-alt"></i>
                             <span>Upcoming</span>
                         </a>
@@ -115,7 +116,44 @@
              -->
             </div>
             <div class="main_page">
-                <p>hello</p>
+                <div class="header_main">
+                    <div id="name_folder">Inbox</div>
+                    <div class="sort_task">
+                        <a href="#"><i class="far fa-comment-alt"></i></a>
+                        <a href="#"><i class="fas fa-filter"></i></a>
+                    </div>
+                </div>
+                <div class="add_main">
+                    <a href="#" id="plus2" title="add task">
+                        <i class="fas fa-plus"></i>
+                        <span>Add new task</span>
+                    </a>
+                </div>
+                <div class="add_task2 er_message">
+                    <div class="task_input">
+                        <input id="editor3" type="text" placeholder="e.g., send mail">
+                    </div>
+                    <div class="task_input">
+                        <textarea id="editor4" placeholder="Description"></textarea>
+                    </div>
+                    <br><br>
+                    <div class="add_descr_task">
+                        <button>schedule</button>
+                        <p>
+                            <a href="#" title="add labels"><i class="fas fa-tag"></i></a>
+                            <a href="#" title="set the priority"><i class="fab fa-font-awesome-flag"></i></a>
+                            <a href="#" title="add reminder "><i class="fas fa-stopwatch"></i></a>
+                        </p>
+                    </div>
+                    <div class="btn_task">
+                        <button id="add_newtask2">Add</button>
+                        <button id="cancel2">Cancel</button>
+                    </div>
+                </div>
+                <div id="footer_main">
+                    <p>All clear! Get some rest</p>
+                </div>
+            
                
             </div>
         </div>

@@ -55,6 +55,7 @@ $color_form:#fff;
 $color_background:#f7c5cdee;
 $color_page:#f1f1f1;
 $color_hover: #d4d1d1;
+$color_i:rgb(77, 74, 74);
 /* $color:#000; */
 @mixin a_text($color_text){
     text-decoration: none;
@@ -149,7 +150,7 @@ $color_hover: #d4d1d1;
         text-align: center;
         padding: 40px;
         position: relative;
-        margin: -240px auto;
+        margin: -450px auto;
         z-index: 200;
         span{
             position: absolute;
@@ -214,7 +215,7 @@ $color_hover: #d4d1d1;
         font-size: 14px;
         padding: 40px;
         position: relative;
-        margin: -240px auto;
+        margin: -450px auto;
         z-index: 400;
         .modal_add{   
             #editor1{
@@ -234,6 +235,9 @@ $color_hover: #d4d1d1;
             .add_descr_task{
                 display:flex;
                 justify-content: space-between;
+                a{
+                    @include a_text($color_i);
+                }
             }
             .btn_task{
                 margin-top: 20px;
@@ -259,7 +263,7 @@ $color_hover: #d4d1d1;
         font-size: 14px;
         padding: 40px;
         position: relative;
-        margin: -240px auto;
+        margin: -450px auto;
         z-index: 400;
         span{
             position: absolute;

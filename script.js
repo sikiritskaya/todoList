@@ -22,6 +22,8 @@ let header = document.querySelector('header')
 let search = document.querySelector('#search')
 let addTask = document.querySelector('.add_task')
 let helloModal=document.querySelector('#hello')
+let nameMain = document.querySelector('#name_folder')
+let addTask2 = document.querySelector('.add_task2')
 
 //закрыть окно
 /* document.querySelector('#closeModal2').addEventListener('click',()=>{
@@ -65,6 +67,18 @@ document.addEventListener('click',(e)=>{
         helloModal.classList.add('er_message')
         document.querySelector('.modal_window').style.opacity="0"
     }
+    if(e.target.closest('#inbox')){
+        nameMain.textContent = document.querySelector('#inbox').lastElementChild.textContent
+    }
+    if(e.target.closest('#today')){
+        nameMain.textContent = document.querySelector('#today').lastElementChild.textContent
+    }
+    if(e.target.closest('#plus2')){
+        addTask2.classList.remove('er_message')
+    }
+    if(e.target.closest('#cancel2')){
+        addTask2.classList.add('er_message')
+    }
 })
 //поиск
 search.addEventListener('focus', ()=>{
@@ -75,12 +89,25 @@ search.addEventListener('focus', ()=>{
     top: 9px;
     `  
 })
+const setTaskLocalStorage =() =>{
+    let currentTitle = document.querySelector('#editor3').value
+    let currentDescr = document.querySelector('#editor4').value
+    let allTasks =  JSON.parse(localStorage.getItem('AllTasks')) 
+    let allStory={
+        title: currentTitle,
+        descr: currentDescr
+    }
+    allTasks.push(allStory)
+    console.log(allTasks)
+    localStorage.setItem('AllTasks', JSON.stringify(allTasks))
+}
+document.querySelector('#add_newtask2').addEventListener('click', setTaskLocalStorage)
 
 //приветствие
 
 
-const hello = setTimeout(()=>{
+/* let hello = setTimeout(()=>{
     helloModal.classList.remove('er_message')
     document.querySelector('.modal_window').style.opacity="0.5"
 }, 2000)
-document.addEventListener('DOMContentLoaded', hello)
+document.addEventListener('DOMContentLoaded', hello) */

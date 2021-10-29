@@ -154,7 +154,7 @@ table {
   text-align: center;
   padding: 40px;
   position: relative;
-  margin: -240px auto;
+  margin: -450px auto;
   z-index: 200;
 }
 
@@ -234,7 +234,7 @@ table {
   font-size: 14px;
   padding: 40px;
   position: relative;
-  margin: -240px auto;
+  margin: -450px auto;
   z-index: 400;
 }
 
@@ -265,6 +265,11 @@ table {
           justify-content: space-between;
 }
 
+.add_task .modal_add .add_descr_task a {
+  text-decoration: none;
+  color: #4d4a4a;
+}
+
 .add_task .modal_add .btn_task {
   margin-top: 20px;
 }
@@ -287,7 +292,7 @@ table {
   font-size: 14px;
   padding: 40px;
   position: relative;
-  margin: -240px auto;
+  margin: -450px auto;
   z-index: 400;
 }
 

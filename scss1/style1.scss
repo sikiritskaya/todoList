@@ -62,10 +62,10 @@ $color_hover: #d4d1d1;
 }
 
 body{  
-    background-color: $color_page;
+    //overflow-y: hidden;
     color:$color_text;  
     .color{
-        background-color: $color_background
+        background-color: $color_background;
     }
     .wrapper{
         max-width: 1920px;
@@ -141,9 +141,10 @@ body{
     }
     .main{
        display: flex;
-       padding-top: 30px;
        font-size: 14px;
        font-weight: 300;
+       height: 100vh;
+       overflow-y: hidden;
        .er_message{
         display: none;
         }
@@ -152,6 +153,8 @@ body{
            display: flex;
            flex-direction: column;
            margin-right: 30px;
+           background-color: $color_page;
+           padding-top: 30px;
            .tasks{
                 display: flex;
                 flex-direction: column;
@@ -257,6 +260,96 @@ body{
        }
        .er_message{
         display: none;
+        }
+    }
+    .main_page{
+        padding-top: 30px;
+        width: 75%;
+        /* background-image: url(../images/IMG_2988.PNG);
+        background-repeat: no-repeat;
+        //height: 80vh;
+        background-size: 30%;
+        background-position: center; */
+        background-color: $color_form;
+        .header_main{
+            justify-content: space-between;
+            display: flex;
+            padding-bottom: 5px;
+            border-bottom: solid 1px $color_hover;
+            #name_folder{
+                font-weight: 900;
+                font-size: 20px;
+            }
+            .sort_task{
+                a{
+                    @include a_text($color_text);
+                }
+            }
+        }
+        .add_task2{
+            margin-top: 10px;
+            border: solid 1px $color_hover;
+            #editor3{
+                border: none;
+                width: 99%;
+                &:focus{
+                   outline: none;
+                }
+            }
+            #editor4{
+                border: none;
+                width: 99%;
+                &:focus{
+                    outline: none;
+                }
+            }
+            .add_descr_task{
+                display:flex;
+                justify-content: space-between;
+                a{
+                    @include a_text($color_text);
+                }
+            }
+            .btn_task{
+                margin-top: 20px;
+                #add_newtask2{
+                    &:hover{
+                        background-color: $color_background;
+                    }
+                }
+                #cancel2{
+                    &:hover{
+                        background-color: $color_background;
+                    }
+                }
+            }
+        }
+        #footer_main{
+            background-image: url(../images/IMG_2988.PNG);
+            background-repeat: no-repeat;
+            background-size: 30%;
+            height: 50%;
+            background-position: top;
+            display: flex;
+            align-items: flex-end;
+            p{
+                width: 100%;
+                text-align: center;
+            }
+        }
+        .add_main{
+            margin-top: 10px;
+            a{
+                @include a_text($color_text);
+                &:hover{
+                    i{
+                        background-color: $color_background;
+                    }
+                }
+                i{
+                    padding: 10px;
+                }
+            }
         }
     }
 }

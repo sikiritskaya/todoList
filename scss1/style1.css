@@ -54,7 +54,6 @@ table {
     background-color: $background_color; */
 /* $color:#000; */
 body {
-  background-color: #f1f1f1;
   color: #000;
 }
 
@@ -159,9 +158,10 @@ body .main {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  padding-top: 30px;
   font-size: 14px;
   font-weight: 300;
+  height: 100vh;
+  overflow-y: hidden;
 }
 
 body .main .er_message {
@@ -178,6 +178,8 @@ body .main .menu {
       -ms-flex-direction: column;
           flex-direction: column;
   margin-right: 30px;
+  background-color: #f1f1f1;
+  padding-top: 30px;
 }
 
 body .main .menu .tasks {
@@ -301,5 +303,122 @@ body .main .menu .test::before {
 
 body .main .er_message {
   display: none;
+}
+
+body .main_page {
+  padding-top: 30px;
+  width: 75%;
+  /* background-image: url(../images/IMG_2988.PNG);
+        background-repeat: no-repeat;
+        //height: 80vh;
+        background-size: 30%;
+        background-position: center; */
+  background-color: #fff;
+}
+
+body .main_page .header_main {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding-bottom: 5px;
+  border-bottom: solid 1px #d4d1d1;
+}
+
+body .main_page .header_main #name_folder {
+  font-weight: 900;
+  font-size: 20px;
+}
+
+body .main_page .header_main .sort_task a {
+  text-decoration: none;
+  color: #000;
+}
+
+body .main_page .add_task2 {
+  margin-top: 10px;
+  border: solid 1px #d4d1d1;
+}
+
+body .main_page .add_task2 #editor3 {
+  border: none;
+  width: 99%;
+}
+
+body .main_page .add_task2 #editor3:focus {
+  outline: none;
+}
+
+body .main_page .add_task2 #editor4 {
+  border: none;
+  width: 99%;
+}
+
+body .main_page .add_task2 #editor4:focus {
+  outline: none;
+}
+
+body .main_page .add_task2 .add_descr_task {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+body .main_page .add_task2 .add_descr_task a {
+  text-decoration: none;
+  color: #000;
+}
+
+body .main_page .add_task2 .btn_task {
+  margin-top: 20px;
+}
+
+body .main_page .add_task2 .btn_task #add_newtask2:hover {
+  background-color: #f7c5cdee;
+}
+
+body .main_page .add_task2 .btn_task #cancel2:hover {
+  background-color: #f7c5cdee;
+}
+
+body .main_page #footer_main {
+  background-image: url(../images/IMG_2988.PNG);
+  background-repeat: no-repeat;
+  background-size: 30%;
+  height: 50%;
+  background-position: top;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+body .main_page #footer_main p {
+  width: 100%;
+  text-align: center;
+}
+
+body .main_page .add_main {
+  margin-top: 10px;
+}
+
+body .main_page .add_main a {
+  text-decoration: none;
+  color: #000;
+}
+
+body .main_page .add_main a:hover i {
+  background-color: #f7c5cdee;
+}
+
+body .main_page .add_main a i {
+  padding: 10px;
 }
 /*# sourceMappingURL=style1.css.map */

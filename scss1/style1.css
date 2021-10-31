@@ -123,8 +123,8 @@ body .wrapper .center header .search #search {
 
 body .wrapper .center header .search span {
   position: absolute;
-  right: 0;
-  display: none;
+  right: -42px;
+  top: 9px;
 }
 
 body .wrapper .center header .user {
@@ -160,8 +160,8 @@ body .main {
   display: flex;
   font-size: 14px;
   font-weight: 300;
-  height: 100vh;
-  overflow-y: hidden;
+  min-height: 100vh;
+  width: 100%;
 }
 
 body .main .er_message {
@@ -177,9 +177,10 @@ body .main .menu {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  margin-right: 30px;
   background-color: #f1f1f1;
   padding-top: 30px;
+  padding-left: 4%;
+  min-height: 100vh;
 }
 
 body .main .menu .tasks {
@@ -194,6 +195,15 @@ body .main .menu .tasks {
 
 body .main .menu .tasks .choose_task {
   margin-bottom: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  /* .count{
+                        opacity: 0;
+                    } */
 }
 
 body .main .menu .tasks .choose_task a {
@@ -243,6 +253,12 @@ body .main .menu .accordeon {
   font-weight: 700;
   margin-bottom: 15px;
   overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   /* &:not(.test){
                     &::before{
                         content: '\203A';
@@ -257,8 +273,7 @@ body .main .menu .accordeon {
 body .main .menu .accordeon::before {
   content: '\203A';
   float: left;
-  padding-right: 23px;
-  padding-left: 10px;
+  padding-right: 35px;
 }
 
 body .main .menu .accordeon a {
@@ -268,7 +283,7 @@ body .main .menu .accordeon a {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  width: 220px;
+  width: 200px;
   text-decoration: none;
   color: #000;
 }
@@ -292,9 +307,8 @@ body .main .menu .accordeon:hover a i {
 body .main .menu .test::before {
   content: '\203A';
   float: left;
-  margin-top: 10px;
-  padding-right: 23px;
-  padding-left: 10px;
+  margin-top: 23px;
+  padding-right: 24px;
   -webkit-transform: rotate(90deg);
           transform: rotate(90deg);
   -webkit-transition: 0.5s;
@@ -306,13 +320,11 @@ body .main .er_message {
 }
 
 body .main_page {
+  display: none;
   padding-top: 30px;
-  width: 75%;
-  /* background-image: url(../images/IMG_2988.PNG);
-        background-repeat: no-repeat;
-        //height: 80vh;
-        background-size: 30%;
-        background-position: center; */
+  width: 100%;
+  margin-left: 4%;
+  margin-right: 4%;
   background-color: #fff;
 }
 
@@ -335,6 +347,65 @@ body .main_page .header_main #name_folder {
 body .main_page .header_main .sort_task a {
   text-decoration: none;
   color: #000;
+}
+
+body .main_page .lists .task_list {
+  margin-top: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+body .main_page .lists .task_list .done {
+  opacity: 0;
+  width: 1em;
+  height: 1em;
+  background-color: white;
+  border-radius: 50%;
+  vertical-align: middle;
+  border: 1px solid #d4d1d1;
+  -moz-appearance: none;
+       appearance: none;
+  -webkit-appearance: none;
+  outline: none;
+  cursor: pointer;
+}
+
+body .main_page .lists .task_list .done:checked {
+  background-color: #f7c5cdee;
+}
+
+body .main_page .lists .task_list .descr_task {
+  padding-left: 23px;
+}
+
+body .main_page .lists .task_list a {
+  text-decoration: none;
+  color: #000;
+  opacity: 0;
+}
+
+body .main_page .lists .task_list:hover a {
+  opacity: 1;
+}
+
+body .main_page .lists .task_list:hover .done {
+  opacity: 1;
+}
+
+body .main_page .modal_window {
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #d4d1d1;
+  opacity: 0;
+  z-index: 10;
 }
 
 body .main_page .add_task2 {
@@ -386,8 +457,17 @@ body .main_page .add_task2 .btn_task #cancel2:hover {
   background-color: #f7c5cdee;
 }
 
+body .main_page .add_task {
+  width: 70%;
+  background-color: #fff;
+  font-size: 14px;
+  padding: 40px;
+  position: relative;
+  margin: 0 auto;
+  z-index: 400;
+}
+
 body .main_page #footer_main {
-  background-image: url(../images/IMG_2988.PNG);
   background-repeat: no-repeat;
   background-size: 30%;
   height: 50%;
@@ -405,6 +485,14 @@ body .main_page #footer_main p {
   text-align: center;
 }
 
+body .main_page .free_pic {
+  background-image: url(../images/IMG_2988.PNG);
+}
+
+body .main_page .busy_pic {
+  background-image: url(../images/IMG_2989.PNG);
+}
+
 body .main_page .add_main {
   margin-top: 10px;
 }
@@ -420,5 +508,102 @@ body .main_page .add_main a:hover i {
 
 body .main_page .add_main a i {
   padding: 10px;
+}
+
+body * {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body .drag_drop {
+  background-color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  min-height: 100vh;
+  width: 100%;
+}
+
+body .drag_drop .todo-container {
+  width: 90%;
+  height: 80vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: #f1f1f1;
+}
+
+body .drag_drop .todo-container .status {
+  width: 25%;
+  position: relative;
+  padding: 60px 1rem 0.5rem;
+}
+
+body .drag_drop .todo-container .status h1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(245, 230, 233, 0.952);
+  width: 100%;
+  text-align: center;
+  padding: 0.5rem 1rem;
+  font-size: 15px;
+  font-weight: 900;
+}
+
+body .drag_drop .todo-container .status #add_btn {
+  padding: 0.5rem 1rem;
+  background-color: #d4d1d1;
+  outline: none;
+  border: none;
+  width: 100%;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 0.5rem 0;
+}
+
+body .drag_drop .todo-container .status #add_btn:hover {
+  font-size: 16px;
+}
+
+body .drag_drop .todo-container .status:nth-child(even) {
+  background-color: #f5f4f4;
+}
+
+body .drag_drop .todo-container .status .todo {
+  -webkit-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+          box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  background-color: #fff;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0.5rem 0;
+}
+
+body .drag_drop .todo-container .status .todo span {
+  position: absolute;
+  top: 0rem;
+  right: 0.5rem;
+  color: #f1f1f1;
+  cursor: pointer;
+}
+
+body .drag_drop .todo-container .status .todo span:hover {
+  color: #000;
 }
 /*# sourceMappingURL=style1.css.map */

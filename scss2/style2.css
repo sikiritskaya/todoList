@@ -62,18 +62,10 @@ table {
   background-color: #d4d1d1;
   opacity: 0;
   z-index: 10;
-  /* animation: fadeIn 250ms ease-in-out;
-        @keyframes fadeIn {
-            from {
-            opacity: 0;
-            }
-            to {
-            opacity: 1;
-            } */
 }
 
 .modals #regist_form {
-  margin: -240px auto;
+  margin: -750px auto;
   border-radius: 5px;
   position: relative;
   width: 40%;
@@ -154,7 +146,7 @@ table {
   text-align: center;
   padding: 40px;
   position: relative;
-  margin: -450px auto;
+  margin: -750px auto;
   z-index: 200;
 }
 
@@ -228,60 +220,51 @@ table {
   display: none;
 }
 
-.add_task {
-  width: 40%;
-  background-color: #fff;
-  font-size: 14px;
-  padding: 40px;
-  position: relative;
-  margin: -450px auto;
-  z-index: 400;
-}
-
-.add_task .modal_add #editor1 {
-  border: none;
-  width: 100%;
-}
-
-.add_task .modal_add #editor1:focus {
-  outline: none;
-}
-
-.add_task .modal_add #editor2 {
-  border: none;
-  width: 100%;
-}
-
-.add_task .modal_add #editor2:focus {
-  outline: none;
-}
-
-.add_task .modal_add .add_descr_task {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-
-.add_task .modal_add .add_descr_task a {
-  text-decoration: none;
-  color: #4d4a4a;
-}
-
-.add_task .modal_add .btn_task {
-  margin-top: 20px;
-}
-
-.add_task .modal_add .btn_task #add_newtask:hover {
-  background-color: #f7c5cdee;
-}
-
-.add_task .modal_add .btn_task #cancel:hover {
-  background-color: #f7c5cdee;
-}
-
+/* .add_task{
+        width: 40%;
+        background-color: $color_form;
+        font-size: 14px;
+        padding: 40px;
+        position: relative;
+        margin: -750px auto;
+        z-index: 400;
+        .modal_add{   
+            #editor1{
+                border: none;
+                width: 100%;
+                &:focus{
+                   outline: none;
+                }
+            }
+            #editor2{
+                border: none;
+                width: 100%;
+                &:focus{
+                    outline: none;
+                }
+            }
+            .add_descr_task{
+                display:flex;
+                justify-content: space-between;
+                a{
+                    @include a_text($color_i);
+                }
+            }
+            .btn_task{
+                margin-top: 20px;
+                #add_newtask{
+                    &:hover{
+                        background-color: $color_background;
+                    }
+                }
+                #cancel{
+                    &:hover{
+                        background-color: $color_background;
+                    }
+                }
+            }
+        }
+    } */
 .er_message {
   display: none;
 }
@@ -292,7 +275,7 @@ table {
   font-size: 14px;
   padding: 40px;
   position: relative;
-  margin: -450px auto;
+  margin: -750px auto;
   z-index: 400;
 }
 

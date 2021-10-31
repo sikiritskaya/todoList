@@ -29,7 +29,7 @@
                 <div class="search">
                     <i class="fas fa-search" id="icon1"></i> 
                     <input id="search" placeholder="Search" > 
-                    <span><i class="fas fa-times"></i></span> 
+                    <span class="er_message"><i class="fas fa-times"></i></span> 
                 </div>
                 <div class="user">
                     <a href="#" id="plus" title="add new task">
@@ -47,7 +47,7 @@
         </div>
     </section>
     <section class="wrapper">
-        <div class="center main">
+        <div class="main">
             <div class="menu">
                 <div class="tasks">
                     <div class="choose_task">
@@ -57,20 +57,23 @@
                             <!-- <i class="fas fa-sort"></i> -->
                             <!-- <i class="fas fa-inbox"></i> -->
                             <span>Inbox</span>
-                            <span>0</span>
+                            <!-- <span>0</span> -->
                         </a>
+                        <span class="count" id="task-inbox"></span>
                     </div>
                     <div class="choose_task">
                         <a href="#" id="today">
                             <i class="fas fa-calendar-day"></i>
                             <span>Today</span>
                         </a>
+                        <span class="count" id="task-today"></span>
                     </div>
                     <div class="choose_task">
                         <a href="#" id="upcoming">
                             <i class="far fa-calendar-alt"></i>
                             <span>Upcoming</span>
                         </a>
+                        <span class="count" id="future-inbox"></span>
                     </div>
                     <div class="choose_task">
                         <a href="#" id="statistics">
@@ -123,12 +126,27 @@
                         <a href="#"><i class="fas fa-filter"></i></a>
                     </div>
                 </div>
+                <div class="lists">
+                    <div class="task_list">
+                        <div>
+                            <span class="check"><input type="checkbox" class="done"></span>
+                            <span class="title_task"></span>
+                            <p class="descr_task"></p>
+                        </div>
+                        <div class="edit">
+                            <a href=#>
+                                <i class="far fa-edit"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
                 <div class="add_main">
                     <a href="#" id="plus2" title="add task">
                         <i class="fas fa-plus"></i>
                         <span>Add new task</span>
                     </a>
                 </div>
+                <div class="modal_window"></div>
                 <div class="add_task2 er_message">
                     <div class="task_input">
                         <input id="editor3" type="text" placeholder="e.g., send mail">
@@ -150,11 +168,30 @@
                         <button id="cancel2">Cancel</button>
                     </div>
                 </div>
-                <div id="footer_main">
+                <div id="footer_main" class="free_pic">
                     <p>All clear! Get some rest</p>
+                </div> 
+            </div>
+            <div class="drag_drop">
+                <div class="todo-container">
+                    <div class="status">
+                        <h1>No status</h1>
+                        <button id="add_btn">+ Add Todo</button>
+                        <div class="todo" draggable="true">
+                            <p>Buy a pizza</p>
+                            <span><i class="fas fa-times"></i></span>
+                        </div>
+                    </div>
+                    <div class="status">
+                        <h1>Not started</h1>
+                    </div>
+                    <div class="status">
+                        <h1>In Progress</h1>
+                    </div>
+                    <div class="status">
+                        <h1>Completed</h1>
+                    </div>
                 </div>
-            
-               
             </div>
         </div>
     </section>
@@ -233,29 +270,6 @@
                     <p>Doesn't work?<a href="#" id="registration">Help<i class="far fa-question-circle"></i></a></p>
                 </div>
             </form>
-            <div class="add_task er_message"> 
-                <div class="modal_add">
-                    <div class="task_input">
-                        <input id="editor1" type="text" placeholder="e.g., send mail">
-                    </div>
-                    <div class="task_input">
-                        <textarea id="editor2" placeholder="Description"></textarea>
-                    </div>
-                    <br><br>
-                    <div class="add_descr_task">
-                        <button>schedule</button>
-                        <p>
-                            <a href="#" title="add labels"><i class="fas fa-tag"></i></a>
-                            <a href="#" title="set the priority"><i class="fab fa-font-awesome-flag"></i></a>
-                            <a href="#" title="add reminder "><i class="fas fa-stopwatch"></i></a>
-                        </p>
-                    </div>
-                    <div class="btn_task">
-                        <button id="add_newtask">Add</button>
-                        <button id="cancel">Cancel</button>
-                    </div>
-                </div>
-            </div>
             <div class="er_message" id="hello">
                 <span id="closeModal3"><i class="fas fa-window-close"></i></span>
                 <p>"Не составлять планов - значит запланировать своё поражение" (Бенджамин Франклин)</p>
@@ -263,5 +277,6 @@
         </div>
     </section>
     <script src="script.js"></script>
+    <script src = "project.js"></script>
 </body>
 </html>

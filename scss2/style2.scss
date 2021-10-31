@@ -73,17 +73,9 @@ $color_i:rgb(77, 74, 74);
         background-color: $color_hover;
         opacity: 0;
         z-index: 10;
-        /* animation: fadeIn 250ms ease-in-out;
-        @keyframes fadeIn {
-            from {
-            opacity: 0;
-            }
-            to {
-            opacity: 1;
-            } */
     }
     #regist_form{
-        margin: -240px auto;
+        margin: -750px auto;
         border-radius: 5px;
         position: relative;
         width: 40%;
@@ -150,7 +142,7 @@ $color_i:rgb(77, 74, 74);
         text-align: center;
         padding: 40px;
         position: relative;
-        margin: -450px auto;
+        margin: -750px auto;
         z-index: 200;
         span{
             position: absolute;
@@ -209,13 +201,13 @@ $color_i:rgb(77, 74, 74);
         display: none;
     }
 } 
-    .add_task{
+    /* .add_task{
         width: 40%;
         background-color: $color_form;
         font-size: 14px;
         padding: 40px;
         position: relative;
-        margin: -450px auto;
+        margin: -750px auto;
         z-index: 400;
         .modal_add{   
             #editor1{
@@ -253,7 +245,7 @@ $color_i:rgb(77, 74, 74);
                 }
             }
         }
-    } 
+    } */ 
     .er_message{
         display: none;
     }
@@ -263,7 +255,7 @@ $color_i:rgb(77, 74, 74);
         font-size: 14px;
         padding: 40px;
         position: relative;
-        margin: -450px auto;
+        margin: -750px auto;
         z-index: 400;
         span{
             position: absolute;

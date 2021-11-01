@@ -174,13 +174,14 @@
             </div>
             <div class="drag_drop">
                 <div class="todo-container">
-                    <div class="status">
+                    <div class="status" id="no_status">
                         <h1>No status</h1>
                         <button id="add_btn">+ Add Todo</button>
-                        <div class="todo" draggable="true">
-                            <p>Buy a pizza</p>
-                            <span><i class="fas fa-times"></i></span>
-                        </div>
+                        <!-- <div class="todo" draggable="true">
+                            <p class="name">Buy a pizza</p>
+                            <p class="descr"></p>
+                            <span class="close"><i class="fas fa-times"></i></span>
+                        </div> -->
                     </div>
                     <div class="status">
                         <h1>Not started</h1>
@@ -198,18 +199,18 @@
     <section class="wrapper">
         <div class="center modals">
             <div class="modal_window"></div>
-            <form id="regist_form" class="er_message">
+            <form id="regist_form" class="er_message" name="regist_form">
                 <span id="closeModal1"><i class="fas fa-window-close"></i></span>
                 <h2>Login<i class="fas fa-lock"></i></h2>
                 <div class="form_input">
-                    <label class="form_ans" for="q1"><i class="fas fa-at"></i>
+                    <label class="form_ans" name="q1" for="q1"><i class="fas fa-at"></i>
                         <input type="text" id="q1" placeholder="enter your email" pattern="[a-zA-Z0-9!#$%&amp;'*+\/=?^_`{|}~.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*">
                     </label>
                     <p class="er_message" id="er-mes1">Поле не может быть пустым</p>
                 </div>
                 <div class="form_input">
                     <label class="form_ans" for="q2"><i class="fas fa-key"></i>
-                        <input type="password" id="q2" placeholder="enter your password">  
+                        <input type="password" id="q2" name="q2" placeholder="enter your password">  
                     </label>
                     <p class="er_message" id="er-mes2">Поле не может быть пустым</p>
                 </div>    
@@ -217,7 +218,7 @@
                     <button type="submit" id="btn_enter">Enter</button>
                 </div>
                 <div class="remember">
-                    <input type="checkbox" id="stayOn" checked>
+                    <input type="checkbox" id="stayOn" name="stayOn" checked>
                     <label for="stayOn">Remember me</label>
                 </div>
                 <div class="problems">
@@ -229,30 +230,30 @@
                 
             </form>
         
-            <form id="regist_form2" class="er_message">
+            <form id="regist_form2" class="er_message" name="regist_form2">
                 <span id="closeModal2"><i class="fas fa-window-close"></i></span>
                 <h2>Sign up</h2>
                 <div class="form_input">
                     <label class="form_ans" for="creator"><i class="fas fa-user"></i>
                         <input type="text" name="creator" id="creator" placeholder="Enter your name">
                     </label>
-                    <p class="er_message" id="er-mes3">Поле не может быть пустым</p>
+                    <p class="er_message" id="er-mes3">Необходимо ввести минимум 3 символа</p>
                 </div>
                 <div class="form_input">
                     <label class="form_ans" for="q11"><i class="fas fa-at"></i>
-                        <input type="email" id="q11" placeholder="enter your email" pattern="[a-zA-Z0-9!#$%&amp;'*+\/=?^_`{|}~.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*">
+                        <input type="email" name="q11" id="q11" placeholder="enter your email" pattern="[a-zA-Z0-9!#$%&amp;'*+\/=?^_`{|}~.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*">
                     </label>
                     <p class="er_message" id="er-mes4">Поле не может быть пустым</p>
                 </div>
                 <div class="form_input">
                     <label class="form_ans" for="q21"><i class="fas fa-key"></i>
-                        <input type="password" id="q21" placeholder="enter your password">  
+                        <input type="password" name="q21" id="q21" placeholder="enter your password">  
                     </label>
-                    <p class="er_message" id="er-mes5">Поле не может быть пустым</p>
+                    <p class="er_message" id="er-mes5">Необходимо ввести минимум 6 символов</p>
                 </div>
                 <div class="form_input">
                     <label class="form_ans" for="q22"><i class="fas fa-key"></i>
-                        <input type="password" id="q22" placeholder="confirm your password">  
+                        <input type="password" name="q22" id="q22" placeholder="confirm your password">  
                     </label>
                     <p class="er_message" id="er-mes6">Поле не может быть пустым</p>
                     <p class="er_message" id="er-mes7">пароль не совпадает</p>
@@ -262,14 +263,37 @@
                     <button type="submit" id="btn_submit">Submit</button>
                 </div>
                 <div class="remember">
-                    <input type="checkbox" id="confirm" checked>
+                    <input type="checkbox" id="confirm" name="agrSign" checked>
                     <label for="confirm">Confirm <a href="#">agreements</a></label>
-                    <p class="er-message" id="er-mes8">Необходимо подписать соглашение</p>
+                    <p class="er_message" id="er-mes8">Необходимо подписать соглашение</p>
                 </div>
                 <div class="problems">
                     <p>Doesn't work?<a href="#" id="registration">Help<i class="far fa-question-circle"></i></a></p>
                 </div>
             </form>
+            <div class="over_modal"></div>
+                <div class="add_task er_message">
+                    <div class="task_input">
+                        <input id="editor1" type="text" placeholder="e.g., send mail">
+                    </div>
+                    <div class="task_input">
+                        <textarea id="editor2" placeholder="Description"></textarea>
+                    </div>
+                    
+                   <!--  <div class="add_descr_task">
+                        <button>schedule</button>
+                        <p>
+                            <a href="#" title="add labels"><i class="fas fa-tag"></i></a>
+                            <a href="#" title="set the priority"><i class="fab fa-font-awesome-flag"></i></a>
+                            <a href="#" title="add reminder "><i class="fas fa-stopwatch"></i></a>
+                        </p>
+                    </div> -->
+                    <div class="btn_task">
+                        <button id="add_newtask">Add</button>
+                        <button id="cancel">Cancel</button>
+                    </div>
+                </div>
+           
             <div class="er_message" id="hello">
                 <span id="closeModal3"><i class="fas fa-window-close"></i></span>
                 <p>"Не составлять планов - значит запланировать своё поражение" (Бенджамин Франклин)</p>

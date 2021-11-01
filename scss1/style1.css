@@ -320,7 +320,6 @@ body .main .er_message {
 }
 
 body .main_page {
-  display: none;
   padding-top: 30px;
   width: 100%;
   margin-left: 4%;
@@ -516,10 +515,8 @@ body * {
 }
 
 body .drag_drop {
+  display: none;
   background-color: #fff;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -532,7 +529,7 @@ body .drag_drop {
 
 body .drag_drop .todo-container {
   width: 90%;
-  height: 80vh;
+  height: 95vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -583,15 +580,9 @@ body .drag_drop .todo-container .status .todo {
   border-radius: 4px;
   background-color: #fff;
   position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  /* display: flex;
+                    justify-content: space-between;
+                    align-items: center; */
   margin: 0.5rem 0;
 }
 

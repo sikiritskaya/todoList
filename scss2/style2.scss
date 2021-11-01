@@ -75,7 +75,7 @@ $color_i:rgb(77, 74, 74);
         z-index: 10;
     }
     #regist_form{
-        margin: -750px auto;
+        margin: -570px auto;
         border-radius: 5px;
         position: relative;
         width: 40%;
@@ -108,6 +108,11 @@ $color_i:rgb(77, 74, 74);
         }
         .form_input{
             margin: 20px;
+            input{
+                &:active{
+                    border:none
+                }
+            }
         }
         .btn_enter{
             margin: 20px;
@@ -142,7 +147,7 @@ $color_i:rgb(77, 74, 74);
         text-align: center;
         padding: 40px;
         position: relative;
-        margin: -750px auto;
+        margin: -570px auto;
         z-index: 200;
         span{
             position: absolute;
@@ -201,51 +206,63 @@ $color_i:rgb(77, 74, 74);
         display: none;
     }
 } 
-    /* .add_task{
-        width: 40%;
-        background-color: $color_form;
-        font-size: 14px;
-        padding: 40px;
-        position: relative;
-        margin: -750px auto;
-        z-index: 400;
-        .modal_add{   
-            #editor1{
-                border: none;
-                width: 100%;
-                &:focus{
-                   outline: none;
-                }
-            }
-            #editor2{
-                border: none;
-                width: 100%;
-                &:focus{
+    .over_modal{
+        pointer-events: none;
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: $color_hover;
+        opacity: 0;
+        z-index: 10;
+    }
+        .add_task{
+            width: 40%;
+            background-color: $color_form;
+            font-size: 14px;
+            padding: 2rem;
+            position: relative;
+            margin: -450px auto;
+            z-index: 400;
+        // .modal_add{   
+                #editor1{
+                    border: none;
+                    width: 100%;
+                    &:focus{
                     outline: none;
-                }
-            }
-            .add_descr_task{
-                display:flex;
-                justify-content: space-between;
-                a{
-                    @include a_text($color_i);
-                }
-            }
-            .btn_task{
-                margin-top: 20px;
-                #add_newtask{
-                    &:hover{
-                        background-color: $color_background;
                     }
                 }
-                #cancel{
-                    &:hover{
-                        background-color: $color_background;
+                #editor2{
+                    border: none;
+                    width: 100%;
+                    &:focus{
+                        outline: none;
                     }
                 }
-            }
-        }
-    } */ 
+                /* .add_descr_task{
+                    display:flex;
+                    justify-content: space-between;
+                    a{
+                        @include a_text($color_i);
+                    }
+                } */
+                .btn_task{
+                    margin-top: 20px;
+                    #add_newtask{
+                        &:hover{
+                            background-color: $color_background;
+                        }
+                    }
+                    #cancel{
+                        &:hover{
+                            background-color: $color_background;
+                        }
+                    }
+                }
+        //} 
+            
+    } 
     .er_message{
         display: none;
     }
@@ -255,7 +272,7 @@ $color_i:rgb(77, 74, 74);
         font-size: 14px;
         padding: 40px;
         position: relative;
-        margin: -750px auto;
+        margin: -570px auto;
         z-index: 400;
         span{
             position: absolute;

@@ -276,7 +276,7 @@ body{
         }
     }
     .main_page{
-        display: none;
+        //display: none;
         padding-top: 30px;
         width: 100%;
         margin-left: 4%;
@@ -436,15 +436,16 @@ body{
         box-sizing: border-box;
     }
     .drag_drop{
+        display: none;
         background-color: $color_form;
-        display: flex;
+        //display: flex;
         justify-content: center;
         align-items: center;
         min-height: 100vh;
         width: 100%;
         .todo-container{
             width: 90%;
-            height: 80vh;
+            height: 95vh;
             display: flex;
             background-color: $color_page;
             .status{
@@ -484,9 +485,9 @@ body{
                     border-radius: 4px;
                     background-color: $color_form;
                     position: relative;
-                    display: flex;
+                    /* display: flex;
                     justify-content: space-between;
-                    align-items: center;
+                    align-items: center; */
                     margin: 0.5rem 0;
                     span{
                         position: absolute;

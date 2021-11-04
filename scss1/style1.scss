@@ -216,37 +216,34 @@ body{
             }
             .accordeon{
                 //margin-top: 15px;
-               font-weight: 700;
-               margin-bottom: 15px;
-               overflow: hidden;
-               display: flex;
+                font-weight: 700;
+                margin-bottom: 15px;
+                overflow: hidden;
+                display: flex;
                 align-items: center;
               // width: 90%;
-               &::before{
+                &::before{
                     content: '\203A';
                     float: left;
                     padding-right: 35px;
                     //padding-left: 10px;
                 } 
-                /* &:not(.test){
-                    &::before{
-                        content: '\203A';
-                        float: left;
-                        padding-right: 37px;
-                        padding-left: 10px;
-                         
-                    }
-                } */
-                a{
-                display: inline-flex;
-                justify-content: space-between;
-                width: 200px;
-                @include a_text($color_text);
-                    i{
-                        font-size: 15px;
-                        opacity: 0;
-                    }
+                .acc_name{
+                    display: flex;
+                    justify-content: space-between;
+                    width: 100%;
+                    a{
+                        /* display: inline-flex;
+                        justify-content: space-between;
+                        width: 200px; */
+                        @include a_text($color_text);
+                            i{
+                                font-size: 15px;
+                                opacity: 0;
+                            }
+                        }
                 }
+               
             &:hover{
                 background-color: $color_hover;
                 transition: 0.5s;
@@ -302,36 +299,40 @@ body{
                 margin-top: 10px;
                 display: flex;
                 justify-content: space-between;
-                .done{
-                    opacity: 0;
-                    width: 1em;
-                    height: 1em;
-                    background-color: white;
-                    border-radius: 50%;
-                    vertical-align: middle;
-                    border: 1px solid $color_hover;
-                    appearance: none;
-                    -webkit-appearance: none;
-                    outline: none;
-                    cursor: pointer;
-                    &:checked{
-                        background-color:$color_background;
-                    }
-                }
-                .descr_task{
-                    padding-left: 23px;
-                }
-                
-                a{
-                    @include a_text($color_text);
-                    opacity: 0;
-                }
-                &:hover{
-                    a{
-                        opacity: 1;
-                    }
+                div{
                     .done{
-                        opacity: 1;
+                        opacity: 0;
+                        width: 1em;
+                        height: 1em;
+                        background-color: white;
+                        border-radius: 50%;
+                        vertical-align: middle;
+                        border: 1px solid $color_hover;
+                        appearance: none;
+                        -webkit-appearance: none;
+                        outline: none;
+                        cursor: pointer;
+                        &:checked{
+                            background-color:$color_background;
+                        }
+                    }
+                    .descr_task{
+                        padding-left: 23px;
+                    }
+                }
+                .edit{
+                    //width: 2rem;
+                    a{
+                        @include a_text($color_text);
+                        opacity: 0;
+                    }
+                    &:hover{
+                        a{
+                            opacity: 1;
+                        }
+                        .done{
+                            opacity: 1;
+                        }
                     }
                 }
             }
@@ -436,13 +437,13 @@ body{
         box-sizing: border-box;
     }
     .drag_drop{
-        display: none;
         background-color: $color_form;
         //display: flex;
         justify-content: center;
         align-items: center;
         min-height: 100vh;
         width: 100%;
+        display: none;
         .todo-container{
             width: 90%;
             height: 95vh;

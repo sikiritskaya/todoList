@@ -108,10 +108,6 @@ table {
   margin: 20px;
 }
 
-.modals #regist_form .form_input input:active {
-  border: none;
-}
-
 .modals #regist_form .btn_enter {
   margin: 20px;
 }
@@ -224,7 +220,74 @@ table {
   display: none;
 }
 
-.over_modal {
+.modals .add_task {
+  border: solid 1px #d4d1d1;
+  margin: -570px auto;
+  width: 40%;
+  background-color: #fff;
+  font-size: 14px;
+  padding: 2rem;
+  position: relative;
+  z-index: 400;
+}
+
+.modals .add_task #editor1 {
+  border: none;
+  width: 99%;
+}
+
+.modals .add_task #editor1:focus {
+  outline: none;
+}
+
+.modals .add_task #editor2 {
+  border: none;
+  width: 99%;
+}
+
+.modals .add_task #editor2:focus {
+  outline: none;
+}
+
+.modals .add_task .add_descr_task {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.modals .add_task .add_descr_task a {
+  text-decoration: none;
+  color: #000;
+}
+
+.modals .add_task .btn_task {
+  margin-top: 20px;
+}
+
+.modals .add_task .btn_task #add_newtask:hover {
+  background-color: #f7c5cdee;
+}
+
+.modals .add_task .btn_task #cancel:hover {
+  background-color: #f7c5cdee;
+}
+
+.modals #label {
+  border-radius: 5px;
+  width: 40%;
+  background-color: #fff;
+  font-size: 14px;
+  text-align: center;
+  padding: 40px;
+  position: relative;
+  margin: -570px auto;
+  z-index: 200;
+}
+
+.modals .over_modal {
   pointer-events: none;
   position: fixed;
   top: 0;
@@ -236,7 +299,7 @@ table {
   z-index: 10;
 }
 
-.add_task {
+.modals .add_task_todo {
   width: 40%;
   background-color: #fff;
   font-size: 14px;
@@ -244,50 +307,43 @@ table {
   position: relative;
   margin: -450px auto;
   z-index: 400;
-  /* .add_descr_task{
-                    display:flex;
-                    justify-content: space-between;
-                    a{
-                        @include a_text($color_i);
-                    }
-                } */
 }
 
-.add_task #editor1 {
+.modals .add_task_todo #editor5 {
   border: none;
   width: 100%;
 }
 
-.add_task #editor1:focus {
+.modals .add_task_todo #editor5:focus {
   outline: none;
 }
 
-.add_task #editor2 {
+.modals .add_task_todo #editor6 {
   border: none;
   width: 100%;
 }
 
-.add_task #editor2:focus {
+.modals .add_task_todo #editor6:focus {
   outline: none;
 }
 
-.add_task .btn_task {
+.modals .add_task_todo .btn_task {
   margin-top: 20px;
 }
 
-.add_task .btn_task #add_newtask:hover {
+.modals .add_task_todo .btn_task #add_newtask3:hover {
   background-color: #f7c5cdee;
 }
 
-.add_task .btn_task #cancel:hover {
+.modals .add_task_todo .btn_task #cancel3:hover {
   background-color: #f7c5cdee;
 }
 
-.er_message {
+.modals .er_message {
   display: none;
 }
 
-#hello {
+.modals #hello {
   width: 40%;
   background-color: #fff;
   font-size: 14px;
@@ -297,14 +353,14 @@ table {
   z-index: 400;
 }
 
-#hello span {
+.modals #hello span {
   position: absolute;
   font-size: 25px;
   right: 0;
   top: 0;
 }
 
-#hello span:hover {
+.modals #hello span:hover {
   cursor: pointer;
 }
 /*# sourceMappingURL=style2.css.map */

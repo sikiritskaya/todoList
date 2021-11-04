@@ -83,8 +83,10 @@
                     </div>
                 </div>
                 <div class="accordeon">
-                    <div id="projects">
-                        <a href="#">Projects <i class="fas fa-plus"></i></a>
+                    <div id="projects" class="acc_name">
+                        <p>Projects</p> 
+                        <a href="#"><i class="fas fa-plus"></i>
+                        </a>
                     </div>   
                 </div>
                 <div class="panel accord">
@@ -92,16 +94,20 @@
                     <p><a href=#>Boards</a></p>
                 </div>
                 <div class="accordeon">
-                    <div id="marks">
-                        <a href="#">Labels <i class="fas fa-plus"></i></a>
+                    <div id="marks" class="acc_name">
+                        <p>Labels</p>
+                        <a href="#"> <i class="fas fa-plus"></i>
+                        </a>
                     </div>
                 </div>
                 <div class="panel accord">
                     <p>There can be difference marks</p>   
                 </div>
                 <div class="accordeon">
-                    <div id="filter">
-                        <a href="#">Filters <i class="fas fa-plus"></i></a>
+                    <div id="filter" class="acc_name">
+                        <p>Filters</p>
+                         <a href="#"><i class="fas fa-plus"></i>
+                        </a>
                     </div>
                 </div>
                 <div class="panel accord">
@@ -271,33 +277,55 @@
                     <p>Doesn't work?<a href="#" id="registration">Help<i class="far fa-question-circle"></i></a></p>
                 </div>
             </form>
-            <div class="over_modal"></div>
-                <div class="add_task er_message">
-                    <div class="task_input">
-                        <input id="editor1" type="text" placeholder="e.g., send mail">
-                    </div>
-                    <div class="task_input">
-                        <textarea id="editor2" placeholder="Description"></textarea>
-                    </div>
-                    
-                   <!--  <div class="add_descr_task">
-                        <button>schedule</button>
-                        <p>
-                            <a href="#" title="add labels"><i class="fas fa-tag"></i></a>
-                            <a href="#" title="set the priority"><i class="fab fa-font-awesome-flag"></i></a>
-                            <a href="#" title="add reminder "><i class="fas fa-stopwatch"></i></a>
-                        </p>
-                    </div> -->
-                    <div class="btn_task">
-                        <button id="add_newtask">Add</button>
-                        <button id="cancel">Cancel</button>
-                    </div>
+            <div class="modal_window"></div>
+            <div class="add_task er_message">
+                <div class="task_input">
+                    <input id="editor1" type="text" placeholder="e.g., send mail">
                 </div>
+                <div class="task_input">
+                    <textarea id="editor2" placeholder="Description"></textarea>
+                </div>
+                <br><br>
+                <div class="add_descr_task">
+                    <button>schedule</button>
+                    <p>
+                        <a href="#" title="add labels"><i class="fas fa-tag"></i></a>
+                        <a href="#" title="set the priority"><i class="fab fa-font-awesome-flag"></i></a>
+                        <a href="#" title="add reminder "><i class="fas fa-stopwatch"></i></a>
+                    </p>
+                </div>
+                <div class="btn_task">
+                    <button id="add_newtask">Add</button>
+                    <button id="cancel">Cancel</button>
+                </div>
+            </div>
+            <div class="modal_window"></div>
+            <div class="er_message" id="label">
+                <input id="inputLabel" type="text">add label
+                <div class="btn_task">
+                    <button id="btn_label">Add</button>
+                    <button id="cancel_label">Cancel</button>
+                </div>
+            </div>
+            <div class="over_modal"></div>
+            <div class="add_task_todo er_message">
+                    <div class="task_input">
+                        <input id="editor5" type="text" placeholder="e.g., send mail">
+                    </div>
+                    <div class="task_input">
+                        <textarea id="editor6" placeholder="Description"></textarea>
+                    </div>
+                    <div class="btn_task">
+                        <button id="add_newtask3">Add</button>
+                        <button id="cancel3">Cancel</button>
+                    </div>
+            </div>
            
             <div class="er_message" id="hello">
                 <span id="closeModal3"><i class="fas fa-window-close"></i></span>
                 <p>"Не составлять планов - значит запланировать своё поражение" (Бенджамин Франклин)</p>
             </div>
+            
         </div>
     </section>
     <script src="script.js"></script>

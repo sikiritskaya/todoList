@@ -2,7 +2,7 @@ const todos = document.querySelectorAll('.todo')
 const allStatus = document.querySelectorAll('.status')
 let draggableTodo = null
 let btnAdd = document.querySelector('#add_btn')
-let adDTask = document.querySelector('.add_task')
+let adDTask = document.querySelector('.add_task_todo')
 let closeBtn = document.querySelectorAll('.close')
 
 
@@ -58,15 +58,15 @@ document.addEventListener('click',(e)=>{
         adDTask.classList.remove('er_message')
         document.querySelector('.over_modal').style.opacity="0.5"
     }
-    if(e.target.closest('#cancel')){
+    if(e.target.closest('#cancel3')){
         adDTask.classList.add('er_message')
         document.querySelector('.over_modal').style.opacity="0"
     }
 })
-document.querySelector('#add_newtask').addEventListener('click', createTodo)
+document.querySelector('#add_newtask3').addEventListener('click', createTodo)
  function createTodo(){
-    let name=document.querySelector('#editor1').value
-    let descr=document.querySelector('#editor2').value
+    let name=document.querySelector('#editor5').value
+    let descr=document.querySelector('#editor6').value
     let todo_div = document.createElement('div')
     adDTask.classList.add('er_message')
     document.querySelector('.over_modal').style.opacity="0"
@@ -81,8 +81,8 @@ document.querySelector('#add_newtask').addEventListener('click', createTodo)
     document.querySelector('#no_status').appendChild(todo_div)
     todo_div.addEventListener('dragstart', dragStart)
     todo_div.addEventListener('dragend', dragEnd)
-    document.querySelector('#editor1').value=''
-    document.querySelector('#editor2').value=''
+    document.querySelector('#editor5').value=''
+    document.querySelector('#editor6').value=''
     removeTodo()
 }
 function removeTodo(){

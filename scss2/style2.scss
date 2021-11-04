@@ -108,11 +108,6 @@ $color_i:rgb(77, 74, 74);
         }
         .form_input{
             margin: 20px;
-            input{
-                &:active{
-                    border:none
-                }
-            }
         }
         .btn_enter{
             margin: 20px;
@@ -205,7 +200,64 @@ $color_i:rgb(77, 74, 74);
     .er_message{
         display: none;
     }
-} 
+    .add_task{
+            border: solid 1px $color_hover;
+            margin: -570px auto;
+           // z-index: 300;
+            width: 40%;
+            background-color: $color_form;
+            font-size: 14px;
+            padding: 2rem;
+            position: relative;
+           // margin: -450px auto;
+            z-index: 400;
+            #editor1{
+                border: none;
+                width: 99%;
+                &:focus{
+                   outline: none;
+                }
+            }
+            #editor2{
+                border: none;
+                width: 99%;
+                &:focus{
+                    outline: none;
+                }
+            }
+            .add_descr_task{
+                display:flex;
+                justify-content: space-between;
+                a{
+                    @include a_text($color_text);
+                }
+            }
+            .btn_task{
+                margin-top: 20px;
+                #add_newtask{
+                    &:hover{
+                        background-color: $color_background;
+                    }
+                }
+                #cancel{
+                    &:hover{
+                        background-color: $color_background;
+                    }
+                }
+            }
+    }
+    #label{
+        border-radius: 5px;
+        width: 40%;
+        background-color: $color_form;
+        font-size: 14px;
+        text-align: center;
+        padding: 40px;
+        position: relative;
+        margin: -570px auto;
+        z-index: 200;
+    }
+ 
     .over_modal{
         pointer-events: none;
         position: fixed;
@@ -217,7 +269,7 @@ $color_i:rgb(77, 74, 74);
         opacity: 0;
         z-index: 10;
     }
-        .add_task{
+        .add_task_todo{
             width: 40%;
             background-color: $color_form;
             font-size: 14px;
@@ -226,35 +278,28 @@ $color_i:rgb(77, 74, 74);
             margin: -450px auto;
             z-index: 400;
         // .modal_add{   
-                #editor1{
+                #editor5{
                     border: none;
                     width: 100%;
                     &:focus{
                     outline: none;
                     }
                 }
-                #editor2{
+                #editor6{
                     border: none;
                     width: 100%;
                     &:focus{
                         outline: none;
                     }
                 }
-                /* .add_descr_task{
-                    display:flex;
-                    justify-content: space-between;
-                    a{
-                        @include a_text($color_i);
-                    }
-                } */
                 .btn_task{
                     margin-top: 20px;
-                    #add_newtask{
+                    #add_newtask3{
                         &:hover{
                             background-color: $color_background;
                         }
                     }
-                    #cancel{
+                    #cancel3{
                         &:hover{
                             background-color: $color_background;
                         }
@@ -284,3 +329,4 @@ $color_i:rgb(77, 74, 74);
             }
         }
     }
+}

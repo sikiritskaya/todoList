@@ -21,7 +21,7 @@ let search = document.querySelector('#search')
 let helloModal=document.querySelector('#hello')
 let nameMain = document.querySelector('#name_folder')
 let addTask2 = document.querySelector('.add_task2')
-
+let addTask = document.querySelector('.add_task')
 //modal Login
 let btnEnter = document.querySelector('#btn_enter')
 let modalLogin = document.forms.regist_form
@@ -157,10 +157,19 @@ document.addEventListener('click',(e)=>{
         modalRegist.classList.remove('er_message')
     }
     if(e.target.closest('#plus')){
-        addTask2.classList.remove('er_message')
-        addTask2.classList.add('add_task')
-        document.querySelector('#q1').focus()
+        addTask.classList.remove('er_message')
+        //addTask.classList.add('add_task')
+        //document.querySelector('#q1').focus()
         document.querySelector('.modal_window').style.opacity="0.5"
+    }
+    if(e.target.closest('#add_newtask')){
+        document.querySelector('.modal_window').style.opacity="0"
+        addTask.classList.add('er_message')
+    }
+    if(e.target.closest('#cancel')){
+        addTask.classList.add('er_message')
+        //addTask2.classList.remove('add_task')
+        document.querySelector('.modal_window').style.opacity="0"
     }
     if(e.target.closest('#closeModal1')){
         modalLogin.classList.add('er_message')
@@ -176,6 +185,8 @@ document.addEventListener('click',(e)=>{
     }
     if(e.target.closest('#inbox')){
         nameMain.textContent = document.querySelector('#inbox').lastElementChild.textContent
+        document.querySelector('.drag_drop').style.display="none"
+        document.querySelector('.main_page').style.display='block'
     }
     if(e.target.closest('#today')){
         nameMain.textContent = document.querySelector('#today').lastElementChild.textContent
@@ -197,12 +208,14 @@ document.addEventListener('click',(e)=>{
         for(let check of checkboxes){
             check.onclick =()=>{
                 check.parentElement.parentElement.remove()
-                /* let local = JSON.parse(localStorage.getItem('AllTasks'))
-                console.log(local) */
                 counter()
             }
     
         }
+    }
+    if(e.target.closest('#marks')){
+        document.querySelector('#label').classList.remove('er_message')
+        document.querySelector('.modal_window').style.opacity="0.5"
     }
 
     //переключение между окнами
@@ -247,51 +260,160 @@ const counter=()=>{
         `
     }
 }
+// отправить на сервер
+const postData = (title,descr) => {
+    const name_input = document.querySelector(title).value;
+    const descr_input= document.querySelector(descr).value;
+    document.querySelector(title).value=''
+    document.querySelector(descr).value=''
+    fetch('http://localhost:3000/tasks',
+    {
+        method: 'POST',
+        body: JSON.stringify(
+            {
+                "title": name_input,
+                "description": descr_input
+                
+            }
+        ),
+        headers: {
+            "Content-type": "application/json; charset=utf-8"
+        }
+    }).then(
+        (response) => {
+            return response.json();
+        }
+    ).then(
+        (data)=>{
+            console.log(data);
+        }
+    )
+   
+}
+document.querySelector('#add_newtask2').addEventListener('click',()=>{ 
+    postData('#editor3', '#editor4')
+    getData()
+})
+document.querySelector('#add_newtask').addEventListener('click',()=>{ 
+    postData('#editor1', '#editor2')
+    getData()
+})
 
-let setLocalStorage=()=>{
-    if(!JSON.parse(localStorage.getItem('AllTasks'))){
-        localStorage.setItem('AllTasks', JSON.stringify([]))
+//загрузить с сервера
+const getData = () =>{
+    fetch('http://localhost:3000/tasks')
+    .then(
+        (req)=>{
+            return req.json();
+        }
+    )
+    .then(
+        (data) => {
+            //console.log(data);
+            let containerTasks = document.querySelector('.lists');
+            containerTasks.innerHTML = '';
+            data.forEach((item)=>{
+                containerTasks.innerHTML += `
+                <div class="task_list">
+                    <div data-id="${item.id}">
+                        <span class="check"><input type="checkbox" class="done"></span>
+                        <span class="title_task"">${item.title}</span>
+                        <p class="descr_task">${item.description}</p>
+                    </div>
+                    <div class="edit">
+                        <a href=#>
+                            <i class="far fa-edit"></i>
+                        </a>
+                    </div>
+                </div>
+                `
+            })
+        }
+    )
+    .catch( 
+        err =>{
+            console.log(err);
+        }
+        
+        )
+        
+}
+
+getData();
+//document.querySelector('#add_newtask2').addEventListener('click',getData)
+counter()
+
+let currentId = 0;
+
+const getIdUser = (e) =>{
+    //console.log(e.target.closest('.edit').previousElementSibling.dataset.id);
+    if(e.target.closest('.edit')){
+        return e.target.closest('.edit').previousElementSibling.dataset.id
     }
 }
-const setTaskLocalStorage =() =>{
-    let currentTitle = document.querySelector('#editor3').value
-    let currentDescr = document.querySelector('#editor4').value
-    let allTasks =  JSON.parse(localStorage.getItem('AllTasks')) 
-    let allStory={
-        title: currentTitle,
-        descr: currentDescr
+document.addEventListener('click', (e)=>{
+    if(e.target.closest('.edit')){
+        currentId = getIdUser(e);
+        addTask2.classList.remove('er_message')
+        document.querySelector(title).value= ``
+        document.querySelector(descr).value= ``
+        document.querySelector('#add_newtask2').addEventListener('click', ()=>{
+            putData(currentId)
+            getData()
+        })
     }
-    allTasks.push(allStory)
-    localStorage.setItem('AllTasks', JSON.stringify(allTasks))
-    document.querySelector('#editor3').value=""
-    document.querySelector('#editor4').value=""
-}
-document.querySelector('#add_newtask2').addEventListener('click', setTaskLocalStorage)
+    
+})
 
-const generateAllTasks =()=>{
-    let allTasks =  JSON.parse(localStorage.getItem('AllTasks')) 
-    let view=''
-    let containerTasks = document.querySelector('.lists')
-    allTasks.forEach(item => {
-        view +=`
-            <div class="task_list">
-                <div>
-                    <span class="check"><input type="checkbox" class="done"></span>
-                    <span class="title_task">${item.title}</span>
-                    <p class="descr_task">${item.descr}</p>
-                </div>
-                <div class="edit">
-                    <a href=#>
-                        <i class="far fa-edit"></i>
-                    </a>
-                </div>
-            </div>
-        `
+//изменить данные
+const putData = (curId) => {
+    const name_input = document.querySelector('#editor1').value;
+    const descr_input= document.querySelector('#editor2').value;
+    fetch(`http://localhost:3000/tasks/${curId}`,
+    {
+        method: 'PUT',
+        body: JSON.stringify(
+            {
+                "title": name_input,
+                "description": descr_input 
+            }
+        ),
+        headers: {
+            "Content-type": "application/json; charset=utf-8"
+        }
+    }).then(
+        (response) => {
+            return response.json();
+        }
+    ).then(
+        (data)=>{
+            console.log(data);
+        }
+    )
+}
+
+//удалить
+
+const deleteId = (e) =>{
+    //console.log(e.target.closest('.edit').previousElementSibling.dataset.id);
+    if(e.target.closest('.check')){
+        return e.target.closest('.check').parentElement.dataset.id
+    }
+}
+document.addEventListener('click', (e)=>{
+    if(e.target.closest('.check')){
+        currentId = deleteId(e);
+        deleteData(currentId)
+    }
+    
+})
+const deleteData = (curId) => {
+    fetch(`http://localhost:3000/tasks/${curId}`,
+    {
+        method: 'DELETE'
     })
-    containerTasks.innerHTML = view
-    counter()
-
 }
+
 
 
 //приветствие
@@ -302,7 +424,4 @@ const generateAllTasks =()=>{
     document.querySelector('.modal_window').style.opacity="0.5"
 }, 2000)}
 document.addEventListener('DOMContentLoaded', hello)*/
-setLocalStorage() 
-document.querySelector('#add_newtask2').addEventListener('click', generateAllTasks)
-generateAllTasks()
-counter()
+

@@ -1,0 +1,212 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/*END RESET.CSS*/
+/* font-family: $font;
+    color: $color_text;
+    background-color: $background_color; */
+/* $color:#000; */
+.main_cal {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding-top: 30px;
+  width: 100%;
+  margin-left: 4%;
+  margin-right: 4%;
+  background-color: #fff;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.main_cal .container_cal {
+  width: 100%;
+}
+
+.main_cal .container_cal #header_cal {
+  margin-bottom: 4%;
+  color: #f7c5cdee;
+  font-size: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.main_cal .container_cal #weekdays {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: #000;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  margin-bottom: 0.5rem;
+}
+
+.main_cal .container_cal #weekdays div {
+  width: 11%;
+}
+
+.main_cal .container_cal #calendar {
+  width: 100%;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.main_cal .container_cal #calendar .day {
+  width: 13%;
+  padding: 0.5rem;
+  height: 5rem;
+  cursor: pointer;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 4px;
+  -webkit-box-shadow: 0px 0px 3px #CBD4C2;
+          box-shadow: 0px 0px 3px #CBD4C2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.main_cal .container_cal #calendar .day:hover {
+  background-color: #f7c5cdee;
+}
+
+.main_cal .container_cal #calendar .padding {
+  cursor: default;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.main_cal .container_cal .modal_window_cal {
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #d4d1d1;
+  opacity: 0;
+  z-index: 10;
+}
+
+.main_cal .container_cal .add_task {
+  border: solid 1px #d4d1d1;
+  margin: -570px auto;
+  width: 40%;
+  background-color: #fff;
+  font-size: 14px;
+  padding: 2rem;
+  position: relative;
+  z-index: 400;
+}
+
+.main_cal .container_cal .add_task #editor9 {
+  border: none;
+  width: 99%;
+}
+
+.main_cal .container_cal .add_task #editor9:focus {
+  outline: none;
+}
+
+.main_cal .container_cal .add_task #editor10 {
+  border: none;
+  width: 99%;
+}
+
+.main_cal .container_cal .add_task #editor10:focus {
+  outline: none;
+}
+
+.main_cal .container_cal .add_task .add_descr_task {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.main_cal .container_cal .add_task .add_descr_task a {
+  text-decoration: none;
+  color: #000;
+}
+
+.main_cal .container_cal .add_task .btn_task {
+  margin-top: 20px;
+}
+
+.main_cal .container_cal .add_task .btn_task #add_newtask_cal:hover {
+  background-color: #f7c5cdee;
+}
+
+.main_cal .container_cal .add_task .btn_task #cancel_cal:hover {
+  background-color: #f7c5cdee;
+}
+
+#task_cal {
+  display: none;
+}
+/*# sourceMappingURL=style3.css.map */

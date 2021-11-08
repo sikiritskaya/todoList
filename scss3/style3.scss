@@ -1,0 +1,178 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+} 
+
+/*END RESET.CSS*/
+
+    /* font-family: $font;
+    color: $color_text;
+    background-color: $background_color; */
+$font: 'Lato', sans-serif;
+$color_text: #000;
+$color_form:#fff;
+$color_background:#f7c5cdee;
+$color_page:#f1f1f1;
+$color_hover: #d4d1d1;
+$color_i:rgb(77, 74, 74);
+/* $color:#000; */
+@mixin a_text($color_text){
+    text-decoration: none;
+    color:$color_text;
+}
+.main_cal{
+    display: flex;
+    padding-top: 30px;
+    width: 100%;
+    margin-left: 4%;
+    margin-right: 4%;
+    background-color: $color_form;
+    justify-content: center; 
+    .container_cal{
+        width: 100%;
+       #header_cal{
+            margin-bottom: 4%;
+            color: $color_background;
+            font-size: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+       #weekdays{
+            width: 100%;
+            display: flex;
+            color: $color_text;
+            justify-content: space-around;
+            margin-bottom: 0.5rem;
+            div{
+                width: 11%;
+            }
+            
+        }
+       #calendar{
+            width: 100%;
+            margin: auto;
+            display: flex;
+            flex-wrap: wrap;
+            .day{
+                width: 13%;
+                padding: 0.5rem;
+                height: 5rem;
+                cursor: pointer;
+                box-sizing: border-box;
+                margin: 4px;
+                box-shadow: 0px 0px 3px #CBD4C2;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                &:hover{
+                    background-color: $color_background;
+                }
+            }
+            .padding {
+                cursor:default;
+                box-shadow: none;
+            }
+        }
+        .modal_window_cal{
+            pointer-events: none;
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: $color_hover;
+            opacity: 0;
+            z-index: 10;
+        }
+        .add_task{
+            border: solid 1px $color_hover;
+            margin: -570px auto;
+        // z-index: 300;
+            width: 40%;
+            background-color: $color_form;
+            font-size: 14px;
+            padding: 2rem;
+            position: relative;
+        // margin: -450px auto;
+            z-index: 400;
+            #editor9{
+                border: none;
+                width: 99%;
+                &:focus{
+                outline: none;
+                }
+            }
+            #editor10{
+                border: none;
+                width: 99%;
+                &:focus{
+                    outline: none;
+                }
+            }
+            .add_descr_task{
+                display:flex;
+                justify-content: space-between;
+                a{
+                    @include a_text($color_text);
+                }
+            }
+            .btn_task{
+                margin-top: 20px;
+                #add_newtask_cal{
+                    &:hover{
+                        background-color: $color_background;
+                    }
+                }
+                #cancel_cal{
+                    &:hover{
+                        background-color: $color_background;
+                    }
+                }
+            }
+        }
+        
+
+    }
+}
+#task_cal{
+   display: none;     
+}

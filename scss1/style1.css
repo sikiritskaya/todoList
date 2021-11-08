@@ -121,10 +121,14 @@ body .wrapper .center header .search #search {
   padding-left: 40px;
 }
 
+body .wrapper .center header .search .er_message {
+  display: none;
+}
+
 body .wrapper .center header .search span {
   position: absolute;
-  right: -42px;
-  top: 9px;
+  right: 2px;
+  top: 5px;
 }
 
 body .wrapper .center header .user {
@@ -340,6 +344,11 @@ body .main_page .header_main #name_folder {
   font-size: 20px;
 }
 
+body .main_page .header_main #name_today {
+  font-weight: 900;
+  font-size: 20px;
+}
+
 body .main_page .header_main .sort_task a {
   text-decoration: none;
   color: #000;
@@ -368,6 +377,10 @@ body .main_page .lists .task_list div .done {
   -webkit-appearance: none;
   outline: none;
   cursor: pointer;
+}
+
+body .main_page .lists .task_list div .done:hover {
+  opacity: 1;
 }
 
 body .main_page .lists .task_list div .done:checked {
@@ -427,6 +440,24 @@ body .main_page .add_task2 #editor4:focus {
   outline: none;
 }
 
+body .main_page .add_task2 #editor7 {
+  border: none;
+  width: 99%;
+}
+
+body .main_page .add_task2 #editor7:focus {
+  outline: none;
+}
+
+body .main_page .add_task2 #editor8 {
+  border: none;
+  width: 99%;
+}
+
+body .main_page .add_task2 #editor8:focus {
+  outline: none;
+}
+
 body .main_page .add_task2 .add_descr_task {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -445,11 +476,35 @@ body .main_page .add_task2 .btn_task {
   margin-top: 20px;
 }
 
+body .main_page .add_task2 .btn_task #change {
+  display: none;
+}
+
+body .main_page .add_task2 .btn_task #change:hover {
+  background-color: #f7c5cdee;
+}
+
 body .main_page .add_task2 .btn_task #add_newtask2:hover {
   background-color: #f7c5cdee;
 }
 
 body .main_page .add_task2 .btn_task #cancel2:hover {
+  background-color: #f7c5cdee;
+}
+
+body .main_page .add_task2 .btn_task #change2 {
+  display: none;
+}
+
+body .main_page .add_task2 .btn_task #change2:hover {
+  background-color: #f7c5cdee;
+}
+
+body .main_page .add_task2 .btn_task #add_newtask_today:hover {
+  background-color: #f7c5cdee;
+}
+
+body .main_page .add_task2 .btn_task #cancel_today:hover {
   background-color: #f7c5cdee;
 }
 
@@ -481,6 +536,24 @@ body .main_page #footer_main p {
   text-align: center;
 }
 
+body .main_page #footer_today {
+  background-repeat: no-repeat;
+  background-size: 30%;
+  height: 50%;
+  background-position: top;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+body .main_page #footer_today p {
+  width: 100%;
+  text-align: center;
+}
+
 body .main_page .free_pic {
   background-image: url(../images/IMG_2988.PNG);
 }
@@ -504,6 +577,10 @@ body .main_page .add_main a:hover i {
 
 body .main_page .add_main a i {
   padding: 10px;
+}
+
+body #main_today {
+  display: none;
 }
 
 body * {

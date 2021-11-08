@@ -1,19 +1,60 @@
 {
   "tasks": [
     {
-      "title": "send mail",
+      "title": "111",
       "description": "",
-      "id": 1
+      "id": 2
+    }
+  ],
+  "today": [],
+  "calendar": [
+    {
+      "title": "1",
+      "description": "11",
+      "id": 1,
+      "date": "27/11/2021"
     },
     {
-      "title": "homework",
+      "date": "24/11/2021",
+      "title": "",
       "description": "",
       "id": 2
     },
     {
-      "title": "123",
+      "date": "19/11/2021",
+      "title": "111",
       "description": "",
       "id": 3
+    },
+    {
+      "date": "10/11/2021",
+      "title": "do smth",
+      "description": "with",
+      "id": 4
+    },
+    {
+      "date": "11/11/2021",
+      "title": "333",
+      "description": "",
+      "id": 5
+    },
+    {
+      "date": "24/11/2021",
+      "title": "",
+      "description": "",
+      "id": 6
+    },
+    {
+      "date": "27/11/2021",
+      "title": "444",
+      "description": "",
+      "id": 7
+    },
+    {
+      "date": "12/11/2021",
+      "title": "333",
+      "description": "",
+      "id": 8
     }
   ]
 }

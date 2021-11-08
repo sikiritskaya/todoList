@@ -107,10 +107,13 @@ body{
                         height: 30px;
                         padding-left: 40px;
                     }
+                    .er_message{
+                        display: none;
+                    }
                     span{
                         position: absolute;
-                        right: -42px;
-                        top: 9px;
+                        right: 2px;
+                        top: 5px;
                     }
                 }
                 /* .plus{
@@ -288,6 +291,10 @@ body{
                 font-weight: 900;
                 font-size: 20px;
             }
+            #name_today{
+                font-weight: 900;
+                font-size: 20px;
+            }
             .sort_task{
                 a{
                     @include a_text($color_text);
@@ -312,6 +319,9 @@ body{
                         -webkit-appearance: none;
                         outline: none;
                         cursor: pointer;
+                        &:hover{
+                            opacity: 1;
+                        }
                         &:checked{
                             background-color:$color_background;
                         }
@@ -350,7 +360,6 @@ body{
         }
         
         .add_task2{
-           
             margin-top: 10px;
             border: solid 1px $color_hover;
 
@@ -368,6 +377,20 @@ body{
                     outline: none;
                 }
             }
+            #editor7{
+                border: none;
+                width: 99%;
+                &:focus{
+                   outline: none;
+                }
+            }
+            #editor8{
+                border: none;
+                width: 99%;
+                &:focus{
+                    outline: none;
+                }
+            }
             .add_descr_task{
                 display:flex;
                 justify-content: space-between;
@@ -377,12 +400,34 @@ body{
             }
             .btn_task{
                 margin-top: 20px;
+                #change{
+                    display: none;
+                    &:hover{
+                        background-color: $color_background;
+                    }
+                }
                 #add_newtask2{
                     &:hover{
                         background-color: $color_background;
                     }
                 }
                 #cancel2{
+                    &:hover{
+                        background-color: $color_background;
+                    }
+                }
+                #change2{
+                    display: none;
+                    &:hover{
+                        background-color: $color_background;
+                    }
+                }
+                #add_newtask_today{
+                    &:hover{
+                        background-color: $color_background;
+                    }
+                }
+                #cancel_today{
                     &:hover{
                         background-color: $color_background;
                     }
@@ -399,6 +444,20 @@ body{
             z-index: 400;
         }
         #footer_main{
+            
+            background-repeat: no-repeat;
+            background-size: 30%;
+            height: 50%;
+            background-position: top;
+            display: flex;
+            align-items: flex-end;
+            
+            p{
+                width: 100%;
+                text-align: center;
+            }
+        }
+        #footer_today{
             
             background-repeat: no-repeat;
             background-size: 30%;
@@ -432,6 +491,9 @@ body{
                 }
             }
         }
+    }
+    #main_today{
+        display: none;
     }
     *{
         box-sizing: border-box;

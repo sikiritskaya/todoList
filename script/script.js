@@ -1,27 +1,12 @@
-
-document.querySelector('header').addEventListener('click', (e)=>{
-    if(e.target.closest('.burger')){
-        document.querySelector('.menu').classList.toggle('er_message')
-    }
-})
-let accord = document.querySelectorAll('.accordeon')
-    for(let some of accord){
-        some.addEventListener('click',()=>{
-            some.nextElementSibling.classList.toggle('panel') 
-            some.classList.toggle('test')
-    })
-}
-
-
-
 //modals
 let user = document.querySelector('#user')
 let header = document.querySelector('header')
 let search = document.querySelector('#search')
 let helloModal=document.querySelector('#hello')
 let nameMain = document.querySelector('#name_folder')
-let addTask2 = document.querySelector('.add_task2')
+let addTask2 = document.querySelector('#add_task2')
 let addTask = document.querySelector('.add_task')
+let addTaskToday = document.querySelector('#add_task_today')
 //modal Login
 let btnEnter = document.querySelector('#btn_enter')
 let modalLogin = document.forms.regist_form
@@ -30,8 +15,10 @@ let inputPas = modalLogin.elements.q2
 //let stayOn = modalLogin.elements.stayOn
 let error1 = document.querySelector('#er-mes1')
 let error2 = document.querySelector('#er-mes2')
+let error9 = document.querySelector('#er-mes9')
 
 //modal Register
+let letters = /^[\w]{1}[\w-\.]*@[\w-]+\.[a-z]{2,4}$/i
 let btnSubmit = document.querySelector('#btn_submit')
 let modalRegist = document.forms.regist_form2
 let creator = modalRegist.elements.creator
@@ -45,17 +32,29 @@ let error5 = document.querySelector('#er-mes5')
 let error6 = document.querySelector('#er-mes6')
 let error7 = document.querySelector('#er-mes7')
 let error8 = document.querySelector('#er-mes8')
+let error10 = document.querySelector('#er-mes10')
 
-
-
+//аккордион
+let accord = document.querySelectorAll('.accordeon')
+    for(let some of accord){
+        some.addEventListener('click',()=>{
+            some.nextElementSibling.classList.toggle('panel') 
+            some.classList.toggle('test')
+    })
+}
+//валидация первой формы
 function firstValid(){
     if(inputName.value.length < 1){
         error1.classList.remove('er_message')
         inputName.style.borderColor="red"
     }
+    if(inputName.value[0] && !letters.test(inputName.value)){
+        error9.classList.remove('er_message')
+        inputName.style.borderColor="red"
+    }
 }
 function secondValid(){
-    if(inputPas.value.length < 1){
+    if(inputPas.value.length < 6){
         error2.classList.remove('er_message')
         inputPas.style.borderColor="red"
     }
@@ -65,6 +64,7 @@ inputName.addEventListener('blur', firstValid)
 inputPas.addEventListener('blur', secondValid)
 inputName.addEventListener('focus',()=>{
     error1.classList.add('er_message')
+    error9.classList.add('er_message')
     inputName.style.borderColor="black"
 })
 inputPas.addEventListener('focus',()=>{
@@ -77,7 +77,7 @@ btnEnter.addEventListener('click',(e)=>{
     e.preventDefault()
 })
 
-//2 форма
+//валтдация 2 формы
 creator.addEventListener('blur', firstValid2)
 inputEmail.addEventListener('blur', secondValid2)
 inputPassword.addEventListener('blur', passwordValid)
@@ -91,6 +91,10 @@ function firstValid2(){
 function secondValid2(){
     if(inputEmail.value.length < 1){
         error4.classList.remove('er_message')
+        inputEmail.style.borderColor="red"
+    }
+    if(inputEmail.value[0] && !letters.test(inputEmail.value)){
+        error10.classList.remove('er_message')
         inputEmail.style.borderColor="red"
     }
 }
@@ -123,6 +127,7 @@ creator.addEventListener('focus',()=>{
 })
 inputEmail.addEventListener('focus',()=>{
     error4.classList.add('er_message')
+    error10.classList.add('er_message')
     inputEmail.style.borderColor="black"
 })
 inputPassword.addEventListener('focus',()=>{
@@ -134,7 +139,6 @@ repeatPassword.addEventListener('focus',()=>{
     error7.classList.add('er_message')
     inputPassword.style.borderColor="black"
 })
-
 btnSubmit.addEventListener('click',(e)=>{
     e.preventDefault()
     firstValid2()
@@ -146,8 +150,10 @@ btnSubmit.addEventListener('click',(e)=>{
 })
 
 
-
 document.addEventListener('click',(e)=>{
+    if(e.target.closest('.burger')){
+        document.querySelector('.menu').classList.toggle('er_message')
+    }
     if(e.target.closest('#user')){
         modalLogin.classList.remove('er_message')
         document.querySelector('.modal_window').style.opacity="0.5"
@@ -158,8 +164,6 @@ document.addEventListener('click',(e)=>{
     }
     if(e.target.closest('#plus')){
         addTask.classList.remove('er_message')
-        //addTask.classList.add('add_task')
-        //document.querySelector('#q1').focus()
         document.querySelector('.modal_window').style.opacity="0.5"
     }
     if(e.target.closest('#add_newtask')){
@@ -168,7 +172,6 @@ document.addEventListener('click',(e)=>{
     }
     if(e.target.closest('#cancel')){
         addTask.classList.add('er_message')
-        //addTask2.classList.remove('add_task')
         document.querySelector('.modal_window').style.opacity="0"
     }
     if(e.target.closest('#closeModal1')){
@@ -184,17 +187,21 @@ document.addEventListener('click',(e)=>{
         document.querySelector('.modal_window').style.opacity="0"
     }
     if(e.target.closest('#inbox')){
-        nameMain.textContent = document.querySelector('#inbox').lastElementChild.textContent
         document.querySelector('.drag_drop').style.display="none"
-        document.querySelector('.main_page').style.display='block'
-    }
-    if(e.target.closest('#today')){
-        nameMain.textContent = document.querySelector('#today').lastElementChild.textContent
+        document.querySelector('#main_inbox').style.display='block'
+        document.querySelector('#main_today').style.display='none'
     }
     if(e.target.closest('#plus2')){
         addTask2.classList.remove('er_message')
     }
+    if(e.target.closest('#plusToday')){
+        addTaskToday.classList.remove('er_message')
+    }
     if(e.target.closest('#cancel2')){
+        if(document.querySelector('#change').style.display='inline'){
+            document.querySelector('#change').style.display='none'
+            document.querySelector('#add_newtask2').style.display='inline'
+        }
         addTask2.classList.add('er_message')
         addTask2.classList.remove('add_task')
         document.querySelector('.modal_window').style.opacity="0"
@@ -221,13 +228,9 @@ document.addEventListener('click',(e)=>{
     //переключение между окнами
     if(e.target.closest('#projects')){
         document.querySelector('.drag_drop').style.display="flex"
-        document.querySelector('.main_page').style.display="none"
+        document.querySelector('#main_inbox').style.display="none"
+        document.querySelector('#main_today').style.display='none'
     }
-  /*   if(!e.target.closest('#projects')){
-        document.querySelector('.drag_drop').style.display="none"
-        document.querySelector('.main_page').style.display='block'
-    } */
-
 })
 //поиск
 search.addEventListener('focus', ()=>{
@@ -240,188 +243,21 @@ search.addEventListener('blur', ()=>{
 })
 
 
-const counter=()=>{
-    let count = document.querySelectorAll('.task_list').length
-    document.querySelector('#task-inbox').textContent = count
-    if(count===0){
-        document.querySelector('#task-inbox').style.opacity='0'
-        document.querySelector('#footer_main').classList.remove('busy_pic')
-        document.querySelector('#footer_main').classList.add('free_pic') 
-        document.querySelector('#footer_main').innerHTML=`
-        <p>All clear! Get some rest!</p>
-        `
-    }
-    if(count!==0){
-        document.querySelector('#task-inbox').style.opacity='1'
-        document.querySelector('#footer_main').classList.remove('free_pic')
-        document.querySelector('#footer_main').classList.add('busy_pic') 
-        document.querySelector('#footer_main').innerHTML=`
-        <p>Let's do it!</p>
-        `
-    }
-}
-// отправить на сервер
-const postData = (title,descr) => {
-    const name_input = document.querySelector(title).value;
-    const descr_input= document.querySelector(descr).value;
-    document.querySelector(title).value=''
-    document.querySelector(descr).value=''
-    fetch('http://localhost:3000/tasks',
-    {
-        method: 'POST',
-        body: JSON.stringify(
-            {
-                "title": name_input,
-                "description": descr_input
-                
-            }
-        ),
-        headers: {
-            "Content-type": "application/json; charset=utf-8"
-        }
-    }).then(
-        (response) => {
-            return response.json();
-        }
-    ).then(
-        (data)=>{
-            console.log(data);
-        }
-    )
-   
-}
-document.querySelector('#add_newtask2').addEventListener('click',()=>{ 
-    postData('#editor3', '#editor4')
+window.addEventListener('DOMContentLoaded', ()=>{
     getData()
+    getDataToday()
 })
-document.querySelector('#add_newtask').addEventListener('click',()=>{ 
-    postData('#editor1', '#editor2')
-    getData()
-})
-
-//загрузить с сервера
-const getData = () =>{
-    fetch('http://localhost:3000/tasks')
-    .then(
-        (req)=>{
-            return req.json();
-        }
-    )
-    .then(
-        (data) => {
-            //console.log(data);
-            let containerTasks = document.querySelector('.lists');
-            containerTasks.innerHTML = '';
-            data.forEach((item)=>{
-                containerTasks.innerHTML += `
-                <div class="task_list">
-                    <div data-id="${item.id}">
-                        <span class="check"><input type="checkbox" class="done"></span>
-                        <span class="title_task"">${item.title}</span>
-                        <p class="descr_task">${item.description}</p>
-                    </div>
-                    <div class="edit">
-                        <a href=#>
-                            <i class="far fa-edit"></i>
-                        </a>
-                    </div>
-                </div>
-                `
-            })
-        }
-    )
-    .catch( 
-        err =>{
-            console.log(err);
-        }
-        
-        )
-        
-}
-
-getData();
-//document.querySelector('#add_newtask2').addEventListener('click',getData)
-counter()
-
-let currentId = 0;
-
-const getIdUser = (e) =>{
-    //console.log(e.target.closest('.edit').previousElementSibling.dataset.id);
-    if(e.target.closest('.edit')){
-        return e.target.closest('.edit').previousElementSibling.dataset.id
-    }
-}
-document.addEventListener('click', (e)=>{
-    if(e.target.closest('.edit')){
-        currentId = getIdUser(e);
-        addTask2.classList.remove('er_message')
-        document.querySelector(title).value= ``
-        document.querySelector(descr).value= ``
-        document.querySelector('#add_newtask2').addEventListener('click', ()=>{
-            putData(currentId)
-            getData()
-        })
-    }
-    
-})
-
-//изменить данные
-const putData = (curId) => {
-    const name_input = document.querySelector('#editor1').value;
-    const descr_input= document.querySelector('#editor2').value;
-    fetch(`http://localhost:3000/tasks/${curId}`,
-    {
-        method: 'PUT',
-        body: JSON.stringify(
-            {
-                "title": name_input,
-                "description": descr_input 
-            }
-        ),
-        headers: {
-            "Content-type": "application/json; charset=utf-8"
-        }
-    }).then(
-        (response) => {
-            return response.json();
-        }
-    ).then(
-        (data)=>{
-            console.log(data);
-        }
-    )
-}
-
-//удалить
-
-const deleteId = (e) =>{
-    //console.log(e.target.closest('.edit').previousElementSibling.dataset.id);
-    if(e.target.closest('.check')){
-        return e.target.closest('.check').parentElement.dataset.id
-    }
-}
-document.addEventListener('click', (e)=>{
-    if(e.target.closest('.check')){
-        currentId = deleteId(e);
-        deleteData(currentId)
-    }
-    
-})
-const deleteData = (curId) => {
-    fetch(`http://localhost:3000/tasks/${curId}`,
-    {
-        method: 'DELETE'
-    })
-}
-
-
 
 //приветствие
 
+let arrHello=['"Не составлять планов - значит запланировать своё поражение" (Бенджамин Франклин)', '"Натурально, не доедешь, ежели не знаешь, куда едешь!"(Михаил Булгаков)', '"Тот, кто никогда не теряет время,не будет иметь повода жаловаться на его нехватку"(Т. Джеферсон)', '"Я должна управлять часами, а не часы - мною(Гольда Меир)"']
 
 /* let hello =()=>{ setTimeout(()=>{
     helloModal.classList.remove('er_message')
     document.querySelector('.modal_window').style.opacity="0.5"
+    let container = document.querySelector('#hello')
+    let num = Math.floor(Math.random()*arrHello.length)
+    container.lastElementChild.textContent=arrHello[num]
 }, 2000)}
-document.addEventListener('DOMContentLoaded', hello)*/
+document.addEventListener('DOMContentLoaded', hello) */
 

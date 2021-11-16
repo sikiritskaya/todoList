@@ -240,12 +240,26 @@ body .main .menu .panel {
   display: none;
 }
 
-body .main .menu .accord {
-  padding-left: 37px;
+body .main .menu .accord p {
+  padding: 10px 3px 10px 37px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
-body .main .menu .accord p {
-  padding-bottom: 10px;
+body .main .menu .accord p:hover {
+  background-color: #d4d1d1;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  border-radius: 4px;
+}
+
+body .main .menu .accord p:hover span {
+  opacity: 1;
+  cursor: pointer;
 }
 
 body .main .menu .accord p a {
@@ -253,9 +267,47 @@ body .main .menu .accord p a {
   color: #000;
 }
 
-body .main .menu .accordeon {
+body .main .menu .accord p span {
+  opacity: 0;
+  cursor: pointer;
+}
+
+body .main .menu .add_accord {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+body .main .menu .add_accord:hover {
+  background-color: #d4d1d1;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  border-radius: 4px;
+}
+
+body .main .menu .add_accord:hover .plus_acc i {
+  opacity: 1;
+}
+
+body .main .menu .add_accord .plus_acc {
+  cursor: pointer;
+}
+
+body .main .menu .add_accord .plus_acc i {
+  font-size: 15px;
+  opacity: 0;
+  color: #000;
+}
+
+body .main .menu .add_accord .accordeon {
   font-weight: 700;
-  margin-bottom: 15px;
+  height: 1.5rem;
   overflow: hidden;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -263,15 +315,18 @@ body .main .menu .accordeon {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  cursor: pointer;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
 }
 
-body .main .menu .accordeon::before {
+body .main .menu .add_accord .accordeon::before {
   content: '\203A';
   float: left;
   padding-right: 35px;
 }
 
-body .main .menu .accordeon .acc_name {
+body .main .menu .add_accord .accordeon .acc_name {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -281,34 +336,10 @@ body .main .menu .accordeon .acc_name {
   width: 100%;
 }
 
-body .main .menu .accordeon .acc_name a {
-  /* display: inline-flex;
-                        justify-content: space-between;
-                        width: 200px; */
-  text-decoration: none;
-  color: #000;
-}
-
-body .main .menu .accordeon .acc_name a i {
-  font-size: 15px;
-  opacity: 0;
-}
-
-body .main .menu .accordeon:hover {
-  background-color: #d4d1d1;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
-  border-radius: 4px;
-}
-
-body .main .menu .accordeon:hover a i {
-  opacity: 1;
-}
-
 body .main .menu .test::before {
   content: '\203A';
   float: left;
-  margin-top: 23px;
+  margin-top: 33px;
   padding-right: 24px;
   -webkit-transform: rotate(90deg);
           transform: rotate(90deg);

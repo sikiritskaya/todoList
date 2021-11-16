@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="./scss1/style1.css">
     <link rel="stylesheet" href="./scss2/style2.css">
     <link rel="stylesheet" href="./scss3/style3.css">
+    <link rel="icon" href="./images/tasks-solid.svg">
     <!-- font-family: 'Lato', sans-serif; -->
 </head>
 <body>
@@ -82,36 +83,46 @@
                         </a>
                     </div>
                 </div>
-                <div class="accordeon">
-                    <div id="projects" class="acc_name">
-                        <p>Projects</p> 
-                        <a href="#"><i class="fas fa-plus"></i>
-                        </a>
-                    </div>   
-                </div>
-                <div class="panel accord">
-                    <p><a href=#>Your projects</a></p>
-                    <p><a href=#>Boards</a></p>
-                </div>
-                <div class="accordeon">
-                    <div id="marks" class="acc_name">
-                        <p>Labels</p>
-                        <a href="#"> <i class="fas fa-plus"></i>
-                        </a>
+                <div class="add_accord">
+                    <div class="accordeon">
+                        <div class="acc_name">
+                            <p>Projects</p>    
+                        </div>      
+                    </div>
+                    <div class="plus_acc" id="projects">
+                        <i class="fas fa-plus"></i>
                     </div>
                 </div>
                 <div class="panel accord">
-                    <p>There can be difference marks</p>   
+                    <p><a href=#>Your projects</a><span class="more_info">...</span></p>
+                    <p><a href=#>Boards</a><span class="more_info">...</span></p>
                 </div>
-                <div class="accordeon">
-                    <div id="filter" class="acc_name">
-                        <p>Filters</p>
-                         <a href="#"><i class="fas fa-plus"></i>
-                        </a>
+                <div class="add_accord">
+                    <div class="accordeon">
+                        <div class="acc_name">
+                            <p>Labels</p>
+                        </div>    
+                    </div>
+                    <div class="plus_acc" id="marks">
+                        <i class="fas fa-plus"></i>
+                    </div>
+                </div>
+                <div class="panel accord" id="label_container">
+                    <p><a href=#></a><span class="more_info">...</span></p>
+                    <p><a href=#></a><span class="more_info">...</span></p>
+                </div>
+                <div class="add_accord">
+                    <div class="accordeon">
+                        <div class="acc_name">
+                            <p>Filters</p>
+                        </div>   
+                    </div>
+                    <div class="plus_acc" id="filter" >
+                        <i class="fas fa-plus"></i>
                     </div>
                 </div>
                 <div class="panel accord">
-                    <p><a href=#>Priority</a></p>  
+                    <p><a href=#>Priority</a><span class="more_info">...</span></p>  
                 </div>    
             </div>
             <div class="main_page" id="main_inbox">
@@ -223,8 +234,7 @@
                         <button id="cancel_today">Cancel</button>
                     </div>
                 </div>
-                <div id="footer_today" class="free_pic">
-                    <p>All clear! Get some rest</p>
+                <div id="footer_today">
                 </div> 
             </div>
             <!-- календарь -->
@@ -257,16 +267,38 @@
                         </div>
                         <br><br>
                         <div class="add_descr_task">
-                            <button>schedule</button>
+                            <button id="schedule">See all tasks</button>
                             <p>
                                 <a href="#" title="add labels"><i class="fas fa-tag"></i></a>
                                 <a href="#" title="set the priority"><i class="fab fa-font-awesome-flag"></i></a>
-                                <a href="#" title="add reminder "><i class="fas fa-stopwatch"></i></a>
+                                
                             </p>
                         </div>
                         <div class="btn_task">
+                            <button id="edit_cal">Edit</button>
                             <button id="add_newtask_cal">Add</button>
                             <button id="cancel_cal">Cancel</button>
+                        </div>
+                    </div>
+                    <!-- sceduele -->
+                    <div class="add_task er_message" id="add_task_schedule">
+                        <div id="seeAll">
+                            <div class="task_list task_list_sch">
+                                <!-- <div>
+                                    <span class="check check_sch"><input type="checkbox" class="done_task"></span>
+                                    <span class="title_task">33</span>
+                                    <p class="descr_task">33</p>
+                                </div> -->
+                                <div class="edit edit_sch">
+                                    <a href=#>
+                                        <i class="far fa-edit"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn_task">
+                            
+                            <button id="cancel_scedule">Cancel</button>
                         </div>
                     </div>
                 </div>
@@ -397,10 +429,14 @@
             </div>
             <div class="modal_window"></div>
             <div class="er_message" id="label">
-                <input id="inputLabel" type="text">add label
+                <span id="cancel_label2"><i class="fas fa-times"></i></span>
+                <label for="inputLabel">Label
+                <input id="inputLabel" type="text">
                 <div class="btn_task">
                     <button id="btn_label">Add</button>
+                    <button id="edit_label">Edit</button>
                     <button id="cancel_label">Cancel</button>
+                    <button id="delete_label">Delete</button>
                 </div>
             </div>
             <div class="over_modal"></div>
@@ -430,5 +466,7 @@
     <script src="./script/todaydata.js"></script>
     <script src="./script/inboxdata.js"></script>
     <script src="./script/calendar.js"></script>
+    <script src ="./script/projectdata.js"></script>
+    <script src="./script/labels.js"></script>
 </body>
 </html>

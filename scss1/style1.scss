@@ -208,62 +208,88 @@ body{
             .panel{
             display: none;
             }
-            .accord{
-                padding-left: 37px;
+            .accord{  
                 p{
-                    padding-bottom: 10px;
+                   // padding-bottom: 10px;
+                   // padding-left: 37px;
+                    //cursor: pointer;
+                    padding: 10px 3px 10px 37px;
+                    display: flex;
+                    justify-content: space-between;
+                    
+                    &:hover{
+                        background-color: $color_hover;
+                        transition: 0.5s;
+                        border-radius: 4px; 
+                        span{
+                            opacity: 1;
+                            cursor: pointer;
+                        }
+                    }
                     a{
                         @include a_text($color_text)
                     }
-                }
-            }
-            .accordeon{
-                //margin-top: 15px;
-                font-weight: 700;
-                margin-bottom: 15px;
-                overflow: hidden;
-                display: flex;
-                align-items: center;
-              // width: 90%;
-                &::before{
-                    content: '\203A';
-                    float: left;
-                    padding-right: 35px;
-                    //padding-left: 10px;
-                } 
-                .acc_name{
-                    display: flex;
-                    justify-content: space-between;
-                    width: 100%;
-                    a{
-                        /* display: inline-flex;
-                        justify-content: space-between;
-                        width: 200px; */
-                        @include a_text($color_text);
-                            i{
-                                font-size: 15px;
-                                opacity: 0;
-                            }
-                        }
-                }
-               
-            &:hover{
-                background-color: $color_hover;
-                transition: 0.5s;
-                border-radius: 4px; 
-                a{
-                    i{
-                        opacity: 1;
+                    span{
+                        opacity: 0;
+                        cursor: pointer;
                     }
                 }
+               
             }
-          
-        }
+            .add_accord{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                &:hover{
+                    background-color: $color_hover;
+                    transition: 0.5s;
+                    border-radius: 4px; 
+                    .plus_acc{
+                        i{
+                            opacity: 1;
+                        }
+                    }
+                }
+                .plus_acc{
+                    cursor: pointer;
+                    i{
+                        font-size: 15px;
+                        opacity: 0;
+                        color: $color_text;
+                    }
+                }
+                .accordeon{
+                    //margin-top: 15px;
+                    font-weight: 700;
+                    height: 1.5rem;
+                    //margin-bottom: 15px;
+                    overflow: hidden;
+                    display: flex;
+                    align-items: center;
+                    cursor: pointer;
+                    transition: 0.5s;
+                // width: 90%;
+                    &::before{
+                        content: '\203A';
+                        float: left;
+                        padding-right: 35px;
+                        //padding-left: 10px;
+                    } 
+                    .acc_name{
+                        display: flex;
+                        justify-content: space-between;
+                        width: 100%;   
+                    
+                    }
+                
+                }
+            }
+   
         .test{
             &::before{
                 content: '\203A';
                 float: left;
-                margin-top: 23px;
+                margin-top: 33px;
                 padding-right: 24px;
                 //padding-left: 10px;
                 transform: rotate(90deg); 

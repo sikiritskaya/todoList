@@ -155,21 +155,73 @@ $color_i:rgb(77, 74, 74);
                     @include a_text($color_text);
                 }
             }
-            .btn_task{
-                margin-top: 20px;
-                #add_newtask_cal{
-                    &:hover{
-                        background-color: $color_background;
+            
+        }
+        #cancel_sch{
+            position: absolute;
+            i{
+                color: red;
+            }
+        }
+        .task_list{
+            margin-top: 10px;
+            display: flex;
+            justify-content: space-between;
+            &:hover{
+                .edit{
+                    a{
+                        opacity: 1;
                     }
-                }
-                #cancel_cal{
-                    &:hover{
-                        background-color: $color_background;
+                    .done{
+                        opacity: 1;
                     }
                 }
             }
+            div{
+                .done_task{
+                    opacity: 0;
+                    width: 1em;
+                    height: 1em;
+                    background-color: white;
+                    border-radius: 50%;
+                    vertical-align: middle;
+                    border: 1px solid $color_hover;
+                    appearance: none;
+                    -webkit-appearance: none;
+                    outline: none;
+                    cursor: pointer;
+                    &:hover{
+                        opacity: 1;
+                    }
+                    &:checked{
+                        background-color:$color_background;
+                    }
+                }
+                .descr_task{
+                    padding-left: 23px;
+                }
+            }
+            .edit{
+                //width: 2rem;
+                a{
+                    @include a_text($color_text);
+                    opacity: 0;
+                }
+              
+            }
         }
-        
+        .btn_task{
+            margin-top: 20px;
+            display: flex;
+            button{
+                &:hover{
+                    background-color: $color_background;
+                }
+            }
+            #edit_cal{
+                display: none;
+            }
+        }
 
     }
 }

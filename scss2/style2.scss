@@ -248,7 +248,7 @@ $color_i:rgb(77, 74, 74);
     }
     #label{
         border-radius: 5px;
-        width: 40%;
+        width: 35%;
         background-color: $color_form;
         font-size: 14px;
         text-align: center;
@@ -256,6 +256,27 @@ $color_i:rgb(77, 74, 74);
         position: relative;
         margin: -570px auto;
         z-index: 200;
+        span{
+            position: absolute;
+            top:0;
+            right: 0;
+            cursor: pointer;
+        }
+        .btn_task{
+            margin-top: 20px;
+            display: flex;
+            button{
+                &:hover{
+                    background-color: $color_background;
+                }
+            }
+            #edit_label{
+                display: none;
+            }
+            #delete_label{
+                display:none;
+            }
+        }
     }
  
     .over_modal{

@@ -4,7 +4,7 @@ let draggableTodo = null
 let btnAdd = document.querySelector('#add_btn')
 let adDTask = document.querySelector('.add_task_todo')
 let closeBtn = document.querySelectorAll('.close')
-
+let dataset_num = 1
 
 function dragStart(){
     draggableTodo = this
@@ -13,12 +13,15 @@ function dragStart(){
     },0)
     //console.log('dragstart')
 }
-function dragEnd(){
+function dragEnd(e){
     draggableTodo = null
     setTimeout(()=>{
         this.style.display="block"
     },0)
-    console.log('dragend')
+    dataset_num = e.target.parentElement.dataset.num
+    console.log('dragend',e.target.parentElement.dataset.num)
+    patchProjectData(dataset_num)
+    //switch case
 }
 function dragOver(e){
     e.preventDefault()
@@ -38,7 +41,10 @@ function dragDrop(){
 
 todos.forEach((todo)=>{
     todo.addEventListener('dragstart', dragStart)
-    todo.addEventListener('dragend', dragEnd)
+    todo.addEventListener('dragend', (e)=>{
+        dragEnd(e)
+        
+    })
 })
 allStatus.forEach((status)=>{
     status.addEventListener('dragover', dragOver)
@@ -63,7 +69,9 @@ document.addEventListener('click',(e)=>{
         document.querySelector('.over_modal').style.opacity="0"
     }
 })
-document.querySelector('#add_newtask3').addEventListener('click', createTodo)
+document.querySelector('#add_newtask3').addEventListener('click',(e)=>{
+    createTodo()
+} )
  function createTodo(){
     let name=document.querySelector('#editor5').value
     let descr=document.querySelector('#editor6').value
@@ -78,12 +86,16 @@ document.querySelector('#add_newtask3').addEventListener('click', createTodo)
     
     todo_div.classList.add('todo')
     todo_div.setAttribute('draggable', 'true')
+    
     document.querySelector('#no_status').appendChild(todo_div)
+    dataset_num=todo_div.parentElement.dataset.num
     todo_div.addEventListener('dragstart', dragStart)
     todo_div.addEventListener('dragend', dragEnd)
+    
     document.querySelector('#editor5').value=''
     document.querySelector('#editor6').value=''
     removeTodo()
+    postDataProject(name, descr, dataset_num)
 }
 function removeTodo(){
     let closeBtn = document.querySelectorAll('.close')

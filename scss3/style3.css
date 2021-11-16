@@ -194,16 +194,78 @@ table {
   color: #000;
 }
 
-.main_cal .container_cal .add_task .btn_task {
+.main_cal .container_cal #cancel_sch {
+  position: absolute;
+}
+
+.main_cal .container_cal #cancel_sch i {
+  color: red;
+}
+
+.main_cal .container_cal .task_list {
+  margin-top: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.main_cal .container_cal .task_list:hover .edit a {
+  opacity: 1;
+}
+
+.main_cal .container_cal .task_list:hover .edit .done {
+  opacity: 1;
+}
+
+.main_cal .container_cal .task_list div .done_task {
+  opacity: 0;
+  width: 1em;
+  height: 1em;
+  background-color: white;
+  border-radius: 50%;
+  vertical-align: middle;
+  border: 1px solid #d4d1d1;
+  -moz-appearance: none;
+       appearance: none;
+  -webkit-appearance: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.main_cal .container_cal .task_list div .done_task:hover {
+  opacity: 1;
+}
+
+.main_cal .container_cal .task_list div .done_task:checked {
+  background-color: #f7c5cdee;
+}
+
+.main_cal .container_cal .task_list div .descr_task {
+  padding-left: 23px;
+}
+
+.main_cal .container_cal .task_list .edit a {
+  text-decoration: none;
+  color: #000;
+  opacity: 0;
+}
+
+.main_cal .container_cal .btn_task {
   margin-top: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
-.main_cal .container_cal .add_task .btn_task #add_newtask_cal:hover {
+.main_cal .container_cal .btn_task button:hover {
   background-color: #f7c5cdee;
 }
 
-.main_cal .container_cal .add_task .btn_task #cancel_cal:hover {
-  background-color: #f7c5cdee;
+.main_cal .container_cal .btn_task #edit_cal {
+  display: none;
 }
 
 #task_cal {

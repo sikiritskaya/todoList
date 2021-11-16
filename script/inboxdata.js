@@ -1,5 +1,6 @@
-const counter=()=>{
-    let count = document.getElementsByClassName('task_list_inbox').length
+//let count = 0
+const counter=(count)=>{
+    //let count = document.getElementsByClassName('task_list_inbox').length
     document.querySelector('#task-inbox').textContent = count
     if(count===0){
         document.querySelector('#task-inbox').style.opacity='0'
@@ -24,6 +25,12 @@ const postData = async (title,descr) => {
     const descr_input= document.querySelector(descr).value;
     document.querySelector(title).value=''
     document.querySelector(descr).value=''
+    let dt = new Date()
+    let date = dt.toLocaleDateString('en-gb',{
+        year: 'numeric',
+        month: 'numeric',
+        day: 'numeric',
+    })
    /*  let taskObj = {
         "title": name_input,
         "description": descr_input
@@ -34,7 +41,8 @@ const postData = async (title,descr) => {
         body: JSON.stringify(
             {
                 "title": name_input,
-                "description": descr_input
+                "description": descr_input,
+                "date": date
                 
             }
         ),
@@ -58,6 +66,7 @@ document.querySelector('#add_newtask').addEventListener('click',()=>{
 })
 
 //загрузить с сервера
+
 const getData = async(term) =>{
     let URL_DATA = 'http://localhost:3000/tasks'
     if(term){
@@ -67,6 +76,7 @@ const getData = async(term) =>{
     const data = await res.json()
     let containerTasks = document.querySelector('#list_inbox');
     containerTasks.innerHTML = '';
+    //count=data.length
     data.forEach((item)=>{
         containerTasks.innerHTML += `
                 <div class="task_list task_list_inbox">
@@ -83,7 +93,7 @@ const getData = async(term) =>{
                 </div>
                 `
     })
-    counter()
+    counter(data.length)
 } 
 
 let currentId = 0;
@@ -97,10 +107,12 @@ document.querySelector('#main_inbox').addEventListener('click', (e)=>{
         currentId = getIdUser(e);
         let btnAdd= document.querySelector('#add_newtask2')
         let btnChange = document.querySelector('#change')
+        console.log(e.target.parentElement.parentElement.previousElementSibling.children[2])
+        document.querySelector('#editor3').value = e.target.parentElement.parentElement.previousElementSibling.children[1].textContent
+        document.querySelector('#editor4').value = e.target.parentElement.parentElement.previousElementSibling.children[2].textContent
         addTask2.classList.remove('er_message')
         btnAdd.style.display = "none"
         btnChange.style.display="inline"
-       
         
     }
     

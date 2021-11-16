@@ -38,8 +38,8 @@ let error10 = document.querySelector('#er-mes10')
 let accord = document.querySelectorAll('.accordeon')
     for(let some of accord){
         some.addEventListener('click',()=>{
-            some.nextElementSibling.classList.toggle('panel') 
-            some.classList.toggle('test')
+        some.parentElement.nextElementSibling.classList.toggle('panel') 
+        some.classList.toggle('test')
     })
 }
 //валидация первой формы
@@ -77,7 +77,7 @@ btnEnter.addEventListener('click',(e)=>{
     e.preventDefault()
 })
 
-//валтдация 2 формы
+//валидация 2 формы
 creator.addEventListener('blur', firstValid2)
 inputEmail.addEventListener('blur', secondValid2)
 inputPassword.addEventListener('blur', passwordValid)
@@ -190,6 +190,7 @@ document.addEventListener('click',(e)=>{
         document.querySelector('.drag_drop').style.display="none"
         document.querySelector('#main_inbox').style.display='block'
         document.querySelector('#main_today').style.display='none'
+        document.querySelector('#task_cal').style.display="none"
     }
     if(e.target.closest('#plus2')){
         addTask2.classList.remove('er_message')
@@ -204,6 +205,8 @@ document.addEventListener('click',(e)=>{
         }
         addTask2.classList.add('er_message')
         addTask2.classList.remove('add_task')
+        document.querySelector('#editor3').value=''
+        document.querySelector('#editor4').value=''
         document.querySelector('.modal_window').style.opacity="0"
     }
     if(e.target === search.nextElementSibling){
@@ -224,12 +227,23 @@ document.addEventListener('click',(e)=>{
         document.querySelector('#label').classList.remove('er_message')
         document.querySelector('.modal_window').style.opacity="0.5"
     }
+    if(e.target.closest('#cancel_label') || e.target.closest('#cancel_label2') || e.target.closest('#delete_label')){
+        document.querySelector('#inputLabel').value=''
+        document.querySelector('#label').classList.add('er_message')
+        document.querySelector('.modal_window').style.opacity="0"
+        document.querySelector('#delete_label').style.display="none"
+        document.querySelector('#edit_label').style.display="none"
+        document.querySelector('#btn_label').style.display="flex"
+        document.querySelector('#cancel_label').style.display="flex"
+    }
+  
 
     //переключение между окнами
     if(e.target.closest('#projects')){
         document.querySelector('.drag_drop').style.display="flex"
         document.querySelector('#main_inbox').style.display="none"
         document.querySelector('#main_today').style.display='none'
+        document.querySelector('#task_cal').style.display="none"
     }
 })
 //поиск

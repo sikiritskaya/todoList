@@ -24,6 +24,12 @@ const postDataToday = async () => {
     const descr_input= document.querySelector('#editor8').value;
     document.querySelector('#editor7').value=''
     document.querySelector('#editor8').value=''
+    let dt = new Date()
+    let date = dt.toLocaleDateString('en-gb',{
+        year: 'numeric',
+        month: 'numeric',
+        day: 'numeric',
+    })
    /*  let taskObj = {
         "title": name_input,
         "description": descr_input
@@ -34,8 +40,8 @@ const postDataToday = async () => {
         body: JSON.stringify(
             {
                 "title": name_input,
-                "description": descr_input
-                
+                "description": descr_input,
+                "date": date
             }
         ),
         headers: {
@@ -55,13 +61,11 @@ document.querySelector('#add_newtask_today').addEventListener('click',()=>{
 //загрузить с сервера
 const getDataToday = async() =>{
     let URL_TODAY = 'http://localhost:3000/today'
-/*     if(term){
-        URL_DATA += `?_sort=id&_order=desc&q=${term}`
-    } */
     const res = await fetch(URL_TODAY)
     const data = await res.json()
     let containerTasks = document.querySelector('#list_today');
     containerTasks.innerHTML = '';
+    //console.log(data)
     data.forEach((item)=>{
         containerTasks.innerHTML += `
                 <div class="task_list task_list_today">

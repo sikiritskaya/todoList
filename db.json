@@ -1,60 +1,86 @@
 {
   "tasks": [
     {
-      "title": "111",
-      "description": "",
-      "id": 2
-    }
-  ],
-  "today": [],
-  "calendar": [
-    {
-      "title": "1",
-      "description": "11",
-      "id": 1,
-      "date": "27/11/2021"
-    },
-    {
-      "date": "24/11/2021",
-      "title": "",
-      "description": "",
-      "id": 2
-    },
-    {
-      "date": "19/11/2021",
-      "title": "111",
-      "description": "",
-      "id": 3
-    },
-    {
-      "date": "10/11/2021",
-      "title": "do smth",
-      "description": "with",
+      "title": "eee",
+      "description": "ddd",
+      "date": "16/11/2021",
       "id": 4
     },
     {
-      "date": "11/11/2021",
-      "title": "333",
+      "title": "fghj",
       "description": "",
+      "date": "16/11/2021",
+      "id": 5
+    }
+  ],
+  "today": [
+    {
+      "title": "fdxgfgvhbnm",
+      "description": "",
+      "date": "16/11/2021",
+      "id": 2
+    }
+  ],
+  "calendar": [
+    {
+      "date": "11/11/2021",
+      "title": "eryu",
+      "description": "",
+      "id": 24
+    },
+    {
+      "title": "9876",
+      "description": "",
+      "id": 27
+    },
+    {
+      "title": "5566",
+      "description": "",
+      "id": 28
+    },
+    {
+      "date": "8/11/2021",
+      "title": "123",
+      "description": "44444",
+      "id": 29
+    }
+  ],
+  "projects": [
+    {
+      "title": "777",
+      "description": "",
+      "num": 2,
+      "id": 1
+    },
+    {
+      "title": "555",
+      "description": "888",
+      "num": "1",
+      "id": 3
+    },
+    {
+      "title": "999",
+      "description": "333",
+      "num": "1",
+      "id": 4
+    },
+    {
+      "title": "еенг",
+      "description": "",
+      "num": "1",
       "id": 5
     },
     {
-      "date": "24/11/2021",
-      "title": "",
-      "description": "",
+      "title": "ghk",
+      "description": " bnnn",
+      "num": "1",
       "id": 6
-    },
+    }
+  ],
+  "labels": [
     {
-      "date": "27/11/2021",
-      "title": "444",
-      "description": "",
-      "id": 7
-    },
-    {
-      "date": "12/11/2021",
-      "title": "333",
-      "description": "",
-      "id": 8
+      "title": "bvb",
+      "id": 1
     }
   ]
 }

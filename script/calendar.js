@@ -5,6 +5,15 @@ document.addEventListener('click',(e)=>{
         document.querySelector('#main_inbox').style.display='none'
         document.querySelector('#main_today').style.display='none'
     }
+    if(e.target.closest('.edit_sch')){
+        modal_cal.classList.remove('er_message')
+        document.querySelector('.modal_window_cal').style.opacity="0.5"
+        document.querySelector('#schedule').style.opacity="0"
+        document.querySelector('#add_newtask_cal').style.display="none"
+        document.querySelector('#edit_cal').style.display="flex"
+        currentId = getIdChange(e)
+    }
+   
 })
 function closeModalCal(){
     modal_cal.classList.add('er_message')
@@ -24,14 +33,102 @@ const calendar = document.querySelector('#calendar')
 let modal_cal=document.querySelector('#add_task_calendar')
 let taskCal=document.querySelector('#editor9')
 let taskCalDescr=document.querySelector('#editor10')
+let allSchedule = document.querySelector('#add_task_schedule')
 
-
-
-const getTaskCal = async() =>{
+const getTaskCal = async(dayString,daySquare) =>{
     let URL_TODAY = 'http://localhost:3000/calendar'
     const res = await fetch(URL_TODAY)
     const data = await res.json()
+    data.forEach(item => {
+    if(item.date === dayString){
+        const eventDiv = document.createElement('div');
+        eventDiv.innerText = item.title;
+        eventDiv.setAttribute("data-id", item.id)
+        daySquare.appendChild(eventDiv);
+    }
+})
+}
+const getDayTasks=async()=>{
+    let URL_TODAY = 'http://localhost:3000/calendar'
+    const res = await fetch(URL_TODAY)
+    const data = await res.json()
+    let container = document.querySelector('#seeAll')
+    container.innerHTML=""
+    data.forEach(item => {
+        if(item.date === clicked){
+            container.innerHTML+=`
+            <div class="task_list task_list_sch">
+                <div data-show="${item.id}">
+                    <span class="check check_sch"><input type="checkbox" class="done_task"></span>
+                    <span class="title_task">${item.title}</span>
+                    <p class="descr_task">${item.description}</p>
+                </div>
+                <div class="edit edit_sch">
+                    <a href=#>
+                        <i class="far fa-edit"></i>
+                    </a>
+                </div>
+            </div>    
+            `
+        }
+    })
+}
+const getIdSch=(e)=>{
+    if(e.target.closest('.check_sch')){
+        //console.log(e.target.closest('.check_sch').parentElement)
+        return e.target.closest('.check_sch').parentElement.dataset.show
+    }
+}
+const getIdChange=(e)=>{
+    if(e.target.closest('.edit_sch')){
+        console.log(e.target.closest('.edit_sch').previousElementSibling)
+        return e.target.closest('.edit_sch').previousElementSibling.dataset.show
+    }
+}
+document.querySelector('#seeAll').addEventListener('click', (e)=>{
+     if(e.target.closest('.check_sch')){
+        currentId = getIdSch(e);
+        //console.log(currentId)
+        deleteDataSch(currentId)
+    }
     
+})
+document.querySelector('#edit_cal').addEventListener('click', (e)=>{
+    //currentId=getIdChange(e)
+    console.log(currentId)
+    changeSchedule(currentId)
+})
+const changeSchedule=async(curId)=>{
+    await fetch(`http://localhost:3000/calendar/${curId}`,
+    {
+        method: 'PATCH',
+        body: JSON.stringify(
+            {
+                
+                "title": taskCal.value,
+                "description": taskCalDescr.value
+                
+            }
+        ),
+        headers: {
+            "Content-type": "application/json; charset=utf-8"
+        }
+    })
+   
+    closeModalCal()
+    //getTaskCal()
+   
+
+}
+const deleteDataSch = async(curId) => {
+  await fetch(`http://localhost:3000/calendar/${curId}`,
+    {
+        method: 'DELETE'
+    })
+    load()
+
+}
+function load(){    
     const dt = new Date()
     if(nav !== 0){
         dt.setMonth(new Date().getMonth() + nav)
@@ -61,17 +158,13 @@ const getTaskCal = async() =>{
         daySquare.classList.add('day')
         const dayString = `${i-paddingDays}/${month+1}/${year}`
         if(i > paddingDays){
-
-            data.forEach(item => {
-                if(item.date === dayString){
-                    const eventDiv = document.createElement('div');
-                    eventDiv.innerText = item.title;
-                    daySquare.appendChild(eventDiv);
-                }
-            });
+            getTaskCal(dayString,daySquare)
             //console.log(data)
             daySquare.textContent = i-paddingDays            
-            daySquare.addEventListener('click',()=> showModal(dayString))
+            daySquare.addEventListener('click',()=> {
+                
+                showModal(dayString)
+            })
         }else{
             daySquare.classList.add('padding')
         }
@@ -81,74 +174,42 @@ const getTaskCal = async() =>{
 
 
 const showModal=(date)=>{
-    clicked=date
-    const eventForDay = events.find(e =>e.date===clicked)
-    if(eventForDay){
-        console.log('!!!!')
-    }else{
+        clicked=date
         modal_cal.classList.remove('er_message')
         document.querySelector('.modal_window_cal').style.opacity="0.5"
-    }
-}
-/* function load(){
-    const dt = new Date()
-    if(nav !== 0){
-        dt.setMonth(new Date().getMonth() + nav)
-    }
-    const day = dt.getDate()
-    const month =dt.getMonth()
-    const year = dt.getFullYear()
-    //console.log(day, month,year)
-    const daysInMonth = new Date(year, month + 1, 0).getDate()//первый день - 1 след. месяца
-    //console.log(daysInMonth)
-    const firstDayOfMonth = new Date(year, month, 1)
-    const dateString = firstDayOfMonth.toLocaleDateString('en-gb',{
-        weekday: 'long',
-        year: 'numeric',
-        month: 'numeric',
-        day: 'numeric',
-    })
-    //console.log(dateString)
-    const paddingDays = weekdays.indexOf(dateString.split(', ')[0])
-    document.querySelector('#monthDisplay').textContent=`${dt.toLocaleDateString('en-eg',{
-        month: 'long'
-    })} ${year}`
-    //console.log(paddingDays)
-    calendar.innerHTML ='' 
-    for(let i=1; i<=paddingDays+daysInMonth; i++){
-        const daySquare = document.createElement('div')
-        daySquare.classList.add('day')
-        const dayString = `${i-paddingDays}/${month+1}/${year}`
-        if(i > paddingDays){ 
-            const eventForDay = events.find((e)=>e.date===dayString)
-            console.log(eventForDay)
-            daySquare.textContent = i-paddingDays
-            if(eventForDay){
-                const eventDiv = document.createElement('div');
-                eventDiv.classList.add('event');
-                eventDiv.innerText = eventForDay.title;
-                daySquare.appendChild(eventDiv);
-            }
-            
-            daySquare.addEventListener('click',()=> showModal(dayString))
-        }else{
-            daySquare.classList.add('padding')
+        getDayTasks()
+/*         let allTask= document.querySelectorAll('.task_list_sch')
+        if(allTask.length===0){
+            document.querySelector('#schedule').style.opacity="0.5"
         }
-        calendar.appendChild(daySquare)
-    }
-} */
-/* function saveEvent(){
-    if(taskCal.value.trim() !==''){
-        events.push({
-            date: clicked,
-            title: taskCal.value,
-            description: taskCalDescr.value
-        })
-        closeModalCal()
-        localStorage.setItem('events', JSON.stringify(events))
-    }
-} */
+        if(allTask.length!==0){
+            document.querySelector('#schedule').style.opacity="1"
+        } */  //не знаю куда всунуть эту проверку, чтоб, если дел нет, то кнопка была полупрозрачная и неактивная
+        
+        
 
+    
+}
+const showSchedule =()=>{
+        modal_cal.classList.add('er_message')
+        allSchedule.classList.remove('er_message')
+        //document.querySelector('.modal_window_cal').style.opacity="0.5"
+}
+const closeSchedule=()=>{
+    //modal_cal.classList.remove('er_message')
+    allSchedule.classList.add('er_message')
+    document.querySelector('.modal_window_cal').style.opacity="0"
+}
+
+document.querySelector('#schedule').addEventListener('click', (e)=>{
+    showSchedule()
+    //getDayTasks()
+})
+allSchedule.addEventListener('click', (e)=>{
+    if(e.target.closest('#cancel_scedule')){
+        closeSchedule()
+    }
+})
  const postDataCal = async () => {
     //document.querySelector('#editor9').value=''
     //document.querySelector('#editor10').value=''
@@ -167,8 +228,9 @@ const showModal=(date)=>{
             "Content-type": "application/json; charset=utf-8"
         }
     })
+   
     closeModalCal()
-    getTaskCal()
+    load()
    
 }
 document.querySelector('#add_newtask_cal').addEventListener('click', postDataCal) 
@@ -177,18 +239,16 @@ document.querySelector('#add_newtask_cal').addEventListener('click', postDataCal
 const initButtons=()=>{
     document.querySelector('#nextButton').addEventListener('click', ()=>{
         nav++
-        getTaskCal()
-        //load()
+        load()
     })
     document.querySelector('#backButton').addEventListener('click', ()=>{
         nav--
-        getTaskCal()
-        //load()
+        load()
     })
     //document.querySelector('#add_newtask_cal').addEventListener('click', saveEvent)
    document.querySelector('#cancel_cal').addEventListener('click', closeModalCal)
    
 }
-getTaskCal()
+//getTaskCal()
 initButtons()
-//load()
+load()

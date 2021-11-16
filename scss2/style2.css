@@ -277,7 +277,7 @@ table {
 
 .modals #label {
   border-radius: 5px;
-  width: 40%;
+  width: 35%;
   background-color: #fff;
   font-size: 14px;
   text-align: center;
@@ -285,6 +285,32 @@ table {
   position: relative;
   margin: -570px auto;
   z-index: 200;
+}
+
+.modals #label span {
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+}
+
+.modals #label .btn_task {
+  margin-top: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.modals #label .btn_task button:hover {
+  background-color: #f7c5cdee;
+}
+
+.modals #label .btn_task #edit_label {
+  display: none;
+}
+
+.modals #label .btn_task #delete_label {
+  display: none;
 }
 
 .modals .over_modal {

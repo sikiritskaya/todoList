@@ -31,12 +31,12 @@ document.querySelector('#main_today').addEventListener('click',(e)=>{
 const todayDate=()=>{
     let container = document.querySelector('#name_today')
     const dt = new Date()
-    dtToday = dt.toLocaleDateString('en-gb',{
+    let dtToday = dt.toLocaleDateString('en-gb',{
         weekday: 'long',
         year: 'numeric',
         month: 'numeric',
         day: 'numeric',
     })
-    container.textContent =dtToday
+    container.textContent = dtToday
 }
 todayDate()

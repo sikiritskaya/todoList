@@ -498,7 +498,18 @@ body .main_page .add_task2 .add_descr_task {
           justify-content: space-between;
 }
 
-body .main_page .add_task2 .add_descr_task a {
+body .main_page .add_task2 .add_descr_task div {
+  position: relative;
+}
+
+body .main_page .add_task2 .add_descr_task div .labelList {
+  position: absolute;
+  top: 10px;
+  z-index: 20;
+  background-color: #fff;
+}
+
+body .main_page .add_task2 .add_descr_task div a {
   text-decoration: none;
   color: #000;
 }

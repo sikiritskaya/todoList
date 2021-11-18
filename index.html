@@ -23,7 +23,7 @@
                     <a href="#" class="burger" title="close menu">
                         <i class="fas fa-bars"></i> 
                     </a>
-                    <a href="#">
+                    <a href="#"  class="home">
                         <i class="fas fa-home" title="home"></i>
                     </a>
                 </div>
@@ -93,7 +93,7 @@
                         <i class="fas fa-plus"></i>
                     </div>
                 </div>
-                <div class="panel accord">
+                <div class="panel accord" id="project_container">
                     <p><a href=#>Your projects</a><span class="more_info">...</span></p>
                     <p><a href=#>Boards</a><span class="more_info">...</span></p>
                 </div>
@@ -164,11 +164,14 @@
                     <br><br>
                     <div class="add_descr_task">
                         <button>schedule</button>
-                        <p>
-                            <a href="#" title="add labels"><i class="fas fa-tag"></i></a>
+                        <div>
+                            <ul class="er_message labelList">
+                                <li>44</li>
+                            </ul>
+                            <a href="#" class="label_name" title="add labels"><i class="fas fa-tag"></i></a>
                             <a href="#" title="set the priority"><i class="fab fa-font-awesome-flag"></i></a>
-                            <a href="#" title="add reminder "><i class="fas fa-stopwatch"></i></a>
-                        </p>
+                           <!--  <a href="#" title="add reminder "><i class="fas fa-stopwatch"></i></a> -->
+                        </div>
                     </div>
                     <div class="btn_task">
                         <button id="change">Change</button>
@@ -225,7 +228,7 @@
                         <p>
                             <a href="#" title="add labels"><i class="fas fa-tag"></i></a>
                             <a href="#" title="set the priority"><i class="fab fa-font-awesome-flag"></i></a>
-                            <a href="#" title="add reminder "><i class="fas fa-stopwatch"></i></a>
+                            <!-- <a href="#" title="add reminder "><i class="fas fa-stopwatch"></i></a> -->
                         </p>
                     </div>
                     <div class="btn_task">
@@ -406,7 +409,7 @@
                 </div>
             </form>
             <div class="modal_window"></div>
-            <div class="add_task er_message">
+            <div class="add_task er_message" id="add_task">
                 <div class="task_input">
                     <input id="editor1" type="text" placeholder="e.g., send mail">
                 </div>
@@ -419,7 +422,7 @@
                     <p>
                         <a href="#" title="add labels"><i class="fas fa-tag"></i></a>
                         <a href="#" title="set the priority"><i class="fab fa-font-awesome-flag"></i></a>
-                        <a href="#" title="add reminder "><i class="fas fa-stopwatch"></i></a>
+                        <!-- <a href="#" title="add reminder "><i class="fas fa-stopwatch"></i></a> -->
                     </p>
                 </div>
                 <div class="btn_task">
@@ -438,6 +441,23 @@
                     <button id="cancel_label">Cancel</button>
                     <button id="delete_label">Delete</button>
                 </div>
+            </div>
+            <!-- модальное для project -->
+            <!-- <div class="over_modal"></div> -->
+            <div class="er_message project_name" >
+                <span id="cancel_pr"><i class="fas fa-times"></i></span>
+                <label for="inputProject">Project name
+                <input id="inputProject" type="text">
+                <div class="btn_task">
+                    <button id="btn_project">Add</button>
+                    <button id="edit_project">Edit</button>
+                    <button id="cancel_project">Cancel</button>
+                    <button id="delete_project">Delete</button>
+                </div>
+            </div>
+            <div class="er_message error" >
+                <span id="cancel_error"><i class="fas fa-times"></i></span>
+                <p>You can create only 3 projects in a free version</p>
             </div>
             <div class="over_modal"></div>
             <div class="add_task_todo er_message">
@@ -468,5 +488,6 @@
     <script src="./script/calendar.js"></script>
     <script src ="./script/projectdata.js"></script>
     <script src="./script/labels.js"></script>
+    <script src="./script/projectdatalabel.js"></script>
 </body>
 </html>

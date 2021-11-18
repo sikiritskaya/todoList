@@ -313,6 +313,67 @@ table {
   display: none;
 }
 
+.modals .error {
+  border-radius: 5px;
+  width: 38%;
+  background-color: #fff;
+  font-size: 14px;
+  text-align: center;
+  padding: 40px;
+  position: relative;
+  margin: -570px auto;
+  z-index: 200;
+}
+
+.modals .error span {
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+}
+
+.modals .error p {
+  color: red;
+}
+
+.modals .project_name {
+  border-radius: 5px;
+  width: 38%;
+  background-color: #fff;
+  font-size: 14px;
+  text-align: center;
+  padding: 40px;
+  position: relative;
+  margin: -570px auto;
+  z-index: 200;
+}
+
+.modals .project_name span {
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+}
+
+.modals .project_name .btn_task {
+  margin-top: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.modals .project_name .btn_task button:hover {
+  background-color: #f7c5cdee;
+}
+
+.modals .project_name .btn_task #edit_project {
+  display: none;
+}
+
+.modals .project_name .btn_task #delete_project {
+  display: none;
+}
+
 .modals .over_modal {
   pointer-events: none;
   position: fixed;

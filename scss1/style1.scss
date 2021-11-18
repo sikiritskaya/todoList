@@ -420,8 +420,18 @@ body{
             .add_descr_task{
                 display:flex;
                 justify-content: space-between;
-                a{
-                    @include a_text($color_text);
+                div{
+                    position: relative;
+                    
+                    .labelList{
+                        position: absolute;
+                        top:10px;
+                        z-index: 20;
+                        background-color: #fff;
+                    }
+                    a{
+                        @include a_text($color_text);
+                    }
                 }
             }
             .btn_task{

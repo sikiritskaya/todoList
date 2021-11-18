@@ -34,7 +34,7 @@ const postDataToday = async () => {
         "title": name_input,
         "description": descr_input
     } */
-    await fetch('http://localhost:3000/today',
+    await fetch('http://localhost:3000/tasks',
     {
         method: 'POST',
         body: JSON.stringify(
@@ -49,6 +49,7 @@ const postDataToday = async () => {
         }
     })
     getDataToday()
+    getData()
    
 }
 document.querySelector('#add_newtask_today').addEventListener('click',()=>{ 
@@ -60,13 +61,20 @@ document.querySelector('#add_newtask_today').addEventListener('click',()=>{
 
 //загрузить с сервера
 const getDataToday = async() =>{
-    let URL_TODAY = 'http://localhost:3000/today'
+    let URL_TODAY = 'http://localhost:3000/tasks'
     const res = await fetch(URL_TODAY)
     const data = await res.json()
     let containerTasks = document.querySelector('#list_today');
     containerTasks.innerHTML = '';
+    let dt = new Date()
+    let date = dt.toLocaleDateString('en-gb',{
+        year: 'numeric',
+        month: 'numeric',
+        day: 'numeric',
+    })
     //console.log(data)
     data.forEach((item)=>{
+        if(item.date === date){
         containerTasks.innerHTML += `
                 <div class="task_list task_list_today">
                     <div data-id="${item.id}">
@@ -81,6 +89,7 @@ const getDataToday = async() =>{
                     </div>
                 </div>
                 `
+        }
     })
     counterToday()
 }
@@ -92,9 +101,9 @@ const putDataToday = async(curId) => {
     const descr_input= document.querySelector('#editor8').value;
     document.querySelector('#editor7').value=''
     document.querySelector('#editor8').value=''
-    await fetch(`http://localhost:3000/today/${curId}`,
+    await fetch(`http://localhost:3000/tasks/${curId}`,
     {
-        method: 'PUT',
+        method: 'PATCH',
         body: JSON.stringify(
             {
                 "title": name_input,
@@ -135,11 +144,12 @@ document.querySelector('#main_today').addEventListener('click', (e)=>{
     
 })
 const deleteDataToday = async(curId) => {
-  await fetch(`http://localhost:3000/today/${curId}`,
+  await fetch(`http://localhost:3000/tasks/${curId}`,
     {
         method: 'DELETE'
     })
     getDataToday()
+    getData()
 
 }
 //поиск

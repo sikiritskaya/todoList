@@ -5,7 +5,7 @@ let search = document.querySelector('#search')
 let helloModal=document.querySelector('#hello')
 let nameMain = document.querySelector('#name_folder')
 let addTask2 = document.querySelector('#add_task2')
-let addTask = document.querySelector('.add_task')
+let addTask = document.querySelector('#add_task')
 let addTaskToday = document.querySelector('#add_task_today')
 //modal Login
 let btnEnter = document.querySelector('#btn_enter')
@@ -186,7 +186,7 @@ document.addEventListener('click',(e)=>{
         helloModal.classList.add('er_message')
         document.querySelector('.modal_window').style.opacity="0"
     }
-    if(e.target.closest('#inbox')){
+    if(e.target.closest('#inbox') || e.target.closest('.home')){
         document.querySelector('.drag_drop').style.display="none"
         document.querySelector('#main_inbox').style.display='block'
         document.querySelector('#main_today').style.display='none'
@@ -236,15 +236,31 @@ document.addEventListener('click',(e)=>{
         document.querySelector('#btn_label').style.display="flex"
         document.querySelector('#cancel_label').style.display="flex"
     }
+    if(e.target.closest('.label_name')){
+        document.querySelector('.labelList').classList.toggle('er_message')
+    }
   
 
     //переключение между окнами
     if(e.target.closest('#projects')){
-        document.querySelector('.drag_drop').style.display="flex"
+        if( document.querySelector('#project_container').children.length<3){
+        document.querySelector('.project_name').classList.remove('er_message')
+        document.querySelector('.over_modal').style.opacity="0.5"
+        }
+        if(document.querySelector('#project_container').children.length>=3){
+            document.querySelector('.error').classList.remove('er_message')
+            document.querySelector('.over_modal').style.opacity="0.5"
+        }
+        /* document.querySelector('.drag_drop').style.display="flex"
         document.querySelector('#main_inbox').style.display="none"
         document.querySelector('#main_today').style.display='none'
-        document.querySelector('#task_cal').style.display="none"
+        document.querySelector('#task_cal').style.display="none" */
     }
+    if(e.target.closest('#cancel_error')){
+        document.querySelector('.error').classList.add('er_message')
+        document.querySelector('.over_modal').style.opacity="0"
+    }
+    
 })
 //поиск
 search.addEventListener('focus', ()=>{

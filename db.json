@@ -1,86 +1,74 @@
 {
   "tasks": [
     {
-      "title": "eee",
-      "description": "ddd",
-      "date": "16/11/2021",
-      "id": 4
+      "title": "bnmm",
+      "description": "",
+      "date": "17/11/2021",
+      "label": "",
+      "id": 13
     },
     {
-      "title": "fghj",
+      "title": "vbn",
       "description": "",
-      "date": "16/11/2021",
-      "id": 5
+      "date": "13/11/2021",
+      "label": "",
+      "id": 16
+    },
+    {
+      "title": "mm,,,",
+      "description": "",
+      "date": "12/11/2021",
+      "label": "",
+      "id": 18
+    },
+    {
+      "title": "bb",
+      "description": "",
+      "date": "10/11/2021",
+      "label": "",
+      "id": 19
+    },
+    {
+      "title": "bvbn nm",
+      "description": "",
+      "id": 20
+    },
+    {
+      "title": "nnnn",
+      "description": "",
+      "date": "18/11/2021",
+      "label": "",
+      "id": 21
     }
   ],
-  "today": [
+  "project_name": [
     {
-      "title": "fdxgfgvhbnm",
-      "description": "",
-      "date": "16/11/2021",
-      "id": 2
-    }
-  ],
-  "calendar": [
-    {
-      "date": "11/11/2021",
-      "title": "eryu",
-      "description": "",
-      "id": 24
-    },
-    {
-      "title": "9876",
-      "description": "",
-      "id": 27
-    },
-    {
-      "title": "5566",
-      "description": "",
-      "id": 28
-    },
-    {
-      "date": "8/11/2021",
-      "title": "123",
-      "description": "44444",
-      "id": 29
-    }
-  ],
-  "projects": [
-    {
-      "title": "777",
-      "description": "",
-      "num": 2,
-      "id": 1
-    },
-    {
-      "title": "555",
-      "description": "888",
-      "num": "1",
+      "title": "nnn6",
       "id": 3
-    },
-    {
-      "title": "999",
-      "description": "333",
-      "num": "1",
-      "id": 4
-    },
-    {
-      "title": "еенг",
-      "description": "",
-      "num": "1",
-      "id": 5
-    },
-    {
-      "title": "ghk",
-      "description": " bnnn",
-      "num": "1",
-      "id": 6
     }
   ],
+  "projects": [],
+  "projects2": [
+    {
+      "title": "asdfghjkl",
+      "description": "",
+      "num": "1",
+      "id": 1
+    }
+  ],
+  "projects3": [],
   "labels": [
     {
       "title": "bvb",
       "id": 1
+    },
+    {
+      "title": "fhgh",
+      "id": 2
+    },
+    {
+      "title": "gg",
+      "id": 5
     }
   ]
 }

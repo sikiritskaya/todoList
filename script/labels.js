@@ -1,4 +1,11 @@
 const containerLabels= document.querySelector('#label_container')
+let labels = document.querySelectorAll('.icon-label')
+
+labels.forEach(label=>{
+    label.addEventListener('click', ()=>{
+        console.log(label.textContent)
+    })
+})
 
 //post
 const postDataLabels = async () => {
@@ -35,11 +42,15 @@ const getDataLabel = async() =>{
     const res = await fetch(URL_LABEL)
     const data = await res.json()
     const container= document.querySelector('#label_container')
+    const containerList = document.querySelector('.labelList')
+    containerList.innerHTML=''
     container.innerHTML=''
     data.forEach((item)=>{
         container.innerHTML +=`
         <p data-id="${item.id}"><a href=#>${item.title}</a><span class="more_info">...</span></p>
-    
+        `
+        containerList.innerHTML+=`
+        <li class="icon-label">${item.title}</li>
         `
     })
 

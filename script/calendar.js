@@ -36,20 +36,29 @@ let taskCalDescr=document.querySelector('#editor10')
 let allSchedule = document.querySelector('#add_task_schedule')
 
 const getTaskCal = async(dayString,daySquare) =>{
-    let URL_TODAY = 'http://localhost:3000/calendar'
+    let URL_TODAY = 'http://localhost:3000/tasks'
     const res = await fetch(URL_TODAY)
     const data = await res.json()
+    let containerDay = document.querySelectorAll('.day')
     data.forEach(item => {
-    if(item.date === dayString){
-        const eventDiv = document.createElement('div');
-        eventDiv.innerText = item.title;
-        eventDiv.setAttribute("data-id", item.id)
-        daySquare.appendChild(eventDiv);
-    }
+        /* containerDay.forEach(day=>{
+            if(item.date === dayString){
+                day.innerHTML=`
+                <div data-id="${item.id}">${item.title}</div>
+                `
+               
+            }
+        }) */
+        if(item.date === dayString){
+              const eventDiv = document.createElement('div');
+                eventDiv.innerText = item.title;
+                eventDiv.setAttribute("data-id", item.id)
+                daySquare.appendChild(eventDiv); 
+        }
 })
 }
 const getDayTasks=async()=>{
-    let URL_TODAY = 'http://localhost:3000/calendar'
+    let URL_TODAY = 'http://localhost:3000/tasks'
     const res = await fetch(URL_TODAY)
     const data = await res.json()
     let container = document.querySelector('#seeAll')
@@ -99,7 +108,7 @@ document.querySelector('#edit_cal').addEventListener('click', (e)=>{
     changeSchedule(currentId)
 })
 const changeSchedule=async(curId)=>{
-    await fetch(`http://localhost:3000/calendar/${curId}`,
+    await fetch(`http://localhost:3000/tasks/${curId}`,
     {
         method: 'PATCH',
         body: JSON.stringify(
@@ -121,7 +130,7 @@ const changeSchedule=async(curId)=>{
 
 }
 const deleteDataSch = async(curId) => {
-  await fetch(`http://localhost:3000/calendar/${curId}`,
+  await fetch(`http://localhost:3000/tasks/${curId}`,
     {
         method: 'DELETE'
     })
@@ -162,7 +171,9 @@ function load(){
             //console.log(data)
             daySquare.textContent = i-paddingDays            
             daySquare.addEventListener('click',()=> {
-                
+                if(!daySquare.hasChildNodes()){
+                    document.querySelector('#schedule').style.opacity="0.5"
+                }
                 showModal(dayString)
             })
         }else{
@@ -177,6 +188,7 @@ const showModal=(date)=>{
         clicked=date
         modal_cal.classList.remove('er_message')
         document.querySelector('.modal_window_cal').style.opacity="0.5"
+        
         getDayTasks()
 /*         let allTask= document.querySelectorAll('.task_list_sch')
         if(allTask.length===0){
@@ -213,15 +225,15 @@ allSchedule.addEventListener('click', (e)=>{
  const postDataCal = async () => {
     //document.querySelector('#editor9').value=''
     //document.querySelector('#editor10').value=''
-    await fetch('http://localhost:3000/calendar',
+    await fetch('http://localhost:3000/tasks',
     {
         method: 'POST',
         body: JSON.stringify(
-            {
-                "date": clicked,
+            { 
                 "title": taskCal.value,
-                "description": taskCalDescr.value
-                
+                "description": taskCalDescr.value,
+                "date": clicked,
+                "label":""
             }
         ),
         headers: {
@@ -231,6 +243,8 @@ allSchedule.addEventListener('click', (e)=>{
    
     closeModalCal()
     load()
+    getDataToday()
+    getData()
    
 }
 document.querySelector('#add_newtask_cal').addEventListener('click', postDataCal) 

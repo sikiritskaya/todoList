@@ -20,18 +20,29 @@ const counter=(count)=>{
     }
 }
 // отправить на сервер
-const postData = async (title,descr) => {
+const postData = async (title,descr,labelName) => {
     const name_input = document.querySelector(title).value;
     const descr_input= document.querySelector(descr).value;
     document.querySelector(title).value=''
     document.querySelector(descr).value=''
-    let dt = new Date()
-    let date = dt.toLocaleDateString('en-gb',{
-        year: 'numeric',
-        month: 'numeric',
-        day: 'numeric',
-    })
-   /*  let taskObj = {
+   if(labelName){
+        await fetch('http://localhost:3000/tasks',
+        {
+            method: 'POST',
+            body: JSON.stringify(
+                {
+                    "title": name_input,
+                    "description": descr_input,
+                    "label": labelName
+                    
+                }
+            ),
+            headers: {
+                "Content-type": "application/json; charset=utf-8"
+            }
+        })
+    }
+    /*  let taskObj = {
         "title": name_input,
         "description": descr_input
     } */
@@ -42,7 +53,8 @@ const postData = async (title,descr) => {
             {
                 "title": name_input,
                 "description": descr_input,
-                "date": date
+                "date": "",
+                "label": ""
                 
             }
         ),
@@ -96,6 +108,34 @@ const getData = async(term) =>{
     counter(data.length)
 } 
 
+const getDataSearch =async(term) =>{
+    let URL_DATA = 'http://localhost:3000/tasks'
+    
+    URL_DATA += `?_sort=id&_order=desc&q=${term}`
+    
+    const res = await fetch(URL_DATA)
+    const data = await res.json()
+    let containerTasks = document.querySelector('#list_inbox');
+    containerTasks.innerHTML = '';
+    //count=data.length
+    data.forEach((item)=>{
+        containerTasks.innerHTML += `
+                <div class="task_list task_list_inbox">
+                    <div data-id="${item.id}">
+                        <span class="check check_inbox"><input type="checkbox" class="done"></span>
+                        <span class="title_task">${item.title}</span>
+                        <p class="descr_task">${item.description}</p>
+                    </div>
+                    <div class="edit edit_inbox">
+                        <a href=#>
+                            <i class="far fa-edit"></i>
+                        </a>
+                    </div>
+                </div>
+                `
+    })
+}
+
 let currentId = 0;
 const getIdUser = (e) =>{
     if(e.target.closest('.edit')){
@@ -126,11 +166,14 @@ const putData = async(curId) => {
     document.querySelector('#editor4').value=''
     await fetch(`http://localhost:3000/tasks/${curId}`,
     {
-        method: 'PUT',
+        method: 'PATCH',
         body: JSON.stringify(
             {
                 "title": name_input,
-                "description": descr_input 
+                "description": descr_input,
+                "date": "",
+                "label": ""
+
             }
         ),
         headers: {
@@ -172,10 +215,11 @@ const deleteData = async(curId) => {
         method: 'DELETE'
     })
     getData()
+    getDataToday()
 
 }
 //поиск
  
 search.addEventListener('input',()=>{
-    getData(search.value.trim())
+    getDataSearch(search.value.trim())
 })

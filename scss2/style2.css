@@ -313,6 +313,75 @@ table {
   display: none;
 }
 
+.modals .error2 {
+  border-radius: 5px;
+  width: 38%;
+  background-color: #fff;
+  font-size: 14px;
+  text-align: center;
+  padding: 40px;
+  position: relative;
+  margin: -570px auto;
+  z-index: 200;
+}
+
+.modals .error2 span {
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+}
+
+.modals .error2 p {
+  color: red;
+}
+
+.modals .notifications {
+  border-radius: 5px;
+  width: 38%;
+  background-color: #fff;
+  font-size: 14px;
+  text-align: center;
+  padding: 40px;
+  position: relative;
+  margin: -570px auto;
+  z-index: 200;
+}
+
+.modals .notifications span {
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+}
+
+.modals .notifications p {
+  color: red;
+}
+
+.modals .error3 {
+  border-radius: 5px;
+  width: 38%;
+  background-color: #fff;
+  font-size: 14px;
+  text-align: center;
+  padding: 40px;
+  position: relative;
+  margin: -570px auto;
+  z-index: 200;
+}
+
+.modals .error3 span {
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+}
+
+.modals .error3 p {
+  color: red;
+}
+
 .modals .error {
   border-radius: 5px;
   width: 38%;

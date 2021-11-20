@@ -212,6 +212,8 @@ document.addEventListener('click',(e)=>{
     if(e.target === search.nextElementSibling){
         search.style.width = 'auto'
         search.nextElementSibling.classList.add('er_message')
+        search.value = ''
+        //getData()
     }
     if(e.target.closest('.check')){
         let checkboxes = document.querySelectorAll('.check')
@@ -224,8 +226,27 @@ document.addEventListener('click',(e)=>{
         }
     }
     if(e.target.closest('#marks')){
-        document.querySelector('#label').classList.remove('er_message')
+        if( document.querySelector('#label_container').children.length<5){
+            document.querySelector('#label').classList.remove('er_message')
+            document.querySelector('.modal_window').style.opacity="0.5"
+        }
+        if(document.querySelector('#label_container').children.length>=5){
+            document.querySelector('.error2').classList.remove('er_message')
+            document.querySelector('.modal_window').style.opacity="0.5"
+        }
+
+    }
+    if(e.target.closest('#cancel_error2')){
+        document.querySelector('.error2').classList.add('er_message')
+        document.querySelector('.modal_window').style.opacity="0"
+    }
+    if(e.target.closest('#statistics')){
+        document.querySelector('.error3').classList.remove('er_message')
         document.querySelector('.modal_window').style.opacity="0.5"
+    }
+    if(e.target.closest('#cancel_error3')){
+        document.querySelector('.error3').classList.add('er_message')
+        document.querySelector('.modal_window').style.opacity="0"
     }
     if(e.target.closest('#cancel_label') || e.target.closest('#cancel_label2') || e.target.closest('#delete_label')){
         document.querySelector('#inputLabel').value=''
@@ -236,12 +257,8 @@ document.addEventListener('click',(e)=>{
         document.querySelector('#btn_label').style.display="flex"
         document.querySelector('#cancel_label').style.display="flex"
     }
-    if(e.target.closest('.label_name')){
-        document.querySelector('.labelList').classList.toggle('er_message')
-    }
   
-
-    //переключение между окнами
+    
     if(e.target.closest('#projects')){
         if( document.querySelector('#project_container').children.length<3){
         document.querySelector('.project_name').classList.remove('er_message')
@@ -260,8 +277,75 @@ document.addEventListener('click',(e)=>{
         document.querySelector('.error').classList.add('er_message')
         document.querySelector('.over_modal').style.opacity="0"
     }
+
+    if(e.target.closest('#bell')){
+        document.querySelector('.notifications').classList.remove('er_message')
+        document.querySelector('.over_modal').style.opacity="0.5"
+    }
+        
+    if(e.target.closest('#cancel_error4')){
+        document.querySelector('.notifications').classList.add('er_message')
+        document.querySelector('.over_modal').style.opacity="0"
+    }
     
 })
+document.querySelector('.sign_label').addEventListener('mouseover', ()=>{
+    document.querySelector('.labelList').style.opacity = '1'
+})
+document.querySelector('.sign_label').addEventListener('mouseout', ()=>{
+    document.querySelector('.labelList').style.opacity = '0'
+})
+
+document.querySelector('.filter_label').addEventListener('mouseover', ()=>{
+    document.querySelector('.priorityList').style.opacity = '1'
+})
+document.querySelector('.filter_label').addEventListener('mouseout', ()=>{
+    document.querySelector('.priorityList').style.opacity = '0'
+})
+
+//checked label
+let getChecked = ()=>{
+    let arr=[]
+    let check_label = document.querySelectorAll('input[name="all"]')
+    check_label.forEach(elem =>{
+        if(elem.checked){
+            //console.log(elem.value)
+            arr.push(elem.value)
+        }
+        console.log(arr.toString())
+        
+    })
+    return arr.toString()
+}
+
+const clearCheckbox =()=>{
+    let check_label = document.querySelectorAll('input[name="all"]')
+    check_label.forEach(elem =>{
+        elem.checked = false   
+    })
+}
+
+//checked priority
+let getCheckedPriority = ()=>{
+    let arr=[]
+    let check_label = document.querySelectorAll('input[name="all_priority"]')
+    check_label.forEach(elem =>{
+        if(elem.checked){
+            //console.log(elem.value)
+            arr.push(elem.value)
+        }
+        console.log(arr.toString())
+        
+    })
+    return arr.toString()
+}
+
+const clearCheckboxPriority =()=>{
+    let check_label = document.querySelectorAll('input[name="all_priority"]')
+    check_label.forEach(elem =>{
+        elem.checked = false   
+    })
+}
 //поиск
 search.addEventListener('focus', ()=>{
     search.style.width = '100%'
@@ -270,6 +354,7 @@ search.addEventListener('focus', ()=>{
 search.addEventListener('blur', ()=>{
     search.style.width = 'auto'
     search.nextElementSibling.classList.add('er_message')
+    search.value = ''
 })
 
 
@@ -288,6 +373,11 @@ let arrHello=['"Не составлять планов - значит запла
     let container = document.querySelector('#hello')
     let num = Math.floor(Math.random()*arrHello.length)
     container.lastElementChild.textContent=arrHello[num]
-}, 2000)}
+}, 6000)}
 document.addEventListener('DOMContentLoaded', hello) */
 
+/* const togglePreloader = ()=>{
+    let container = document.querySelector('.preloader-wrap')
+    container.classList.toggle('preloader-show')
+}
+togglePreloader() */

@@ -3,6 +3,10 @@ document.addEventListener('click',(e)=>{
         document.querySelector('#inputProject').value=''
         document.querySelector('.project_name').classList.add('er_message')
         document.querySelector('.over_modal').style.opacity="0"
+        document.querySelector('#delete_project').style.display="none"
+        document.querySelector('#edit_project').style.display="none"
+        document.querySelector('#btn_project').style.display="flex"
+        document.querySelector('#cancel_project').style.display="flex"
     }
 })
 const postInfo = async () => {
@@ -14,7 +18,7 @@ const postInfo = async () => {
         method: 'POST',
         body: JSON.stringify(
             {
-                "title": name_input,
+                "title": name_input, 
                
             }
         ),
@@ -46,9 +50,11 @@ const getDataInfo = async() =>{
     const container= document.querySelector('#project_container')
     container.innerHTML=''
     data.forEach((item)=>{
+       
         container.innerHTML +=`
-        <p data-id="${item.id}"><a href=#  class="project_collection">${item.title}</a><span class="more_info">...</span></p>
+        <p data-id="${item.id}"><a href= class="project_collection">${item.title}</a><span class="more_info">...</span></p>
         `
+        
     })
 
 }
@@ -108,6 +114,10 @@ const putDataProjectLabels = async(curId) => {
     }
 } */
  document.querySelector('#delete_project').addEventListener('click', (e)=>{
+    document.querySelector('#delete_project').style.display="none"
+    document.querySelector('#edit_project').style.display="none"
+    document.querySelector('#btn_project').style.display="flex"
+    document.querySelector('#cancel_project').style.display="flex"
     deleteDataProjectLabel(currentId)
     
     

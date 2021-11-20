@@ -20,12 +20,16 @@ const counter=(count)=>{
     }
 }
 // отправить на сервер
-const postData = async (title,descr,labelName) => {
+const postData = async (title,descr) => {
     const name_input = document.querySelector(title).value;
     const descr_input= document.querySelector(descr).value;
+    let date = document.querySelector('.tcal').value
     document.querySelector(title).value=''
     document.querySelector(descr).value=''
-   if(labelName){
+    document.querySelector('.tcal').value=''
+    let label = getChecked()
+    let priority = getCheckedPriority()
+
         await fetch('http://localhost:3000/tasks',
         {
             method: 'POST',
@@ -33,7 +37,9 @@ const postData = async (title,descr,labelName) => {
                 {
                     "title": name_input,
                     "description": descr_input,
-                    "label": labelName
+                    "date": date,
+                    "label": label,
+                    "priority": priority
                     
                 }
             ),
@@ -41,34 +47,22 @@ const postData = async (title,descr,labelName) => {
                 "Content-type": "application/json; charset=utf-8"
             }
         })
-    }
-    /*  let taskObj = {
-        "title": name_input,
-        "description": descr_input
-    } */
-    await fetch('http://localhost:3000/tasks',
-    {
-        method: 'POST',
-        body: JSON.stringify(
-            {
-                "title": name_input,
-                "description": descr_input,
-                "date": "",
-                "label": ""
-                
-            }
-        ),
-        headers: {
-            "Content-type": "application/json; charset=utf-8"
-        }
-    })
+ 
+
     getData()
+    load()
+    getDataToday()
    
 }
+
 document.querySelector('#add_newtask2').addEventListener('click',()=>{ 
-    if(document.querySelector('#editor3').value.trim()!==''){
-        postData('#editor3', '#editor4')
-    }
+        if(document.querySelector('#editor3').value.trim()!==''){  
+            postData('#editor3', '#editor4')
+        }
+        cal_date()
+        clearCheckbox()
+        clearCheckboxPriority()
+ 
      
 })
 document.querySelector('#add_newtask').addEventListener('click',()=>{ 
@@ -90,11 +84,12 @@ const getData = async(term) =>{
     containerTasks.innerHTML = '';
     //count=data.length
     data.forEach((item)=>{
+        if(item.priority === "Priority 1"){
         containerTasks.innerHTML += `
                 <div class="task_list task_list_inbox">
                     <div data-id="${item.id}">
                         <span class="check check_inbox"><input type="checkbox" class="done"></span>
-                        <span class="title_task">${item.title}</span>
+                        <span class="title_task color">${item.title}    #${item.label}</span>
                         <p class="descr_task">${item.description}</p>
                     </div>
                     <div class="edit edit_inbox">
@@ -103,7 +98,44 @@ const getData = async(term) =>{
                         </a>
                     </div>
                 </div>
-                `
+          
+                  `
+        }
+        if(item.priority === "Priority 2"){
+            containerTasks.innerHTML += `
+            <div class="task_list task_list_inbox">
+                <div data-id="${item.id}">
+                    <span class="check check_inbox"><input type="checkbox" class="done"></span>
+                    <span class="title_task color_orange">${item.title}    #${item.label}</span>
+                    <p class="descr_task">${item.description}</p>
+                </div>
+                <div class="edit edit_inbox">
+                    <a href=#>
+                        <i class="far fa-edit"></i>
+                    </a>
+                </div>
+            </div>
+      
+              `
+
+        }
+        if(item.priority ==="Priority 3" || item.priority === ""){
+            containerTasks.innerHTML += `
+            <div class="task_list task_list_inbox">
+                <div data-id="${item.id}">
+                    <span class="check check_inbox"><input type="checkbox" class="done"></span>
+                    <span class="title_task">${item.title}    #${item.label}</span>
+                    <p class="descr_task">${item.description}</p>
+                </div>
+                <div class="edit edit_inbox">
+                    <a href=#>
+                        <i class="far fa-edit"></i>
+                    </a>
+                </div>
+            </div>
+      
+              `
+        }
     })
     counter(data.length)
 } 
@@ -162,8 +194,12 @@ document.querySelector('#main_inbox').addEventListener('click', (e)=>{
 const putData = async(curId) => {
     const name_input = document.querySelector('#editor3').value;
     const descr_input= document.querySelector('#editor4').value;
+    let date = document.querySelector('.tcal').value
     document.querySelector('#editor3').value=''
     document.querySelector('#editor4').value=''
+    document.querySelector('.tcal').value=""
+    let label = getChecked()
+    let priority = getCheckedPriority()
     await fetch(`http://localhost:3000/tasks/${curId}`,
     {
         method: 'PATCH',
@@ -171,8 +207,9 @@ const putData = async(curId) => {
             {
                 "title": name_input,
                 "description": descr_input,
-                "date": "",
-                "label": ""
+                "date": date,
+                "label": label,
+                "priority": priority
 
             }
         ),
@@ -191,6 +228,8 @@ document.querySelector('#change').addEventListener('click', ()=>{
     if(document.querySelector('#editor3').value.trim()!==''){
         putData(currentId)
     }
+    clearCheckbox()
+    clearCheckboxPriority()
     
 })
 

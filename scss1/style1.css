@@ -73,6 +73,14 @@ body .wrapper .center {
   margin: 0 auto;
 }
 
+body .wrapper .center .preloader-wrap {
+  opacity: 0;
+}
+
+body .wrapper .center .preloader-show {
+  opacity: 1;
+}
+
 body .wrapper .center header {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -289,6 +297,11 @@ body .main .menu .add_accord:hover {
   -webkit-transition: 0.5s;
   transition: 0.5s;
   border-radius: 4px;
+  /* &:last-child .plus_acc{
+                        i {
+                            opacity: 0.5;
+                        }
+                    } */
 }
 
 body .main .menu .add_accord:hover .plus_acc i {
@@ -422,6 +435,14 @@ body .main_page .lists .task_list div .descr_task {
   padding-left: 23px;
 }
 
+body .main_page .lists .task_list div .color {
+  color: blue;
+}
+
+body .main_page .lists .task_list div .color_orange {
+  color: orange;
+}
+
 body .main_page .lists .task_list .edit a {
   text-decoration: none;
   color: #000;
@@ -498,18 +519,57 @@ body .main_page .add_task2 .add_descr_task {
           justify-content: space-between;
 }
 
-body .main_page .add_task2 .add_descr_task div {
+body .main_page .add_task2 .add_descr_task .add_signs {
   position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 8%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
-body .main_page .add_task2 .add_descr_task div .labelList {
+body .main_page .add_task2 .add_descr_task .add_signs .sign_label .labelList {
+  opacity: 0;
   position: absolute;
-  top: 10px;
+  top: -20px;
   z-index: 20;
-  background-color: #fff;
+  background-color: #d4d1d1;
+  left: -50px;
+  /* &:hover{
+                                opacity: 1;
+                            } */
 }
 
-body .main_page .add_task2 .add_descr_task div a {
+body .main_page .add_task2 .add_descr_task .add_signs .sign_label .labelList .icon-label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+body .main_page .add_task2 .add_descr_task .add_signs .sign_label a {
+  text-decoration: none;
+  color: #000;
+}
+
+body .main_page .add_task2 .add_descr_task .add_signs .filter_label .priorityList {
+  opacity: 0;
+  position: absolute;
+  top: 20px;
+  z-index: 20;
+  left: 0;
+  left: -10px;
+  background-color: #d4d1d1;
+}
+
+body .main_page .add_task2 .add_descr_task .add_signs .filter_label .priorityList .icon-label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+body .main_page .add_task2 .add_descr_task .add_signs .filter_label a {
   text-decoration: none;
   color: #000;
 }

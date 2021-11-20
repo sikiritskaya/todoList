@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todo</title>
+    <link rel="stylesheet" href="./tcal.css"> 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
@@ -19,6 +20,7 @@
     <section class="wrapper color">
         <div class="center">
             <header>
+                
                 <div class="startHeader">
                     <a href="#" class="burger" title="close menu">
                         <i class="fas fa-bars"></i> 
@@ -117,12 +119,14 @@
                             <p>Filters</p>
                         </div>   
                     </div>
-                    <div class="plus_acc" id="filter" >
+                    <!-- <div class="plus_acc" id="filter" >
                         <i class="fas fa-plus"></i>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="panel accord">
-                    <p><a href=#>Priority</a><span class="more_info">...</span></p>  
+                    <p><a href=#>Priority 1</a></p> 
+                    <p><a href=#>Priority 2</a></p> 
+                    <p><a href=#>Priority 3</a></p> 
                 </div>    
             </div>
             <div class="main_page" id="main_inbox">
@@ -163,13 +167,22 @@
                     </div>
                     <br><br>
                     <div class="add_descr_task">
-                        <button>schedule</button>
-                        <div>
-                            <ul class="er_message labelList">
-                                <li>44</li>
-                            </ul>
-                            <a href="#" class="label_name" title="add labels"><i class="fas fa-tag"></i></a>
-                            <a href="#" title="set the priority"><i class="fab fa-font-awesome-flag"></i></a>
+                        <input type="text" name="date" class="tcal" value="" />
+                        <div class="add_signs">
+                            <div class="sign_label">
+                                <ul class="labelList">
+                                    <li>44</li>
+                                </ul>
+                                <a href="#" class="label_name" title="add labels"><i class="fas fa-tag"></i></a>
+                            </div>
+                            <div class = "filter_label">
+                                <ul class="priorityList">
+                                    <li class="icon-label"><input type="checkbox" name="all_priority" value="Priority 1" >Priority 1</li>
+                                    <li class="icon-label"><input type="checkbox" name="all_priority" value="Priority 2" >Priority 2</li>
+                                    <li class="icon-label"><input type="checkbox" name="all_priority" value="Priority 3" >Priority 3</li>
+                                </ul>
+                                <a href="#" title="set the priority"><i class="fab fa-font-awesome-flag"></i></a>
+                            </div>  
                            <!--  <a href="#" title="add reminder "><i class="fas fa-stopwatch"></i></a> -->
                         </div>
                     </div>
@@ -442,8 +455,14 @@
                     <button id="delete_label">Delete</button>
                 </div>
             </div>
-            <!-- модальное для project -->
-            <!-- <div class="over_modal"></div> -->
+            <div class="er_message error2" >
+                <span id="cancel_error2"><i class="fas fa-times"></i></span>
+                <p>You can create only 5 labels in a free version</p>
+            </div>
+            <div class="er_message error3" >
+                <span id="cancel_error3"><i class="fas fa-times"></i></span>
+                <p>Statistics is not available in a free version</p>
+            </div>
             <div class="er_message project_name" >
                 <span id="cancel_pr"><i class="fas fa-times"></i></span>
                 <label for="inputProject">Project name
@@ -472,7 +491,10 @@
                         <button id="cancel3">Cancel</button>
                     </div>
             </div>
-           
+           <div class="notifications er_message">
+                <span id="cancel_error4"><i class="fas fa-times"></i></span>
+                <p>You don't have any notifications yet</p>
+           </div>
             <div class="er_message" id="hello">
                 <span id="closeModal3"><i class="fas fa-window-close"></i></span>
                 <p>"Не составлять планов - значит запланировать своё поражение" (Бенджамин Франклин)</p>
@@ -480,6 +502,24 @@
             
         </div>
     </section>
+  <!--   <section class="wrapper">
+        <div class="center">
+            <div class="preloader-wrap">         
+                <div class="preloader-wrapper active">
+                    <div class="spinner-layer spinner-red-only">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                        <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
     <script src="./script/script.js"></script>
     <script src = "./script/project.js"></script>
     <script src="./script/today.js"></script>
@@ -489,5 +529,6 @@
     <script src ="./script/projectdata.js"></script>
     <script src="./script/labels.js"></script>
     <script src="./script/projectdatalabel.js"></script>
+    <script src = "./script/tcal_en.js"></script>
 </body>
 </html>

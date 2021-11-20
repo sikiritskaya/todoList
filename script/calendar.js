@@ -260,7 +260,10 @@ const initButtons=()=>{
         load()
     })
     //document.querySelector('#add_newtask_cal').addEventListener('click', saveEvent)
-   document.querySelector('#cancel_cal').addEventListener('click', closeModalCal)
+   document.querySelector('#cancel_cal').addEventListener('click', () =>{
+    closeModalCal()
+    closeSchedule()
+   })
    
 }
 //getTaskCal()

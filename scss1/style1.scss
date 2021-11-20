@@ -76,6 +76,12 @@ body{
             width: 100%;
             margin: 0 auto;
             //background-color: aqua;
+            .preloader-wrap{
+                opacity: 0;
+            }
+            .preloader-show{
+                opacity: 1;
+            }            
             header{  
                 display: flex;
                 height: 70px;
@@ -247,8 +253,15 @@ body{
                     .plus_acc{
                         i{
                             opacity: 1;
+                           
                         }
+                       
                     }
+                    /* &:last-child .plus_acc{
+                        i {
+                            opacity: 0.5;
+                        }
+                    } */
                 }
                 .plus_acc{
                     cursor: pointer;
@@ -355,6 +368,12 @@ body{
                     .descr_task{
                         padding-left: 23px;
                     }
+                    .color{
+                        color: blue;
+                    }
+                    .color_orange{
+                        color: orange;
+                    }
                 }
                 .edit{
                     //width: 2rem;
@@ -420,18 +439,49 @@ body{
             .add_descr_task{
                 display:flex;
                 justify-content: space-between;
-                div{
+                .add_signs{
                     position: relative;
-                    
-                    .labelList{
-                        position: absolute;
-                        top:10px;
-                        z-index: 20;
-                        background-color: #fff;
+                    display: flex;
+                    width: 8%;
+                    justify-content: space-between;
+                    .sign_label{
+                        
+                        .labelList{
+                            opacity: 0;
+                            position: absolute;
+                            top:-20px;
+                            z-index: 20;
+                            background-color:$color_hover;
+                            left: -50px;
+                            .icon-label{
+                                display: flex;
+                            }
+                            /* &:hover{
+                                opacity: 1;
+                            } */
+                            
+                        }
+                        a{
+                            @include a_text($color_text);
+                        }
                     }
-                    a{
-                        @include a_text($color_text);
-                    }
+                    .filter_label{
+                        .priorityList{
+                            opacity: 0;
+                            position: absolute;
+                            top:20px;
+                            z-index: 20;
+                            left: 0;
+                            left: -10px;
+                            background-color:$color_hover;
+                            .icon-label{
+                                display: flex;
+                            }
+                        }
+                        a{
+                            @include a_text($color_text);
+                        }
+                    }  
                 }
             }
             .btn_task{

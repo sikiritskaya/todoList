@@ -408,8 +408,15 @@ body .main_page .lists .task_list {
           justify-content: space-between;
 }
 
+body .main_page .lists .task_list:hover .edit a {
+  opacity: 1;
+}
+
+body .main_page .lists .task_list div {
+  width: 60%;
+}
+
 body .main_page .lists .task_list div .done {
-  opacity: 0;
   width: 1em;
   height: 1em;
   background-color: white;
@@ -421,26 +428,35 @@ body .main_page .lists .task_list div .done {
   -webkit-appearance: none;
   outline: none;
   cursor: pointer;
-}
-
-body .main_page .lists .task_list div .done:hover {
-  opacity: 1;
+  /* &:hover{
+                            opacity: 1;
+                        } */
 }
 
 body .main_page .lists .task_list div .done:checked {
   background-color: #f7c5cdee;
 }
 
+body .main_page .lists .task_list div .info_label {
+  color: #d4d1d1;
+  padding-left: 2rem;
+  font-style: italic;
+}
+
 body .main_page .lists .task_list div .descr_task {
   padding-left: 23px;
 }
 
-body .main_page .lists .task_list div .color {
-  color: blue;
+body .main_page .lists .task_list div .color_red {
+  border: 1px solid red;
 }
 
 body .main_page .lists .task_list div .color_orange {
-  color: orange;
+  border: 1px solid orange;
+}
+
+body .main_page .lists .task_list .edit {
+  text-align: end;
 }
 
 body .main_page .lists .task_list .edit a {
@@ -520,7 +536,6 @@ body .main_page .add_task2 .add_descr_task {
 }
 
 body .main_page .add_task2 .add_descr_task .add_signs {
-  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -530,13 +545,21 @@ body .main_page .add_task2 .add_descr_task .add_signs {
           justify-content: space-between;
 }
 
+body .main_page .add_task2 .add_descr_task .add_signs .sign_label {
+  position: relative;
+}
+
 body .main_page .add_task2 .add_descr_task .add_signs .sign_label .labelList {
-  opacity: 0;
+  display: none;
   position: absolute;
-  top: -20px;
+  top: 20px;
   z-index: 20;
+  right: 0;
   background-color: #d4d1d1;
-  left: -50px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  min-width: 40px;
   /* &:hover{
                                 opacity: 1;
                             } */
@@ -553,13 +576,20 @@ body .main_page .add_task2 .add_descr_task .add_signs .sign_label a {
   color: #000;
 }
 
+body .main_page .add_task2 .add_descr_task .add_signs .sign_label:hover .labelList {
+  display: block;
+}
+
+body .main_page .add_task2 .add_descr_task .add_signs .filter_label {
+  position: relative;
+}
+
 body .main_page .add_task2 .add_descr_task .add_signs .filter_label .priorityList {
-  opacity: 0;
+  display: none;
   position: absolute;
   top: 20px;
   z-index: 20;
-  left: 0;
-  left: -10px;
+  right: 0;
   background-color: #d4d1d1;
 }
 
@@ -572,6 +602,10 @@ body .main_page .add_task2 .add_descr_task .add_signs .filter_label .priorityLis
 body .main_page .add_task2 .add_descr_task .add_signs .filter_label a {
   text-decoration: none;
   color: #000;
+}
+
+body .main_page .add_task2 .add_descr_task .add_signs .filter_label:hover .priorityList {
+  display: block;
 }
 
 body .main_page .add_task2 .btn_task {

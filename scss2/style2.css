@@ -258,9 +258,77 @@ table {
           justify-content: space-between;
 }
 
-.modals .add_task .add_descr_task a {
+.modals .add_task .add_descr_task .add_signs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 8%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.modals .add_task .add_descr_task .add_signs .sign_label {
+  position: relative;
+}
+
+.modals .add_task .add_descr_task .add_signs .sign_label .labelList {
+  display: none;
+  position: absolute;
+  top: 20px;
+  z-index: 20;
+  right: 0;
+  background-color: #d4d1d1;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  min-width: 40px;
+  /* &:hover{
+                                opacity: 1;
+                            } */
+}
+
+.modals .add_task .add_descr_task .add_signs .sign_label .labelList .icon-label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.modals .add_task .add_descr_task .add_signs .sign_label a {
   text-decoration: none;
   color: #000;
+}
+
+.modals .add_task .add_descr_task .add_signs .sign_label:hover .labelList {
+  display: block;
+}
+
+.modals .add_task .add_descr_task .add_signs .filter_label {
+  position: relative;
+}
+
+.modals .add_task .add_descr_task .add_signs .filter_label .priorityList {
+  display: none;
+  position: absolute;
+  top: 20px;
+  z-index: 20;
+  right: 0;
+  background-color: #d4d1d1;
+}
+
+.modals .add_task .add_descr_task .add_signs .filter_label .priorityList .icon-label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.modals .add_task .add_descr_task .add_signs .filter_label a {
+  text-decoration: none;
+  color: #000;
+}
+
+.modals .add_task .add_descr_task .add_signs .filter_label:hover .priorityList {
+  display: block;
 }
 
 .modals .add_task .btn_task {

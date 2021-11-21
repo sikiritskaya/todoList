@@ -151,8 +151,64 @@ $color_i:rgb(77, 74, 74);
             .add_descr_task{
                 display:flex;
                 justify-content: space-between;
-                a{
-                    @include a_text($color_text);
+                .add_signs{
+                    //position: relative;
+                    display: flex;
+                    width: 8%;
+                    justify-content: space-between;
+                    .sign_label{
+                        position: relative;
+                       // display: block;
+                        .labelList{
+                            display: none;
+                            position: absolute;
+                            top:20px;
+                            z-index: 20;
+                            right: 0;
+                            background-color:$color_hover;
+                            height: fit-content;
+                            min-width: 40px;
+                            .icon-label{
+                                display: flex;
+                            }
+                            /* &:hover{
+                                opacity: 1;
+                            } */
+                            
+                        }
+                        a{
+                            @include a_text($color_text);
+                        }
+                        &:hover{
+                            .labelList{
+                                display: block;
+                            }
+                        }
+                    }
+                    .filter_label{
+                        position: relative;
+                        .priorityList{
+                            display: none;
+                            position: absolute;
+                            top:20px;
+                            z-index: 20;
+                            right: 0;
+                            //left: 0;
+                            //left: -10px;
+                            background-color:$color_hover;
+                            .icon-label{
+                                display: flex;
+                            }
+                        }
+                        a{
+                            @include a_text($color_text);
+                        }
+                        &:hover{
+                            .priorityList{
+                                display: block;
+                            }
+                        }
+                    }  
                 }
             }
             
@@ -172,14 +228,11 @@ $color_i:rgb(77, 74, 74);
                     a{
                         opacity: 1;
                     }
-                    .done{
-                        opacity: 1;
-                    }
+                    
                 }
             }
             div{
                 .done_task{
-                    opacity: 0;
                     width: 1em;
                     height: 1em;
                     background-color: white;
@@ -197,8 +250,19 @@ $color_i:rgb(77, 74, 74);
                         background-color:$color_background;
                     }
                 }
+                .color_red{
+                    border: 1px solid red;
+                }
+                .color_orange{
+                    border: 1px solid orange;
+                }
                 .descr_task{
                     padding-left: 23px;
+                }
+                .info_label{
+                    color: $color_hover;
+                    padding-left: 2rem ; 
+                    font-style: italic;
                 }
             }
             .edit{

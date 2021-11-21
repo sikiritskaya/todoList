@@ -345,9 +345,17 @@ body{
                 margin-top: 10px;
                 display: flex;
                 justify-content: space-between;
+                &:hover{
+                    .edit{
+                        a{
+                            opacity: 1;
+                        }
+                    }
+                }
                 div{
+                    width: 60%;
                     .done{
-                        opacity: 0;
+                        //opacity: 0;
                         width: 1em;
                         height: 1em;
                         background-color: white;
@@ -358,25 +366,33 @@ body{
                         -webkit-appearance: none;
                         outline: none;
                         cursor: pointer;
-                        &:hover{
+                        /* &:hover{
                             opacity: 1;
-                        }
+                        } */
                         &:checked{
                             background-color:$color_background;
                         }
+
+                    }
+                    .info_label{
+                        color: $color_hover;
+                        padding-left: 2rem ;
+                        
+                        font-style: italic;
                     }
                     .descr_task{
                         padding-left: 23px;
                     }
-                    .color{
-                        color: blue;
+                    
+                    .color_red{
+                        border: 1px solid red;
                     }
                     .color_orange{
-                        color: orange;
+                        border: 1px solid orange;
                     }
                 }
                 .edit{
-                    //width: 2rem;
+                    text-align: end;
                     a{
                         @include a_text($color_text);
                         opacity: 0;
@@ -440,19 +456,22 @@ body{
                 display:flex;
                 justify-content: space-between;
                 .add_signs{
-                    position: relative;
+                    //position: relative;
                     display: flex;
                     width: 8%;
                     justify-content: space-between;
                     .sign_label{
-                        
+                        position: relative;
+                       // display: block;
                         .labelList{
-                            opacity: 0;
+                            display: none;
                             position: absolute;
-                            top:-20px;
+                            top:20px;
                             z-index: 20;
+                            right: 0;
                             background-color:$color_hover;
-                            left: -50px;
+                            height: fit-content;
+                            min-width: 40px;
                             .icon-label{
                                 display: flex;
                             }
@@ -464,15 +483,22 @@ body{
                         a{
                             @include a_text($color_text);
                         }
+                        &:hover{
+                            .labelList{
+                                display: block;
+                            }
+                        }
                     }
                     .filter_label{
+                        position: relative;
                         .priorityList{
-                            opacity: 0;
+                            display: none;
                             position: absolute;
                             top:20px;
                             z-index: 20;
-                            left: 0;
-                            left: -10px;
+                            right: 0;
+                            //left: 0;
+                            //left: -10px;
                             background-color:$color_hover;
                             .icon-label{
                                 display: flex;
@@ -480,6 +506,11 @@ body{
                         }
                         a{
                             @include a_text($color_text);
+                        }
+                        &:hover{
+                            .priorityList{
+                                display: block;
+                            }
                         }
                     }  
                 }

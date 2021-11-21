@@ -189,9 +189,77 @@ table {
           justify-content: space-between;
 }
 
-.main_cal .container_cal .add_task .add_descr_task a {
+.main_cal .container_cal .add_task .add_descr_task .add_signs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 8%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.main_cal .container_cal .add_task .add_descr_task .add_signs .sign_label {
+  position: relative;
+}
+
+.main_cal .container_cal .add_task .add_descr_task .add_signs .sign_label .labelList {
+  display: none;
+  position: absolute;
+  top: 20px;
+  z-index: 20;
+  right: 0;
+  background-color: #d4d1d1;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  min-width: 40px;
+  /* &:hover{
+                                opacity: 1;
+                            } */
+}
+
+.main_cal .container_cal .add_task .add_descr_task .add_signs .sign_label .labelList .icon-label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.main_cal .container_cal .add_task .add_descr_task .add_signs .sign_label a {
   text-decoration: none;
   color: #000;
+}
+
+.main_cal .container_cal .add_task .add_descr_task .add_signs .sign_label:hover .labelList {
+  display: block;
+}
+
+.main_cal .container_cal .add_task .add_descr_task .add_signs .filter_label {
+  position: relative;
+}
+
+.main_cal .container_cal .add_task .add_descr_task .add_signs .filter_label .priorityList {
+  display: none;
+  position: absolute;
+  top: 20px;
+  z-index: 20;
+  right: 0;
+  background-color: #d4d1d1;
+}
+
+.main_cal .container_cal .add_task .add_descr_task .add_signs .filter_label .priorityList .icon-label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.main_cal .container_cal .add_task .add_descr_task .add_signs .filter_label a {
+  text-decoration: none;
+  color: #000;
+}
+
+.main_cal .container_cal .add_task .add_descr_task .add_signs .filter_label:hover .priorityList {
+  display: block;
 }
 
 .main_cal .container_cal #cancel_sch {
@@ -216,12 +284,7 @@ table {
   opacity: 1;
 }
 
-.main_cal .container_cal .task_list:hover .edit .done {
-  opacity: 1;
-}
-
 .main_cal .container_cal .task_list div .done_task {
-  opacity: 0;
   width: 1em;
   height: 1em;
   background-color: white;
@@ -243,8 +306,22 @@ table {
   background-color: #f7c5cdee;
 }
 
+.main_cal .container_cal .task_list div .color_red {
+  border: 1px solid red;
+}
+
+.main_cal .container_cal .task_list div .color_orange {
+  border: 1px solid orange;
+}
+
 .main_cal .container_cal .task_list div .descr_task {
   padding-left: 23px;
+}
+
+.main_cal .container_cal .task_list div .info_label {
+  color: #d4d1d1;
+  padding-left: 2rem;
+  font-style: italic;
 }
 
 .main_cal .container_cal .task_list .edit a {

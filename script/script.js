@@ -289,21 +289,7 @@ document.addEventListener('click',(e)=>{
     }
     
 })
-document.querySelector('.sign_label').addEventListener('mouseover', ()=>{
-    document.querySelector('.labelList').style.opacity = '1'
-})
-document.querySelector('.sign_label').addEventListener('mouseout', ()=>{
-    document.querySelector('.labelList').style.opacity = '0'
-})
 
-document.querySelector('.filter_label').addEventListener('mouseover', ()=>{
-    document.querySelector('.priorityList').style.opacity = '1'
-})
-document.querySelector('.filter_label').addEventListener('mouseout', ()=>{
-    document.querySelector('.priorityList').style.opacity = '0'
-})
-
-//checked label
 let getChecked = ()=>{
     let arr=[]
     let check_label = document.querySelectorAll('input[name="all"]')
@@ -355,6 +341,7 @@ search.addEventListener('blur', ()=>{
     search.style.width = 'auto'
     search.nextElementSibling.classList.add('er_message')
     search.value = ''
+    getData()
 })
 
 

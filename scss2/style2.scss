@@ -229,8 +229,64 @@ $color_i:rgb(77, 74, 74);
             .add_descr_task{
                 display:flex;
                 justify-content: space-between;
-                a{
-                    @include a_text($color_text);
+                .add_signs{
+                   // position: relative;
+                    display: flex;
+                    width: 8%;
+                    justify-content: space-between;
+                    .sign_label{
+                        position: relative;
+                       // display: block;
+                        .labelList{
+                            display: none;
+                            position: absolute;
+                            top:20px;
+                            z-index: 20;
+                            right: 0;
+                            background-color:$color_hover;
+                            height: fit-content;
+                            min-width: 40px;
+                            .icon-label{
+                                display: flex;
+                            }
+                            /* &:hover{
+                                opacity: 1;
+                            } */
+                            
+                        }
+                        a{
+                            @include a_text($color_text);
+                        }
+                        &:hover{
+                            .labelList{
+                                display: block;
+                            }
+                        }
+                    }
+                    .filter_label{
+                        position: relative;
+                        .priorityList{
+                            display: none;
+                            position: absolute;
+                            top:20px;
+                            z-index: 20;
+                            right: 0;
+                            //left: 0;
+                            //left: -10px;
+                            background-color:$color_hover;
+                            .icon-label{
+                                display: flex;
+                            }
+                        }
+                        a{
+                            @include a_text($color_text);
+                        }
+                        &:hover{
+                            .priorityList{
+                                display: block;
+                            }
+                        }
+                    }  
                 }
             }
             .btn_task{

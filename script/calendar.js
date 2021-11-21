@@ -65,22 +65,67 @@ const getDayTasks=async()=>{
     container.innerHTML=""
     data.forEach(item => {
         if(item.date === clicked){
-            container.innerHTML+=`
-            <div class="task_list task_list_sch">
-                <div data-show="${item.id}">
-                    <span class="check check_sch"><input type="checkbox" class="done_task"></span>
-                    <span class="title_task">${item.title}</span>
-                    <p class="descr_task">${item.description}</p>
-                </div>
-                <div class="edit edit_sch">
-                    <a href=#>
-                        <i class="far fa-edit"></i>
-                    </a>
-                </div>
-            </div>    
-            `
+            if(item.priority === "Priority 1"){
+                container.innerHTML+=`
+                <div class="task_list task_list_sch">
+                    <div data-show="${item.id}">
+                        <span class="check check_sch"><input type="checkbox" class="done_task color_red"></span>
+                        <span class="title_task">${item.title}</span>
+                        <span class="info_label">${item.label}</span>
+                        <p class="descr_task">${item.description}</p>
+                    </div>
+                    <div class="edit edit_sch">
+                        <a href=#>
+                            <i class="far fa-edit"></i>
+                        </a>
+                    </div>
+                </div>    
+                `
+            }
+            if(item.priority === "Priority 2"){
+                container.innerHTML+=`
+                <div class="task_list task_list_sch">
+                    <div data-show="${item.id}">
+                        <span class="check check_sch"><input type="checkbox" class="done_task color_orange"></span>
+                        <span class="title_task">${item.title}</span>
+                        <span class="info_label">${item.label}</span>
+                        <p class="descr_task">${item.description}</p>
+                    </div>
+                    <div class="edit edit_sch">
+                        <a href=#>
+                            <i class="far fa-edit"></i>
+                        </a>
+                    </div>
+                </div>    
+                `
+            }
+            if(item.priority ==="Priority 3" || item.priority === ""){
+                container.innerHTML+=`
+                <div class="task_list task_list_sch">
+                    <div data-show="${item.id}">
+                        <span class="check check_sch"><input type="checkbox" class="done_task"></span>
+                        <span class="title_task">${item.title}</span>
+                        <span class="info_label">${item.label}</span>
+                        <p class="descr_task">${item.description}</p>
+                    </div>
+                    <div class="edit edit_sch">
+                        <a href=#>
+                            <i class="far fa-edit"></i>
+                        </a>
+                    </div>
+                </div>    
+                `
+            }
         }
+ /*        if(item.date !== clicked){
+            container.innerHTML=`
+            <div> You don't have any task for today</div>
+            `
+        } */
     })
+    if(container.hasChildNodes()=== false){
+        closeSchedule()
+    }
 }
 const getIdSch=(e)=>{
     if(e.target.closest('.check_sch')){
@@ -135,6 +180,8 @@ const deleteDataSch = async(curId) => {
         method: 'DELETE'
     })
     load()
+    getDayTasks()
+  
 
 }
 function load(){    
@@ -210,7 +257,11 @@ const showSchedule =()=>{
 const closeSchedule=()=>{
     //modal_cal.classList.remove('er_message')
     allSchedule.classList.add('er_message')
-    document.querySelector('.modal_window_cal').style.opacity="0"
+    document.querySelector('.modal_window_cal').style.opacity="0" 
+    document.querySelector('#add_newtask_cal').style.display="flex"
+    document.querySelector('#edit_cal').style.display="none"
+
+    
 }
 
 document.querySelector('#schedule').addEventListener('click', (e)=>{
@@ -220,11 +271,12 @@ document.querySelector('#schedule').addEventListener('click', (e)=>{
 allSchedule.addEventListener('click', (e)=>{
     if(e.target.closest('#cancel_scedule')){
         closeSchedule()
+        document.querySelector('#schedule').style.opacity="1"
     }
 })
  const postDataCal = async () => {
-    //document.querySelector('#editor9').value=''
-    //document.querySelector('#editor10').value=''
+    let label = getChecked()
+    let priority = getCheckedPriority()
     await fetch('http://localhost:3000/tasks',
     {
         method: 'POST',
@@ -233,7 +285,8 @@ allSchedule.addEventListener('click', (e)=>{
                 "title": taskCal.value,
                 "description": taskCalDescr.value,
                 "date": clicked,
-                "label":""
+                "label": label,
+                "priority": priority
             }
         ),
         headers: {
@@ -247,7 +300,14 @@ allSchedule.addEventListener('click', (e)=>{
     getData()
    
 }
-document.querySelector('#add_newtask_cal').addEventListener('click', postDataCal) 
+document.querySelector('#add_newtask_cal').addEventListener('click', ()=>{
+    if(document.querySelector('#editor9').value.trim()!==''){
+        postDataCal()
+        clearCheckbox()
+        clearCheckboxPriority()
+    }
+
+} ) 
 
 //кнопки
 const initButtons=()=>{

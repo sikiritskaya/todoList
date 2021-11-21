@@ -133,7 +133,7 @@
                 <div class="header_main">
                     <div id="name_folder">Inbox</div>
                     <div class="sort_task">
-                        <a href="#"><i class="far fa-comment-alt"></i></a>
+                        <!-- <a href="#"><i class="far fa-comment-alt"></i></a> -->
                         <a href="#"><i class="fas fa-filter"></i></a>
                     </div>
                 </div>
@@ -142,6 +142,7 @@
                         <div>
                             <span class="check check_inbox"><input type="checkbox" class="done"></span>
                             <span class="title_task"></span>
+                            <span class ="info_label"></span>
                             <p class="descr_task"></p>
                         </div>
                         <div class="edit edit_inbox">
@@ -167,11 +168,10 @@
                     </div>
                     <br><br>
                     <div class="add_descr_task">
-                        <input type="text" name="date" class="tcal" value="" />
+                        <input type="text" name="date" class="tcal" id="calendar1" value="" />
                         <div class="add_signs">
                             <div class="sign_label">
-                                <ul class="labelList">
-                                    <li>44</li>
+                                <ul class="labelList" id="labelList">
                                 </ul>
                                 <a href="#" class="label_name" title="add labels"><i class="fas fa-tag"></i></a>
                             </div>
@@ -183,7 +183,6 @@
                                 </ul>
                                 <a href="#" title="set the priority"><i class="fab fa-font-awesome-flag"></i></a>
                             </div>  
-                           <!--  <a href="#" title="add reminder "><i class="fas fa-stopwatch"></i></a> -->
                         </div>
                     </div>
                     <div class="btn_task">
@@ -212,6 +211,7 @@
                         <div>
                             <span class="check check_today"><input type="checkbox" class="done"></span>
                             <span class="title_task"></span>
+                            <span class="info_label"></span>
                             <p class="descr_task"></p>
                         </div>
                         <div class="edit edit_today">
@@ -237,12 +237,23 @@
                     </div>
                     <br><br>
                     <div class="add_descr_task">
-                        <button>schedule</button>
-                        <p>
-                            <a href="#" title="add labels"><i class="fas fa-tag"></i></a>
-                            <a href="#" title="set the priority"><i class="fab fa-font-awesome-flag"></i></a>
-                            <!-- <a href="#" title="add reminder "><i class="fas fa-stopwatch"></i></a> -->
-                        </p>
+                        <div id="todayDate"></div>
+                        <!-- <input type="text" name="date" class="tcal" value="" /> -->
+                        <div class="add_signs">
+                            <div class="sign_label">
+                                <ul class="labelList" id="labelList2">
+                                </ul>
+                                <a href="#" class="label_name" title="add labels"><i class="fas fa-tag"></i></a>
+                            </div>
+                            <div class = "filter_label">
+                                <ul class="priorityList">
+                                    <li class="icon-label"><input type="checkbox" name="all_priority" value="Priority 1" >Priority 1</li>
+                                    <li class="icon-label"><input type="checkbox" name="all_priority" value="Priority 2" >Priority 2</li>
+                                    <li class="icon-label"><input type="checkbox" name="all_priority" value="Priority 3" >Priority 3</li>
+                                </ul>
+                                <a href="#" title="set the priority"><i class="fab fa-font-awesome-flag"></i></a>
+                            </div>  
+                        </div>
                     </div>
                     <div class="btn_task">
                         <button id="change2">Change</button>
@@ -284,11 +295,21 @@
                         <br><br>
                         <div class="add_descr_task">
                             <button id="schedule">See all tasks</button>
-                            <p>
-                                <a href="#" title="add labels"><i class="fas fa-tag"></i></a>
-                                <a href="#" title="set the priority"><i class="fab fa-font-awesome-flag"></i></a>
-                                
-                            </p>
+                            <div class="add_signs">
+                                <div class="sign_label">
+                                    <ul class="labelList" id="labelList4">
+                                    </ul>
+                                    <a href="#" class="label_name" title="add labels"><i class="fas fa-tag"></i></a>
+                                </div>
+                                <div class = "filter_label">
+                                    <ul class="priorityList">
+                                        <li class="icon-label"><input type="checkbox" name="all_priority" value="Priority 1" >Priority 1</li>
+                                        <li class="icon-label"><input type="checkbox" name="all_priority" value="Priority 2" >Priority 2</li>
+                                        <li class="icon-label"><input type="checkbox" name="all_priority" value="Priority 3" >Priority 3</li>
+                                    </ul>
+                                    <a href="#" title="set the priority"><i class="fab fa-font-awesome-flag"></i></a>
+                                </div>  
+                            </div>
                         </div>
                         <div class="btn_task">
                             <button id="edit_cal">Edit</button>
@@ -421,6 +442,7 @@
                     <p>Doesn't work?<a href="#" id="registration">Help<i class="far fa-question-circle"></i></a></p>
                 </div>
             </form>
+            <!-- add task -->
             <div class="modal_window"></div>
             <div class="add_task er_message" id="add_task">
                 <div class="task_input">
@@ -431,18 +453,29 @@
                 </div>
                 <br><br>
                 <div class="add_descr_task">
-                    <button>schedule</button>
-                    <p>
-                        <a href="#" title="add labels"><i class="fas fa-tag"></i></a>
-                        <a href="#" title="set the priority"><i class="fab fa-font-awesome-flag"></i></a>
-                        <!-- <a href="#" title="add reminder "><i class="fas fa-stopwatch"></i></a> -->
-                    </p>
+                    <input type="text" name="date" class="tcal" id="calendar2" value="" />
+                        <div class="add_signs">
+                            <div class="sign_label">
+                                <ul class="labelList" id="labelList3"> 
+                                </ul>
+                                <a href="#" class="label_name" title="add labels"><i class="fas fa-tag"></i></a>
+                            </div>
+                            <div class = "filter_label">
+                                <ul class="priorityList">
+                                    <li class="icon-label"><input type="checkbox" name="all_priority" value="Priority 1" >Priority 1</li>
+                                    <li class="icon-label"><input type="checkbox" name="all_priority" value="Priority 2" >Priority 2</li>
+                                    <li class="icon-label"><input type="checkbox" name="all_priority" value="Priority 3" >Priority 3</li>
+                                </ul>
+                                <a href="#" title="set the priority"><i class="fab fa-font-awesome-flag"></i></a>
+                            </div>  
+                        </div>
                 </div>
                 <div class="btn_task">
                     <button id="add_newtask">Add</button>
                     <button id="cancel">Cancel</button>
                 </div>
             </div>
+            <!-- add label -->
             <div class="modal_window"></div>
             <div class="er_message" id="label">
                 <span id="cancel_label2"><i class="fas fa-times"></i></span>
@@ -463,6 +496,7 @@
                 <span id="cancel_error3"><i class="fas fa-times"></i></span>
                 <p>Statistics is not available in a free version</p>
             </div>
+            <!-- add project -->
             <div class="er_message project_name" >
                 <span id="cancel_pr"><i class="fas fa-times"></i></span>
                 <label for="inputProject">Project name
@@ -478,6 +512,7 @@
                 <span id="cancel_error"><i class="fas fa-times"></i></span>
                 <p>You can create only 3 projects in a free version</p>
             </div>
+            <!-- add todo -->
             <div class="over_modal"></div>
             <div class="add_task_todo er_message">
                     <div class="task_input">
@@ -502,23 +537,7 @@
             
         </div>
     </section>
-  <!--   <section class="wrapper">
-        <div class="center">
-            <div class="preloader-wrap">         
-                <div class="preloader-wrapper active">
-                    <div class="spinner-layer spinner-red-only">
-                    <div class="circle-clipper left">
-                        <div class="circle"></div>
-                    </div><div class="gap-patch">
-                        <div class="circle"></div>
-                    </div><div class="circle-clipper right">
-                        <div class="circle"></div>
-                    </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> -->
+ 
 
     <script src="./script/script.js"></script>
     <script src = "./script/project.js"></script>

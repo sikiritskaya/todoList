@@ -42,7 +42,10 @@ const getDataLabel = async() =>{
     const res = await fetch(URL_LABEL)
     const data = await res.json()
     const container= document.querySelector('#label_container')
-    const containerList = document.querySelector('.labelList')
+    const containerList = document.querySelector('#labelList')
+    const containerList2 = document.querySelector('#labelList2')
+    const containerList3 = document.querySelector('#labelList3')
+    const containerList4 = document.querySelector('#labelList4')
     containerList.innerHTML=''
     container.innerHTML=''
     data.forEach((item)=>{
@@ -50,6 +53,15 @@ const getDataLabel = async() =>{
         <p data-id="${item.id}"><a href=#>${item.title}</a><span class="more_info">...</span></p>
         `
         containerList.innerHTML+=`
+        <li class="icon-label"><input type="checkbox" name="all" value="${item.title}" >${item.title}</li>
+        `
+        containerList2.innerHTML+=`
+        <li class="icon-label"><input type="checkbox" name="all" value="${item.title}" >${item.title}</li>
+        `
+        containerList3.innerHTML+=`
+        <li class="icon-label"><input type="checkbox" name="all" value="${item.title}" >${item.title}</li>
+        `
+        containerList4.innerHTML+=`
         <li class="icon-label"><input type="checkbox" name="all" value="${item.title}" >${item.title}</li>
         `
     })
@@ -128,5 +140,6 @@ const deleteDataLabel = async(curId) => {
         method: 'DELETE'
     })
     getDataLabel()
+    //putData()
 
 }

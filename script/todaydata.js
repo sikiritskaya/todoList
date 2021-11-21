@@ -24,6 +24,8 @@ const postDataToday = async () => {
     const descr_input= document.querySelector('#editor8').value;
     document.querySelector('#editor7').value=''
     document.querySelector('#editor8').value=''
+    let label = getChecked()
+    let priority = getCheckedPriority()
     let dt = new Date()
     let date = dt.toLocaleDateString('en-gb',{
         year: 'numeric',
@@ -41,7 +43,9 @@ const postDataToday = async () => {
             {
                 "title": name_input,
                 "description": descr_input,
-                "date": date
+                "date": date,
+                "label": label,
+                "priority": priority
             }
         ),
         headers: {
@@ -55,6 +59,8 @@ const postDataToday = async () => {
 document.querySelector('#add_newtask_today').addEventListener('click',()=>{ 
     if(document.querySelector('#editor7').value.trim()!==''){
         postDataToday()
+        clearCheckbox()
+        clearCheckboxPriority()
     }
      
 })
@@ -75,11 +81,47 @@ const getDataToday = async() =>{
     //console.log(data)
     data.forEach((item)=>{
         if(item.date === date){
-        containerTasks.innerHTML += `
+            if(item.priority === "Priority 1"){
+                containerTasks.innerHTML += `
+                    <div class="task_list task_list_today">
+                        <div data-id="${item.id}">
+                            <span class="check check_today"><input type="checkbox" class="done color_red"></span>
+                            <span class="title_task">${item.title}</span>
+                            <span class="info_label">${item.label}</span>
+                            <p class="descr_task">${item.description}</p>
+                        </div>
+                        <div class="edit edit_today">
+                            <a href=#>
+                                <i class="far fa-edit"></i>
+                            </a>
+                        </div>
+                    </div>
+                    `
+            }
+            if(item.priority === "Priority 2"){
+                containerTasks.innerHTML += `
+                    <div class="task_list task_list_today">
+                        <div data-id="${item.id}">
+                            <span class="check check_today"><input type="checkbox" class="done color_orange"></span>
+                            <span class="title_task">${item.title}</span>
+                            <span class="info_label">${item.label}</span>
+                            <p class="descr_task">${item.description}</p>
+                        </div>
+                        <div class="edit edit_today">
+                            <a href=#>
+                                <i class="far fa-edit"></i>
+                            </a>
+                        </div>
+                    </div>
+                    `
+            }
+            if(item.priority ==="Priority 3" || item.priority === ""){
+                containerTasks.innerHTML += `
                 <div class="task_list task_list_today">
                     <div data-id="${item.id}">
                         <span class="check check_today"><input type="checkbox" class="done"></span>
                         <span class="title_task">${item.title}</span>
+                        <span class="info_label">${item.label}</span>
                         <p class="descr_task">${item.description}</p>
                     </div>
                     <div class="edit edit_today">
@@ -89,6 +131,7 @@ const getDataToday = async() =>{
                     </div>
                 </div>
                 `
+            }
         }
     })
     counterToday()
@@ -124,7 +167,10 @@ const putDataToday = async(curId) => {
 document.querySelector('#change2').addEventListener('click', ()=>{
     if(document.querySelector('#editor7').value.trim()!==''){
         putDataToday(currentId)
+
     }
+    clearCheckbox()
+    clearCheckboxPriority()
     
 })
 

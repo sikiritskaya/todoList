@@ -19,6 +19,8 @@ document.addEventListener('click',(e)=>{
 document.querySelector('#main_today').addEventListener('click',(e)=>{
     if(e.target.closest('.edit_today')){
         currentId = getIdUser(e);
+        document.querySelector('#editor7').value = e.target.parentElement.parentElement.previousElementSibling.children[1].textContent
+        document.querySelector('#editor8').value = e.target.parentElement.parentElement.previousElementSibling.children[3].textContent
         let btnAdd= document.querySelector('#add_newtask_today')
         let btnChange = document.querySelector('#change2')
         addTaskToday.classList.remove('er_message')
@@ -31,6 +33,7 @@ document.querySelector('#main_today').addEventListener('click',(e)=>{
 
 const todayDate=()=>{
     let container = document.querySelector('#name_today')
+    let container2 = document.querySelector('#todayDate')
     const dt = new Date()
     let dtToday = dt.toLocaleDateString('en-gb',{
         weekday: 'long',
@@ -38,6 +41,12 @@ const todayDate=()=>{
         month: 'numeric',
         day: 'numeric',
     })
+    let dtButton=dt.toLocaleDateString('en-gb',{
+        year: 'numeric',
+        month: 'numeric',
+        day: 'numeric',
+    })
     container.textContent = dtToday
+    container2.textContent = dtButton
 }
 todayDate()

@@ -49,17 +49,38 @@ const getDataInfo = async() =>{
     const data = await res.json()
     const container= document.querySelector('#project_container')
     container.innerHTML=''
-    data.forEach((item)=>{
-       
+    data.forEach((item,index)=>{
         container.innerHTML +=`
-        <p data-id="${item.id}"><a href= class="project_collection">${item.title}</a><span class="more_info">...</span></p>
+            <p data-id="projects${index+1}"><a href="#projects${index+1}" class="project_collection">${item.title}</a><span data-id="${item.id}" class="more_info">...</span></p>
         `
         
     })
 
-}
-getDataInfo()
+} 
+let projectNum = 0
+document.querySelector('#project_container').addEventListener('click', (e) => {
+    if(e.target.classList.contains('project_collection')){
+        projectNum = e.target.parentElement.dataset.id;
+        document.querySelector('.drag_drop').style.display="block"
+        document.querySelector('#main_inbox').style.display='none'
+        document.querySelector('#main_today').style.display='none'
+        document.querySelector('#task_cal').style.display="none"
+        getDataProject(`http://localhost:3000/${e.target.parentElement.dataset.id}`) 
 
+    }
+})
+getDataInfo()
+let idForDelete =0
+const getInfoForDelete = (e)=>{
+    if(e.target.closest('.more_info')){
+        return e.target.parentElement.dataset.id
+    }
+}
+const getIdProjectName = (e) =>{
+    if(e.target.closest('.more_info')){
+        return e.target.closest('.more_info').dataset.id
+    }
+}
 document.querySelector('#project_container').addEventListener('click',(e)=>{
         if(e.target.closest('.more_info')){
         document.querySelector('#inputProject').value = e.target.previousElementSibling.textContent
@@ -69,8 +90,9 @@ document.querySelector('#project_container').addEventListener('click',(e)=>{
         document.querySelector('#edit_project').style.display="flex"
         document.querySelector('#btn_project').style.display="none"
         document.querySelector('#cancel_project').style.display="none"
-        currentId = getIdLabel(e);
-        console.log(currentId)
+        currentId = getIdProjectName(e);
+        idForDelete = e.target.parentElement.dataset.id
+        console.log(idForDelete)
     }
 })
 
@@ -118,8 +140,10 @@ const putDataProjectLabels = async(curId) => {
     document.querySelector('#edit_project').style.display="none"
     document.querySelector('#btn_project').style.display="flex"
     document.querySelector('#cancel_project').style.display="flex"
+    //deleteAllProject(`http://localhost:3000/${idForDelete}`)
     deleteDataProjectLabel(currentId)
     
+
     
 }) 
 const deleteDataProjectLabel = async(curId) => {
@@ -128,5 +152,5 @@ const deleteDataProjectLabel = async(curId) => {
         method: 'DELETE'
     })
     getDataInfo()
-
+    
 }

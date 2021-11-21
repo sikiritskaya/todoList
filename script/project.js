@@ -25,7 +25,7 @@ function dragEnd(e){
     dataset_num = e.target.parentElement.dataset.num
     console.log(dataset_num)
     console.log('dragend',e.target.parentElement.dataset.num)
-    patchProjectData(this.dataset.id, dataset_num)
+    patchProjectData(`http://localhost:3000/${projectNum}`,this.dataset.id, dataset_num)
     
 }
 function dragOver(e){
@@ -77,7 +77,7 @@ document.addEventListener('click',(e)=>{
     }
 })
  document.querySelector('#add_newtask3').addEventListener('click',()=>{
-    postDataProject()
+    postDataProject(`http://localhost:3000/${projectNum}`)
     closeTodo()
 } ) 
  function closeTodo(){

@@ -725,6 +725,9 @@ body * {
 }
 
 body .drag_drop {
+  width: 100%;
+  margin-left: 4%;
+  margin-right: 4%;
   background-color: #fff;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
@@ -732,14 +735,14 @@ body .drag_drop {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  min-height: 100vh;
-  width: 100%;
+  /*  min-height: 100vh;
+        width: 100%; */
   display: none;
 }
 
 body .drag_drop .todo-container {
-  width: 90%;
-  height: 95vh;
+  width: 100%;
+  height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

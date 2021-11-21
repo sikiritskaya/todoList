@@ -1,10 +1,13 @@
 // отправить на сервер
-const postDataProject = async() => {
+let URL_PROJECT1 = 'http://localhost:3000/projects1'
+let URL_PROJECT2 = 'http://localhost:3000/projects2'
+let URL_PROJECT3 = 'http://localhost:3000/projects3'
+const postDataProject = async(url) => {
     const name_project = document.querySelector('#editor5').value;
     const descr_project= document.querySelector('#editor6').value;
     document.querySelector('#editor5').value=''
     document.querySelector('#editor6').value=''
-    await fetch('http://localhost:3000/projects',
+    await fetch(url,
     {
         method: 'POST',
         body: JSON.stringify(
@@ -18,7 +21,7 @@ const postDataProject = async() => {
             "Content-type": "application/json; charset=utf-8"
         }
     })
-    getDataProject()
+    getDataProject(url)
    
 }
 const getIdProject = (e) =>{
@@ -30,20 +33,26 @@ const getIdProject = (e) =>{
 document.querySelector('.todo-container').addEventListener('click', (e)=>{
     if(e.target.closest('.close')){
         currentId = getIdProject(e);
-        deleteDataProject(currentId)
+        deleteDataProject(`http://localhost:3000/${projectNum}`,currentId)
     }
     
 })
-const deleteDataProject = async(curId) => {
-  await fetch(`http://localhost:3000/projects/${curId}`,
+const deleteDataProject = async(url, curId) => {
+  await fetch(`${url}/${curId}`,
     {
         method: 'DELETE'
     })
-    getDataProject()
+    getDataProject(url)
 
 }
-const patchProjectData= async(curId, number)=>{
-    await fetch(`http://localhost:3000/projects/${curId}`,
+const deleteAllProject = async(url) => {
+    await fetch(url,
+    {
+        method: 'DELETE'
+    })
+}
+const patchProjectData= async(url,curId, number)=>{
+    await fetch(`${url}/${curId}`,
     {
         method: 'PATCH',
         body: JSON.stringify(
@@ -58,9 +67,8 @@ const patchProjectData= async(curId, number)=>{
 }
 
 
-const getDataProject = async() =>{
-    let URL_PROJECT = 'http://localhost:3000/projects'
-    const res = await fetch(URL_PROJECT)
+const getDataProject = async(url) =>{
+    const res = await fetch(url)
     const data = await res.json()
     allStatus.forEach((status, index)=>{{
         const headTitle = status.children[0];
@@ -97,5 +105,5 @@ const getDataProject = async() =>{
     
   
 }
-getDataProject()
+getDataProject(URL_PROJECT1)
 

@@ -166,10 +166,6 @@ document.addEventListener('click',(e)=>{
         addTask.classList.remove('er_message')
         document.querySelector('.modal_window').style.opacity="0.5"
     }
-    if(e.target.closest('#add_newtask')){
-        document.querySelector('.modal_window').style.opacity="0"
-        addTask.classList.add('er_message')
-    }
     if(e.target.closest('#cancel')){
         addTask.classList.add('er_message')
         document.querySelector('.modal_window').style.opacity="0"

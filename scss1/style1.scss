@@ -153,9 +153,6 @@ body{
        font-size: 14px;
        font-weight: 300;
        min-height: 100vh;
-       //overflow-y: hidden;
-       //margin: 0 auto 0 0 ;
-       //max-width: 1285px;
         width: 100%;
        .er_message{
         display: none;
@@ -376,8 +373,7 @@ body{
                     }
                     .info_label{
                         color: $color_hover;
-                        padding-left: 2rem ;
-                        
+                        padding-left: 2rem ; 
                         font-style: italic;
                     }
                     .descr_task{
@@ -616,16 +612,20 @@ body{
         box-sizing: border-box;
     }
     .drag_drop{
+        width: 100%;
+        margin-left: 4%;
+        margin-right: 4%;
+       // background-color: $color_form;
         background-color: $color_form;
         //display: flex;
         justify-content: center;
         align-items: center;
-        min-height: 100vh;
-        width: 100%;
+       /*  min-height: 100vh;
+        width: 100%; */
         display: none;
         .todo-container{
-            width: 90%;
-            height: 95vh;
+            width: 100%;
+            height: 100vh;
             display: flex;
             background-color: $color_page;
             .status{

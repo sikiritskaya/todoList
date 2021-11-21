@@ -68,6 +68,8 @@ document.querySelector('#add_newtask2').addEventListener('click',()=>{
 document.querySelector('#add_newtask').addEventListener('click',()=>{ 
     if(document.querySelector('#editor1').value.trim()!==''){
         postData('#editor1', '#editor2','#calendar2')
+        document.querySelector('.modal_window').style.opacity="0"
+        addTask.classList.add('er_message')
     }
     clearCheckbox()
     clearCheckboxPriority()

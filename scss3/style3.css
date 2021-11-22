@@ -206,7 +206,7 @@ table {
 .main_cal .container_cal .add_task .add_descr_task .add_signs .sign_label .labelList {
   display: none;
   position: absolute;
-  top: 20px;
+  top: 10px;
   z-index: 20;
   right: 0;
   background-color: #d4d1d1;
@@ -241,7 +241,7 @@ table {
 .main_cal .container_cal .add_task .add_descr_task .add_signs .filter_label .priorityList {
   display: none;
   position: absolute;
-  top: 20px;
+  top: 10px;
   z-index: 20;
   right: 0;
   background-color: #d4d1d1;
@@ -312,6 +312,10 @@ table {
 
 .main_cal .container_cal .task_list div .color_orange {
   border: 1px solid orange;
+}
+
+.main_cal .container_cal .task_list div .color_blue {
+  border: 1px solid #00ccff;
 }
 
 .main_cal .container_cal .task_list div .descr_task {

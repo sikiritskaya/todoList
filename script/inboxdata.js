@@ -92,7 +92,7 @@ const getData = async(term) =>{
         containerTasks.innerHTML += `
                 <div class="task_list task_list_inbox">
                     <div data-id="${item.id}">
-                        <span class="check check_inbox"><input type="checkbox" class="done color_red"></span>
+                        <span class="check check_inbox"><input type="checkbox" class="done color_red" id="${item.priority}"></span>
                         <span class="title_task">${item.title}</span>
                         <span class="info_label">${item.label}</span>
                         <p class="descr_task">${item.description}</p>
@@ -110,7 +110,7 @@ const getData = async(term) =>{
             containerTasks.innerHTML += `
             <div class="task_list task_list_inbox">
                 <div data-id="${item.id}">
-                    <span class="check check_inbox"><input type="checkbox" class="done color_orange"></span>
+                    <span class="check check_inbox"><input type="checkbox" class="done color_orange" id="${item.priority}"></span>
                     <span class="title_task">${item.title}</span>
                     <span class="info_label">${item.label}</span>   
                     <p class="descr_task">${item.description}</p>
@@ -125,11 +125,29 @@ const getData = async(term) =>{
               `
 
         }
-        if(item.priority ==="Priority 3" || item.priority === ""){
+        if(item.priority ==="Priority 3"){
             containerTasks.innerHTML += `
             <div class="task_list task_list_inbox">
                 <div data-id="${item.id}">
-                    <span class="check check_inbox"><input type="checkbox" class="done"></span>
+                    <span class="check check_inbox"><input type="checkbox" class="done color_blue" id="${item.priority}"></span>
+                    <span class="title_task">${item.title}</span>
+                    <span class="info_label">${item.label}</span> 
+                    <p class="descr_task">${item.description}</p>
+                </div>
+                <div class="edit edit_inbox">
+                    <a href=#>
+                        <i class="far fa-edit"></i>
+                    </a>
+                </div>
+            </div>
+      
+              `
+        }
+        if( item.priority === ""){
+            containerTasks.innerHTML += `
+            <div class="task_list task_list_inbox">
+                <div data-id="${item.id}">
+                    <span class="check check_inbox"><input type="checkbox" class="done" id="${item.priority}"></span>
                     <span class="title_task">${item.title}</span>
                     <span class="info_label">${item.label}</span> 
                     <p class="descr_task">${item.description}</p>
@@ -158,12 +176,31 @@ const getDataSearch =async(term) =>{
     containerTasks.innerHTML = '';
     //count=data.length
     data.forEach((item)=>{
+        if(item.priority === "Priority 1"){
         containerTasks.innerHTML += `
+                <div class="task_list task_list_inbox">
+                    <div data-id="${item.id}">
+                        <span class="check check_inbox"><input type="checkbox" class="done color_red" id="${item.priority}"></span>
+                        <span class="title_task">${item.title}</span>
+                        <span class="info_label">${item.label}</span>
+                        <p class="descr_task">${item.description}</p>
+                    </div>
+                    <div class="edit edit_inbox">
+                        <a href=#>
+                            <i class="far fa-edit"></i>
+                        </a>
+                    </div>
+                </div>
+          
+                  `
+        }
+        if(item.priority === "Priority 2"){
+            containerTasks.innerHTML += `
             <div class="task_list task_list_inbox">
                 <div data-id="${item.id}">
-                    <span class="check check_inbox"><input type="checkbox" class="done color_red"></span>
+                    <span class="check check_inbox"><input type="checkbox" class="done color_orange" id="${item.priority}"></span>
                     <span class="title_task">${item.title}</span>
-                    <span class="info_label">${item.label}</span>
+                    <span class="info_label">${item.label}</span>   
                     <p class="descr_task">${item.description}</p>
                 </div>
                 <div class="edit edit_inbox">
@@ -172,8 +209,46 @@ const getDataSearch =async(term) =>{
                     </a>
                 </div>
             </div>
+      
+              `
 
-            `
+        }
+        if(item.priority ==="Priority 3"){
+            containerTasks.innerHTML += `
+            <div class="task_list task_list_inbox">
+                <div data-id="${item.id}">
+                    <span class="check check_inbox"><input type="checkbox" class="done color_blue" id="${item.priority}"></span>
+                    <span class="title_task">${item.title}</span>
+                    <span class="info_label">${item.label}</span> 
+                    <p class="descr_task">${item.description}</p>
+                </div>
+                <div class="edit edit_inbox">
+                    <a href=#>
+                        <i class="far fa-edit"></i>
+                    </a>
+                </div>
+            </div>
+      
+              `
+        }
+        if( item.priority === ""){
+            containerTasks.innerHTML += `
+            <div class="task_list task_list_inbox">
+                <div data-id="${item.id}">
+                    <span class="check check_inbox"><input type="checkbox" class="done" id="${item.priority}"></span>
+                    <span class="title_task">${item.title}</span>
+                    <span class="info_label">${item.label}</span> 
+                    <p class="descr_task">${item.description}</p>
+                </div>
+                <div class="edit edit_inbox">
+                    <a href=#>
+                        <i class="far fa-edit"></i>
+                    </a>
+                </div>
+            </div>
+      
+              `
+        }
     })
 }
 
@@ -188,6 +263,23 @@ document.querySelector('#main_inbox').addEventListener('click', (e)=>{
         currentId = getIdUser(e);
         let btnAdd= document.querySelector('#add_newtask2')
         let btnChange = document.querySelector('#change')
+        let check_label = addTask2.querySelectorAll('input[name="all"]')
+        check_label.forEach(item =>{
+            if(item.value === e.target.parentElement.parentElement.previousElementSibling.children[2].textContent){
+                //console.log(item.value)
+                return item.checked =true
+            }
+
+        })
+        let check_priority =addTask2.querySelectorAll('input[name="all_priority"]')
+        check_priority.forEach(item =>{
+            if(item.value === e.target.parentElement.parentElement.previousElementSibling.children[0].children[0].id){
+                //console.log(item.value)
+                return item.checked =true
+            }
+            //console.log(item.value)
+            //console.log(e.target.parentElement.parentElement.previousElementSibling.children[0].children[0].id)
+        })
         console.log(e.target.parentElement.parentElement.previousElementSibling.children[2])
         document.querySelector('#editor3').value = e.target.parentElement.parentElement.previousElementSibling.children[1].textContent
         document.querySelector('#editor4').value = e.target.parentElement.parentElement.previousElementSibling.children[3].textContent
@@ -207,8 +299,8 @@ const putData = async(curId) => {
     document.querySelector('#editor3').value=''
     document.querySelector('#editor4').value=''
     document.querySelector('.tcal').value=""
- /*    let label = getChecked()
-    let priority = getCheckedPriority() */
+    let label = getChecked()
+    let priority = getCheckedPriority() 
     await fetch(`http://localhost:3000/tasks/${curId}`,
     {
         method: 'PATCH',
@@ -216,9 +308,9 @@ const putData = async(curId) => {
             {
                 "title": name_input,
                 "description": descr_input,
-                "date": date
-                /* "label": label,
-                "priority": priority */
+                "date": date,
+                "label": label,
+                "priority": priority
 
             }
         ),

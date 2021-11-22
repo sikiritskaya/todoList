@@ -386,6 +386,9 @@ body{
                     .color_orange{
                         border: 1px solid orange;
                     }
+                    .color_blue{
+                        border: 1px solid rgb(0, 204, 255);
+                    }
                 }
                 .edit{
                     text-align: end;
@@ -462,7 +465,7 @@ body{
                         .labelList{
                             display: none;
                             position: absolute;
-                            top:20px;
+                            top:10px;
                             z-index: 20;
                             right: 0;
                             background-color:$color_hover;
@@ -490,7 +493,7 @@ body{
                         .priorityList{
                             display: none;
                             position: absolute;
-                            top:20px;
+                            top:10px;
                             z-index: 20;
                             right: 0;
                             //left: 0;
@@ -684,5 +687,15 @@ body{
         }
     }
 }
+@media screen and (max-width: 1399.98px){
+    body{
+        .wrapper{
+            .center{
+                width: 90%;
+            }
+        }
+    }    
+}
+
 
 

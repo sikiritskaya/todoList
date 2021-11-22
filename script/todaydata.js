@@ -54,6 +54,7 @@ const postDataToday = async () => {
     })
     getDataToday()
     getData()
+    load()
    
 }
 document.querySelector('#add_newtask_today').addEventListener('click',()=>{ 
@@ -85,7 +86,7 @@ const getDataToday = async() =>{
                 containerTasks.innerHTML += `
                     <div class="task_list task_list_today">
                         <div data-id="${item.id}">
-                            <span class="check check_today"><input type="checkbox" class="done color_red"></span>
+                            <span class="check check_today"><input type="checkbox" class="done color_red" id="${item.priority}"></span>
                             <span class="title_task">${item.title}</span>
                             <span class="info_label">${item.label}</span>
                             <p class="descr_task">${item.description}</p>
@@ -102,7 +103,7 @@ const getDataToday = async() =>{
                 containerTasks.innerHTML += `
                     <div class="task_list task_list_today">
                         <div data-id="${item.id}">
-                            <span class="check check_today"><input type="checkbox" class="done color_orange"></span>
+                            <span class="check check_today"><input type="checkbox" class="done color_orange" id="${item.priority}"></span>
                             <span class="title_task">${item.title}</span>
                             <span class="info_label">${item.label}</span>
                             <p class="descr_task">${item.description}</p>
@@ -115,11 +116,28 @@ const getDataToday = async() =>{
                     </div>
                     `
             }
-            if(item.priority ==="Priority 3" || item.priority === ""){
+            if(item.priority ==="Priority 3"){
                 containerTasks.innerHTML += `
                 <div class="task_list task_list_today">
                     <div data-id="${item.id}">
-                        <span class="check check_today"><input type="checkbox" class="done"></span>
+                        <span class="check check_today"><input type="checkbox" class="done color_blue" id="${item.priority}"></span>
+                        <span class="title_task">${item.title}</span>
+                        <span class="info_label">${item.label}</span>
+                        <p class="descr_task">${item.description}</p>
+                    </div>
+                    <div class="edit edit_today">
+                        <a href=#>
+                            <i class="far fa-edit"></i>
+                        </a>
+                    </div>
+                </div>
+                `
+            }
+            if(item.priority === ""){
+                containerTasks.innerHTML += `
+                <div class="task_list task_list_today">
+                    <div data-id="${item.id}">
+                        <span class="check check_today"><input type="checkbox" class="done" id="${item.priority}"></span>
                         <span class="title_task">${item.title}</span>
                         <span class="info_label">${item.label}</span>
                         <p class="descr_task">${item.description}</p>
@@ -144,13 +162,17 @@ const putDataToday = async(curId) => {
     const descr_input= document.querySelector('#editor8').value;
     document.querySelector('#editor7').value=''
     document.querySelector('#editor8').value=''
+    let label = getChecked()
+    let priority = getCheckedPriority() 
     await fetch(`http://localhost:3000/tasks/${curId}`,
     {
         method: 'PATCH',
         body: JSON.stringify(
             {
                 "title": name_input,
-                "description": descr_input 
+                "description": descr_input,
+                "label": label,
+                "priority": priority 
             }
         ),
         headers: {
@@ -163,6 +185,8 @@ const putDataToday = async(curId) => {
     btnAdd.style.display = "inline"
     btnChange.style.display="none"
     getDataToday()
+    getData()
+    load()
 }
 document.querySelector('#change2').addEventListener('click', ()=>{
     if(document.querySelector('#editor7').value.trim()!==''){
@@ -196,6 +220,7 @@ const deleteDataToday = async(curId) => {
     })
     getDataToday()
     getData()
+    load()
 
 }
 //поиск

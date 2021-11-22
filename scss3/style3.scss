@@ -162,7 +162,7 @@ $color_i:rgb(77, 74, 74);
                         .labelList{
                             display: none;
                             position: absolute;
-                            top:20px;
+                            top:10px;
                             z-index: 20;
                             right: 0;
                             background-color:$color_hover;
@@ -190,7 +190,7 @@ $color_i:rgb(77, 74, 74);
                         .priorityList{
                             display: none;
                             position: absolute;
-                            top:20px;
+                            top:10px;
                             z-index: 20;
                             right: 0;
                             //left: 0;
@@ -255,6 +255,9 @@ $color_i:rgb(77, 74, 74);
                 }
                 .color_orange{
                     border: 1px solid orange;
+                }
+                .color_blue{
+                    border: 1px solid rgb(0, 204, 255);
                 }
                 .descr_task{
                     padding-left: 23px;

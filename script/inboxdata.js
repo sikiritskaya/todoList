@@ -84,6 +84,7 @@ const getData = async(term) =>{
     }
     const res = await fetch(URL_DATA)
     const data = await res.json()
+    console.log(data)
     let containerTasks = document.querySelector('#list_inbox');
     containerTasks.innerHTML = '';
     //count=data.length
@@ -252,6 +253,141 @@ const getDataSearch =async(term) =>{
     })
 }
 
+//кнопка приоритет
+const getDataFiltr = async(filtr) =>{
+    let URL_DATA = 'http://localhost:3000/tasks'
+    const res = await fetch(URL_DATA)
+    const data = await res.json()
+    let containerTasks = document.querySelector('#list_inbox');
+    containerTasks.innerHTML = '';
+    data.forEach((item)=>{
+        if (item.priority === filtr){
+            if(item.priority === "Priority 1"){
+                containerTasks.innerHTML += `
+                        <div class="task_list task_list_inbox">
+                            <div data-id="${item.id}">
+                                <span class="check check_inbox"><input type="checkbox" class="done color_red" id="${item.priority}"></span>
+                                <span class="title_task">${item.title}</span>
+                                <span class="info_label">${item.label}</span>
+                                <p class="descr_task">${item.description}</p>
+                            </div>
+                            <div class="edit edit_inbox">
+                                <a href=#>
+                                    <i class="far fa-edit"></i>
+                                </a>
+                            </div>
+                        </div>
+                  
+                          `
+                }
+                if(item.priority === "Priority 2"){
+                    containerTasks.innerHTML += `
+                    <div class="task_list task_list_inbox">
+                        <div data-id="${item.id}">
+                            <span class="check check_inbox"><input type="checkbox" class="done color_orange" id="${item.priority}"></span>
+                            <span class="title_task">${item.title}</span>
+                            <span class="info_label">${item.label}</span>   
+                            <p class="descr_task">${item.description}</p>
+                        </div>
+                        <div class="edit edit_inbox">
+                            <a href=#>
+                                <i class="far fa-edit"></i>
+                            </a>
+                        </div>
+                    </div>
+              
+                      `
+        
+                }
+                if(item.priority ==="Priority 3"){
+                    containerTasks.innerHTML += `
+                    <div class="task_list task_list_inbox">
+                        <div data-id="${item.id}">
+                            <span class="check check_inbox"><input type="checkbox" class="done color_blue" id="${item.priority}"></span>
+                            <span class="title_task">${item.title}</span>
+                            <span class="info_label">${item.label}</span> 
+                            <p class="descr_task">${item.description}</p>
+                        </div>
+                        <div class="edit edit_inbox">
+                            <a href=#>
+                                <i class="far fa-edit"></i>
+                            </a>
+                        </div>
+                    </div>
+              
+                      `
+                }
+        }
+    })
+}
+//sort label
+const getSortLabel = async(label) =>{
+    let URL_DATA = 'http://localhost:3000/tasks'
+    const res = await fetch(URL_DATA)
+    const data = await res.json()
+    let containerTasks = document.querySelector('#list_inbox');
+    containerTasks.innerHTML = '';
+    data.forEach((item)=>{
+        if (item.label === label){
+            if(item.priority === "Priority 1"){
+                containerTasks.innerHTML += `
+                        <div class="task_list task_list_inbox">
+                            <div data-id="${item.id}">
+                                <span class="check check_inbox"><input type="checkbox" class="done color_red" id="${item.priority}"></span>
+                                <span class="title_task">${item.title}</span>
+                                <span class="info_label">${item.label}</span>
+                                <p class="descr_task">${item.description}</p>
+                            </div>
+                            <div class="edit edit_inbox">
+                                <a href=#>
+                                    <i class="far fa-edit"></i>
+                                </a>
+                            </div>
+                        </div>
+                  
+                          `
+                }
+                if(item.priority === "Priority 2"){
+                    containerTasks.innerHTML += `
+                    <div class="task_list task_list_inbox">
+                        <div data-id="${item.id}">
+                            <span class="check check_inbox"><input type="checkbox" class="done color_orange" id="${item.priority}"></span>
+                            <span class="title_task">${item.title}</span>
+                            <span class="info_label">${item.label}</span>   
+                            <p class="descr_task">${item.description}</p>
+                        </div>
+                        <div class="edit edit_inbox">
+                            <a href=#>
+                                <i class="far fa-edit"></i>
+                            </a>
+                        </div>
+                    </div>
+              
+                      `
+        
+                }
+                if(item.priority ==="Priority 3"){
+                    containerTasks.innerHTML += `
+                    <div class="task_list task_list_inbox">
+                        <div data-id="${item.id}">
+                            <span class="check check_inbox"><input type="checkbox" class="done color_blue" id="${item.priority}"></span>
+                            <span class="title_task">${item.title}</span>
+                            <span class="info_label">${item.label}</span> 
+                            <p class="descr_task">${item.description}</p>
+                        </div>
+                        <div class="edit edit_inbox">
+                            <a href=#>
+                                <i class="far fa-edit"></i>
+                            </a>
+                        </div>
+                    </div>
+              
+                      `
+                }
+        }
+    })
+}
+
 let currentId = 0;
 const getIdUser = (e) =>{
     if(e.target.closest('.edit')){
@@ -359,8 +495,49 @@ const deleteData = async(curId) => {
     getDataToday()
 
 }
+
+
 //поиск
  
 search.addEventListener('input',()=>{
     getDataSearch(search.value.trim())
 })
+
+
+//sort
+var array = [{title: 'vbbb', description: '', date: '19/11/2022', label: 'q'},
+{title: 'hjj', description: '', date: '21/11/2021', label: '222'},
+{title: 'hhhhhh', description: '', date: '28/11/2021', label: 'q'},
+{title: 'nnn', description: '', date: '21/08/2023', label: 'q'},
+{title: 'nnn', description: '', date: '21/01/2025', label: 'q'},
+{title: '777', description: '', date: '14/11/2021', label: ''}]
+var dates = ['14/11/2021','01/10/2000','14/11/2031','14/11/2011']
+ let arrSort = array.sort(function(a, b) {
+    var c = new Date(a.date);
+    var d = new Date(b.date);
+    return c-d;
+    });
+
+
+console.log(arrSort)
+
+
+
+//array.sort((prev,next)=> prev.date.split('/')-next.date.split('/'))
+//console.log(array)
+
+dates.sort((a,b)=>{
+     var aa = b.split('/').reverse().join(),
+     bb = a.split('/').reverse().join(); 
+   return aa.split('/').reverse().join() - bb.split('/').reverse().join()
+})
+
+
+/* dates.sort(function(a, b){
+    var aa = a.split('/').reverse().join(),
+        bb = b.split('/').reverse().join();
+    return aa < bb ? -1 : (aa > bb ? 1 : 0);
+}) */
+
+//console.log(dates)
+

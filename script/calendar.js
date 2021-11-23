@@ -84,6 +84,7 @@ const getDayTasks=async()=>{
     let container = document.querySelector('#seeAll')
     container.innerHTML=""
     data.forEach(item => {
+       
         if(item.date === clicked){
             if(item.priority === "Priority 1"){
                 container.innerHTML+=`
@@ -156,9 +157,15 @@ const getDayTasks=async()=>{
         }
 
     })
-    if(container.hasChildNodes()=== false){
-        closeSchedule()
+    if(container.innerHTML===''){
+        container.innerHTML+=`
+        <div class="noPlans">All clear! You don't have plans for this day yet</div>
+        `
     }
+
+    /* if(container.hasChildNodes()=== false){
+        closeSchedule()
+    } */
 }
 const getIdSch=(e)=>{
     if(e.target.closest('.check_sch')){
@@ -284,7 +291,6 @@ const showModal=(date)=>{
         clicked=date
         modal_cal.classList.remove('er_message')
         document.querySelector('.modal_window_cal').style.opacity="0.5"
-        
         getDayTasks()
 /*         let allTask= document.querySelectorAll('.task_list_sch')
         if(allTask.length===0){

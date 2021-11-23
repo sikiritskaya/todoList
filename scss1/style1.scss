@@ -231,6 +231,10 @@ body{
                     }
                     a{
                         @include a_text($color_text)
+                
+                    }
+                    .label_panel{
+                        width: 50%;
                     }
                     span{
                         opacity: 0;
@@ -691,11 +695,148 @@ body{
     body{
         .wrapper{
             .center{
-                width: 90%;
+                width: 93%;
             }
         }
     }    
 }
+@media screen and (max-width: 991.98px){
+    body{
+        .wrapper{
+                .main{
+                    #footer_main{
+                        height: 40%;
+                       
+                    }
+                    .menu{
+                        width: 23%;
+                        padding-left: 3%;
+                    }
+                    .main_cal{
+                        margin-left: 2%;
+                        margin-right: 0;
+                        .container_cal{
+                            #header_cal{
+                                width: 93%;
+                            }
+                            #weekdays{
+                                width: 95%;
+                            }
+                            #calendar{
+                                .day{
+                                    width: 12%;
+                                }
+                            }
+                        }
+                    }
+                }
 
+        }
+    } 
+}
+@media  screen and (max-width: 767.98px){
+    body{
+        .wrapper{
+            .center{
+                header{
+                    .startHeader{
+                        width: 20%;
+                    }
+                    .user{
+                        width: 50%;
+                    }
+                }
+            }
+                .main{
+                    .menu{
+                        position:absolute;
+                        z-index: 1000;
+                    }
+                    .drag_drop{
+                        .todo-container{
+                            flex-wrap: wrap;
+                            .status{
+                                width: 50%;
+                            }
+                        }
+                    }
+                    #footer_main{
+                        display: none;
+                       
+                    }
+                    .main_cal{
+                        .container_cal{
+                            #header_cal{
+                                width: 97%;
+                            }
+                            #weekdays{
+                                width: 100%;
+                            }
+                            #calendar{
+                                .day{
+                                    width: 14%;
+                                    margin: 0;
+                                }
+                            }
+                        }
+                    }
+                }
+
+        }
+    } 
+}
+
+@media  screen and (max-width: 575.98px){
+    body{
+        .wrapper{
+            .main{
+                .menu{
+                    width: 50%;
+                    padding-left: 5%;
+                }
+            }
+            .center{
+                header{
+                    width: 100%;
+                    .startHeader{
+                        width: 33%;
+                    }
+                    .search{
+                        width: 33%;
+                        #search{
+                            display: none;
+                        }
+                        #icon1{
+                            position: relative;
+                        }
+
+                    }
+                    .user{
+                        width: 33%;
+                        #user{
+                            padding-left: 35px;
+                        }
+                        p{
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media  screen and (max-width: 375px){
+    body{
+        .wrapper{
+            .main{
+                .menu{
+                    width: 100%;
+                    padding-left: 5%;
+                    padding-right: 5%;
+                }
+            }
+        }
+    }
+}
 
 

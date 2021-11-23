@@ -50,7 +50,7 @@ const getDataLabel = async() =>{
     container.innerHTML=''
     data.forEach((item)=>{
         container.innerHTML +=`
-        <p data-id="${item.id}"><a href=#>${item.title}</a><span class="more_info">...</span></p>
+        <p data-id="${item.id}"><a href=# class="label_panel">${item.title}</a><span class="more_info">...</span></p>
         `
         containerList.innerHTML+=`
         <li class="icon-label"><input type="checkbox" name="all" value="${item.title}" >${item.title}</li>

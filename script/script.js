@@ -187,6 +187,7 @@ document.addEventListener('click',(e)=>{
         document.querySelector('#main_inbox').style.display='block'
         document.querySelector('#main_today').style.display='none'
         document.querySelector('#task_cal').style.display="none"
+        getData()
     }
     if(e.target.closest('#plus2')){
         addTask2.classList.remove('er_message')
@@ -220,6 +221,22 @@ document.addEventListener('click',(e)=>{
             }
     
         }
+    }
+    if(e.target.closest('.priority_panel')){
+        console.log(e.target.textContent)
+        document.querySelector('.drag_drop').style.display="none"
+        document.querySelector('#main_inbox').style.display='block'
+        document.querySelector('#main_today').style.display='none'
+        document.querySelector('#task_cal').style.display="none"
+        getDataFiltr(e.target.textContent)
+    }
+    if(e.target.closest('.label_panel')){
+        console.log(e.target.textContent)
+        document.querySelector('.drag_drop').style.display="none"
+        document.querySelector('#main_inbox').style.display='block'
+        document.querySelector('#main_today').style.display='none'
+        document.querySelector('#task_cal').style.display="none"
+        getSortLabel(e.target.textContent)
     }
     if(e.target.closest('#marks')){
         if( document.querySelector('#label_container').children.length<5){

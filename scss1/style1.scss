@@ -104,14 +104,20 @@ body{
                     width: 30%;
                     #icon1{
                         position: absolute;
-                        top: 25%;
+                        top: 5px;
                         font-size: 20px;
                         left: 9px;
                         
+                        z-index: 2;
+                        
                     }
                     #search{
+                        position: relative;
                         height: 30px;
                         padding-left: 40px;
+                    }
+                    .change_width{
+                        width: 100%;
                     }
                     .er_message{
                         display: none;
@@ -311,6 +317,9 @@ body{
             }
         }
        }
+       .close_menu{
+           display: none;
+       }
        .er_message{
         display: none;
         }
@@ -357,6 +366,10 @@ body{
                 font-weight: 900;
                 font-size: 20px;
             }
+            #name_statistics{
+                font-weight: 900;
+                font-size: 20px;
+            }
             .sort_task{
                 position: relative;
                 a{
@@ -381,6 +394,23 @@ body{
                     display: block;
                 }
             }
+        }
+        .countTask{
+            margin-top: 2%;
+            font-size: 15px;
+        }
+        .showAll{
+            margin-top: 2%;
+            
+            a{
+                @include a_text($color_text);
+                cursor: pointer;
+               // padding: 1rem;
+                &:hover{
+                    background-color: $color_background;
+                }
+            }
+           
         }
         .lists{
             .task_list{
@@ -748,6 +778,18 @@ body{
 @media screen and (max-width: 991.98px){
     body{
         .wrapper{
+            .center{
+                header{
+                    .search{
+                        .change_width{
+                            width: auto;
+                        }
+                        span{
+                            display: none;
+                        }
+                    }
+                }
+            }
                 .main{
                     #footer_main{
                         height: 40%;
@@ -784,6 +826,14 @@ body{
         .wrapper{
             .center{
                 header{
+                    .search{
+                        #search{
+                            width: 100%;
+                        }
+                        .change_width{
+                            width: auto;
+                        }
+                    }
                     .startHeader{
                         width: 20%;
                     }
@@ -794,8 +844,28 @@ body{
             }
                 .main{
                     .menu{
+                        display: none;
                         position:absolute;
                         z-index: 1000;
+                        min-height:40%;
+                        width: 50%;
+                        border-radius: 4px;
+                        
+                        .tasks{
+                            .choose_task{
+                                padding-right: 10%;
+                            }
+                        }
+                        .add_accord {
+                            .plus_acc{
+                                i{
+                                    padding-right: 2rem;
+                                }
+                            }
+                        } 
+                    }
+                    .close_menu{
+                        display: block;
                     }
                     .drag_drop{
                         .todo-container{
@@ -815,7 +885,10 @@ body{
                                 width: 97%;
                             }
                             #weekdays{
-                                width: 100%;
+                                width: 100%;    
+                            }
+                            .cut{
+                                font-size: 16px;
                             }
                             #calendar{
                                 .day{
@@ -844,20 +917,20 @@ body{
                 header{
                     width: 100%;
                     .startHeader{
-                        width: 33%;
+                        width: 25%;
                     }
                     .search{
-                        width: 33%;
-                        #search{
+                        width: 40%;
+                        /* #search{
                             display: none;
-                        }
-                        #icon1{
+                        } */
+                        /* #icon1{
                             position: relative;
-                        }
+                        } */
 
                     }
                     .user{
-                        width: 33%;
+                        width: 35%;
                         #user{
                             padding-left: 35px;
                         }

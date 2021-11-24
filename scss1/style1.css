@@ -119,14 +119,20 @@ body .wrapper .center header .search {
 
 body .wrapper .center header .search #icon1 {
   position: absolute;
-  top: 25%;
+  top: 5px;
   font-size: 20px;
   left: 9px;
+  z-index: 2;
 }
 
 body .wrapper .center header .search #search {
+  position: relative;
   height: 30px;
   padding-left: 40px;
+}
+
+body .wrapper .center header .search .change_width {
+  width: 100%;
 }
 
 body .wrapper .center header .search .er_message {
@@ -364,6 +370,10 @@ body .main .menu .test::before {
   transition: 0.5s;
 }
 
+body .main .close_menu {
+  display: none;
+}
+
 body .main .er_message {
   display: none;
 }
@@ -422,6 +432,11 @@ body .main_page .header_main #name_today {
   font-size: 20px;
 }
 
+body .main_page .header_main #name_statistics {
+  font-weight: 900;
+  font-size: 20px;
+}
+
 body .main_page .header_main .sort_task {
   position: relative;
 }
@@ -450,6 +465,25 @@ body .main_page .header_main .sort_task .sortBy a {
 
 body .main_page .header_main .sort_task .show_sort {
   display: block;
+}
+
+body .main_page .countTask {
+  margin-top: 2%;
+  font-size: 15px;
+}
+
+body .main_page .showAll {
+  margin-top: 2%;
+}
+
+body .main_page .showAll a {
+  text-decoration: none;
+  color: #000;
+  cursor: pointer;
+}
+
+body .main_page .showAll a:hover {
+  background-color: #f7c5cdee;
 }
 
 body .main_page .lists .task_list {
@@ -881,6 +915,12 @@ body .drag_drop .todo-container .status .todo span:hover {
 }
 
 @media screen and (max-width: 991.98px) {
+  body .wrapper .center header .search .change_width {
+    width: auto;
+  }
+  body .wrapper .center header .search span {
+    display: none;
+  }
   body .wrapper .main #footer_main {
     height: 40%;
   }
@@ -904,6 +944,12 @@ body .drag_drop .todo-container .status .todo span:hover {
 }
 
 @media screen and (max-width: 767.98px) {
+  body .wrapper .center header .search #search {
+    width: 100%;
+  }
+  body .wrapper .center header .search .change_width {
+    width: auto;
+  }
   body .wrapper .center header .startHeader {
     width: 20%;
   }
@@ -911,8 +957,21 @@ body .drag_drop .todo-container .status .todo span:hover {
     width: 50%;
   }
   body .wrapper .main .menu {
+    display: none;
     position: absolute;
     z-index: 1000;
+    min-height: 40%;
+    width: 50%;
+    border-radius: 4px;
+  }
+  body .wrapper .main .menu .tasks .choose_task {
+    padding-right: 10%;
+  }
+  body .wrapper .main .menu .add_accord .plus_acc i {
+    padding-right: 2rem;
+  }
+  body .wrapper .main .close_menu {
+    display: block;
   }
   body .wrapper .main .drag_drop .todo-container {
     -ms-flex-wrap: wrap;
@@ -930,6 +989,9 @@ body .drag_drop .todo-container .status .todo span:hover {
   body .wrapper .main .main_cal .container_cal #weekdays {
     width: 100%;
   }
+  body .wrapper .main .main_cal .container_cal .cut {
+    font-size: 16px;
+  }
   body .wrapper .main .main_cal .container_cal #calendar .day {
     width: 14%;
     margin: 0;
@@ -945,19 +1007,19 @@ body .drag_drop .todo-container .status .todo span:hover {
     width: 100%;
   }
   body .wrapper .center header .startHeader {
-    width: 33%;
+    width: 25%;
   }
   body .wrapper .center header .search {
-    width: 33%;
-  }
-  body .wrapper .center header .search #search {
-    display: none;
-  }
-  body .wrapper .center header .search #icon1 {
-    position: relative;
+    width: 40%;
+    /* #search{
+                            display: none;
+                        } */
+    /* #icon1{
+                            position: relative;
+                        } */
   }
   body .wrapper .center header .user {
-    width: 33%;
+    width: 35%;
   }
   body .wrapper .center header .user #user {
     padding-left: 35px;

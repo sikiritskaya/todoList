@@ -1,4 +1,5 @@
 //let count = 0
+let allCounter=0
 const counter=(count)=>{
     //let count = document.getElementsByClassName('task_list_inbox').length
     document.querySelector('#task-inbox').textContent = count
@@ -55,7 +56,7 @@ const postData = async (title,descr,date) => {
             }
         })
  
-
+    allCounter++
     getData()
     load()
     getDataToday()
@@ -661,7 +662,7 @@ const deleteId = (e) =>{
 document.querySelector('#main_inbox').addEventListener('click', (e)=>{
     if(e.target.closest('.check_inbox')){
         currentId = deleteId(e);
-
+        getInfo(currentId)
         deleteData(currentId)
     }
     
@@ -706,5 +707,5 @@ var dates = ['14/11/2021','01/10/2000','14/11/2031','14/11/2011']
         bb = b.description.split(' ').reverse().join();
     return aa < bb ? -1 : (aa > bb ? 1 : 0);
 }) */
-console.log(array)
+//console.log(array)
 

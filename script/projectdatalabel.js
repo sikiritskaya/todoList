@@ -54,7 +54,17 @@ const getDataInfo = async() =>{
     const container2 = document.querySelector(`[data-id="projects2"]`)
     const container3 = document.querySelector(`[data-id="projects3"]`)
     container.innerHTML=''
-    data.forEach((item,index)=>{
+    data.forEach((item,index)=>{ 
+        /* if(item[0]){
+            container1.innerHTML=`<a href="#projects1" class="project_collection">${item[0].title}</a><span data-id="${item[0].id}" class="more_info">...</span>`
+        }
+        if(item[1]){
+            container2.innerHTML=`<a href="#projects2" class="project_collection">${item[1].title}</a><span data-id="${item[1].id}" class="more_info">...</span>`
+        }
+        if(item[2]){
+            container3.innerHTML=`<a href="#projects3" class="project_collection">${item[2].title}</a><span data-id="${item[2].id}" class="more_info">...</span>`
+        } */
+       
         container.innerHTML +=`
             <p data-id="projects${index+1}"><a href="#projects${index+1}" class="project_collection">${item.title}</a><span data-id="${item.id}" class="more_info">...</span></p>
         `
@@ -70,6 +80,7 @@ document.querySelector('#project_container').addEventListener('click', (e) => {
         document.querySelector('#main_inbox').style.display='none'
         document.querySelector('#main_today').style.display='none'
         document.querySelector('#task_cal').style.display="none"
+        document.querySelector('#main_statistics').classList.add('er_message')
         getDataProject(`http://localhost:3000/${e.target.parentElement.dataset.id}`) 
 
     }

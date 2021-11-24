@@ -1,85 +1,54 @@
 {
   "tasks": [
     {
-      "title": "4556",
-      "description": "",
-      "date": "",
-      "label": "",
-      "priority": "Priority 2",
-      "created": "23/11/2021",
-      "id": 27
-    },
-    {
-      "title": "10.11",
-      "description": "",
-      "date": "10/11/2021",
-      "label": "",
-      "priority": "Priority 1",
-      "created": "24/11/2021",
-      "id": 30
-    },
-    {
-      "title": "99",
-      "description": "",
-      "date": "",
-      "label": "",
-      "priority": "Priority 4",
-      "created": "24/11/2021",
-      "id": 36
-    },
-    {
-      "title": "bbbb",
-      "description": "",
-      "date": "",
-      "label": "",
-      "priority": "Priority 4",
-      "created": "24/11/2021",
-      "id": 41
-    },
-    {
-      "title": "uuu",
-      "description": "",
-      "date": "",
-      "label": "",
-      "priority": "Priority 4",
-      "created": "24/11/2021",
-      "id": 42
-    },
-    {
       "title": "hhh",
       "description": "",
       "date": "",
       "label": "",
-      "priority": "Priority 4",
+      "priority": "Priority 2",
       "created": "24/11/2021",
-      "id": 43
+      "id": 1
     },
     {
-      "title": "66",
+      "title": "nj",
       "description": "",
       "date": "",
       "label": "",
       "priority": "Priority 1",
       "created": "24/11/2021",
-      "id": 44
+      "id": 2
+    },
+    {
+      "title": "666",
+      "description": "",
+      "date": "",
+      "label": "",
+      "priority": "Priority 4",
+      "created": "24/11/2021",
+      "id": 3
+    },
+    {
+      "title": "4444",
+      "description": "",
+      "date": "",
+      "label": "",
+      "priority": "Priority 4",
+      "created": "24/11/2021",
+      "id": 4
     }
   ],
   "project_name": [
     {
       "title": "333",
       "id": 1
-    },
-    {
-      "title": "333",
-      "id": 2
     }
   ],
   "projects1": [
     {
-      "title": "bbbbb",
+      "title": "777",
       "description": "",
       "num": "1",
-      "id": 3
+      "id": 4
     }
   ],
   "projects2": [
@@ -102,6 +71,40 @@
     {
       "title": "888",
       "id": 6
+    }
+  ],
+  "deleted": [
+    {
+      "title": "111",
+      "description": "222",
+      "id": 1
+    },
+    {
+      "title": "uuuu",
+      "description": "",
+      "id": 4
+    },
+    {
+      "title": "dsdss",
+      "description": "",
+      "id": 5
+    },
+    {
+      "title": "rrrttree",
+      "description": "",
+      "id": 6
+    },
+    {
+      "title": "hj",
+      "description": "",
+      "date-comleted": "24/11/2021",
+      "id": 7
+    },
+    {
+      "title": "7777",
+      "description": "",
+      "date-comleted": "24/11/2021",
+      "id": 8
     }
   ]
 }

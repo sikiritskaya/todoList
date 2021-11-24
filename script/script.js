@@ -156,7 +156,7 @@ btnSubmit.addEventListener('click',(e)=>{
 
 document.addEventListener('click',(e)=>{
     if(e.target.closest('.burger')){
-        document.querySelector('.menu').classList.toggle('er_message')
+        document.querySelector('.menu').classList.toggle('close_menu')
     }
     if(e.target.closest('#user')){
         modalLogin.classList.remove('er_message')
@@ -197,6 +197,7 @@ document.addEventListener('click',(e)=>{
         document.querySelector('#main_inbox').style.display='block'
         document.querySelector('#main_today').style.display='none'
         document.querySelector('#task_cal').style.display="none"
+        document.querySelector('#main_statistics').classList.add('er_message')
         getData()
     }
     if(e.target.closest('#plus2')){
@@ -204,6 +205,13 @@ document.addEventListener('click',(e)=>{
     }
     if(e.target.closest('#plusToday')){
         addTaskToday.classList.remove('er_message')
+    }
+    if(e.target.closest('#statistics')){
+        document.querySelector('#main_statistics').classList.remove('er_message')
+        document.querySelector('.drag_drop').style.display="none"
+        document.querySelector('#main_inbox').style.display='none'
+        document.querySelector('#main_today').style.display='none'
+        document.querySelector('#task_cal').style.display="none"
     }
     if(e.target.closest('#cancel2')){
         if(document.querySelector('#change').style.display='inline'){
@@ -239,6 +247,7 @@ document.addEventListener('click',(e)=>{
         document.querySelector('#main_inbox').style.display='block'
         document.querySelector('#main_today').style.display='none'
         document.querySelector('#task_cal').style.display="none"
+        document.querySelector('#main_statistics').classList.add('er_message')
         getDataFiltr(e.target.textContent)
     }
     if(e.target.closest('.label_panel')){
@@ -247,6 +256,7 @@ document.addEventListener('click',(e)=>{
         document.querySelector('#main_inbox').style.display='block'
         document.querySelector('#main_today').style.display='none'
         document.querySelector('#task_cal').style.display="none"
+        document.querySelector('#main_statistics').classList.add('er_message')
         getSortLabel(e.target.textContent)
     }
     if(e.target.closest('#marks')){
@@ -267,11 +277,11 @@ document.addEventListener('click',(e)=>{
         modal_show.classList.remove('preloader-show')
        // document.querySelector('.modal_window').style.opacity="0"
     }
-    if(e.target.closest('#statistics')){
+    /* if(e.target.closest('#statistics')){
         document.querySelector('.error3').classList.remove('er_message')
         modal_show.classList.add('preloader-show')
        // document.querySelector('.modal_window').style.opacity="0.5"
-    }
+    } */
     if(e.target.closest('#cancel_error3')){
         document.querySelector('.error3').classList.add('er_message')
         modal_show.classList.remove('preloader-show')
@@ -354,8 +364,19 @@ const clearCheckbox =()=>{
 
 //checked priority
 let getCheckedPriority = ()=>{
-    let arr=[]
+    //let arr= "Priority 4"
+    let arr =[]
     let check_label = document.querySelectorAll('input[name="all_priority"]')
+    /* check_label.forEach(elem=>{
+        if(elem.checked){
+            console.log(elem.value)
+            return elem.value
+        }else{
+            console.log('priority4')
+            return arr
+        }
+    }) */
+   
     check_label.forEach(elem =>{
         if(elem.checked){
             //console.log(elem.value)
@@ -365,11 +386,11 @@ let getCheckedPriority = ()=>{
         
         
     })
-    if(arr===[]){
+    if(arr.toString()==''){
         arr=["Priority 4"]
     }
   
-    return arr.toString()
+    return arr.toString() 
 }
 
 const clearCheckboxPriority =()=>{
@@ -380,11 +401,11 @@ const clearCheckboxPriority =()=>{
 }
 //поиск
 search.addEventListener('focus', ()=>{
-    search.style.width = '100%'
+    search.classList.add('change_width')
     search.nextElementSibling.classList.remove('er_message')
 })
 search.addEventListener('blur', ()=>{
-    search.style.width = 'auto'
+    search.classList.remove('change_width')
     search.nextElementSibling.classList.add('er_message')
     search.value = ''
     getData()
@@ -400,14 +421,14 @@ window.addEventListener('DOMContentLoaded', ()=>{
 
 let arrHello=['"Не составлять планов - значит запланировать своё поражение" (Бенджамин Франклин)', '"Натурально, не доедешь, ежели не знаешь, куда едешь!"(Михаил Булгаков)', '"Тот, кто никогда не теряет время,не будет иметь повода жаловаться на его нехватку"(Т. Джеферсон)', '"Я должна управлять часами, а не часы - мною(Гольда Меир)"']
 
-let hello =()=>{ setTimeout(()=>{
+/* let hello =()=>{ setTimeout(()=>{
     helloModal.classList.remove('er_message')
     modal_show.classList.add('preloader-show')
     let container = document.querySelector('#hello')
     let num = Math.floor(Math.random()*arrHello.length)
     container.lastElementChild.textContent=arrHello[num]
 }, 6000)}
-document.addEventListener('DOMContentLoaded', hello)
+document.addEventListener('DOMContentLoaded', hello) */
 
  const togglePreloader = ()=>{
     let container = document.querySelector('.wrap-preloader')

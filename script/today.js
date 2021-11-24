@@ -5,6 +5,7 @@ document.addEventListener('click',(e)=>{
         document.querySelector('#main_inbox').style.display='none'
         document.querySelector('#main_today').style.display='block'
         document.querySelector('#task_cal').style.display='none'
+        document.querySelector('#main_statistics').classList.add('er_message')
     }
     if(e.target.closest('#cancel_today')){
         if(document.querySelector('#change2').style.display='inline'){

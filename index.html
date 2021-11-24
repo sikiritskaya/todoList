@@ -97,8 +97,9 @@
                     </div>
                 </div>
                 <div class="panel accord" id="project_container">
-                    <p><a href=#>Your projects</a><span class="more_info">...</span></p>
-                    <p><a href=#>Boards</a><span class="more_info">...</span></p>
+                    <p data-id="projects1"></p>
+                    <p data-id="projects2"></p>
+                    <p data-id="projects3"></p>
                 </div>
                 <div class="add_accord">
                     <div class="accordeon">
@@ -111,9 +112,8 @@
                     </div>
                 </div>
                 <div class="panel accord" id="label_container">
-                    <p data-id="projects1"></p>
-                    <p data-id="projects2"></p>
-                    <p data-id="projects3"></p>
+                    <p data-id="projects1"><a href="#projects1" class="project_collection"></a><span data-id="" class="more_info">...</span></p>
+                    
                 </div>
                 <div class="add_accord">
                     <div class="accordeon">
@@ -294,7 +294,7 @@
                             <button id="nextButton">Next</button>
                         </div>
                     </div>
-                    <div id="weekdays">
+                    <div id="weekdays" class="cut">
                         <div>Monday</div>
                         <div>Tuesday</div>
                         <div>Wednesday</div>
@@ -358,6 +358,16 @@
                             <button id="cancel_scedule">Cancel</button>
                         </div>
                     </div>
+                </div>
+            </div>
+            <!-- statistics -->
+            <div class="main_page er_message" id="main_statistics">
+                <div class="header_main">
+                    <div id="name_statistics">Statistics</div>
+                </div>
+                <div class="countTask">20 completed tasks</div>
+                <div class="showAll"><a href="#">View all completed tasks</a></div>
+                <div class="lists er_message" id="list_deleted">
                 </div>
             </div>
             <!-- вкладка drag and drop -->
@@ -571,5 +581,6 @@
     <script src="./script/labels.js"></script>
     <script src="./script/projectdatalabel.js"></script>
     <script src = "./script/tcal_en.js"></script>
+    <script src ="./script/deleted.js"></script>
 </body>
 </html>

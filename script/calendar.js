@@ -4,6 +4,7 @@ document.addEventListener('click',(e)=>{
         document.querySelector('.drag_drop').style.display="none"
         document.querySelector('#main_inbox').style.display='none'
         document.querySelector('#main_today').style.display='none'
+        document.querySelector('#main_statistics').classList.add('er_message')
     }
     if(e.target.closest('.edit_sch')){
         modal_cal.classList.remove('er_message')
@@ -390,6 +391,19 @@ const initButtons=()=>{
    })
    
 }
+
+/* const cutString = (string)=>{
+    return string.substring(0, 2)
+}
+const cutData =()=>{
+    if(document.querySelector('#weekdays').classList.contains('cut')){
+        document.querySelector('#weekdays').querySelectorAll('div').forEach(item=>{
+            cutString(item.textContent)
+        })
+    }
+}
+cutData() */
+
 //getTaskCal()
 initButtons()
 load()

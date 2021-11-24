@@ -315,6 +315,28 @@ body{
         display: none;
         }
     }
+    .modal-wrapper{
+        position: absolute;
+        display: none;
+        width: 100%;
+        background-color: rgba(212, 209, 209, 0.5);
+        text-align: center;
+        height: 100vh;
+        z-index: 20;
+        top: 0;
+    }
+    .wrap-preloader{
+        position: absolute;
+        display: none;
+        width: 100%;
+        background-color: rgba(212, 209, 209, 0.8);
+        text-align: center;
+        height: 100vh;
+        padding-top: 24%;
+    }
+    .preloader-show{
+        display: block;
+    }
     .main_page{
         //display: none;
         padding-top: 30px;
@@ -336,8 +358,27 @@ body{
                 font-size: 20px;
             }
             .sort_task{
+                position: relative;
                 a{
                     @include a_text($color_text);
+                    cursor: pointer;
+                }
+                .sortBy{
+                    display: none;
+                    position: absolute;
+                    left: -100px;
+                    background-color: $color_form;
+                    border: $color_hover solid;
+                    top:20px;
+                    width: 8rem;
+                    a{
+                        display: block;
+                        padding: 0.3rem;
+                        border-bottom: solid $color_page;
+                    }
+                }
+                .show_sort{
+                    display: block;
                 }
             }
         }
@@ -520,6 +561,10 @@ body{
             }
             .btn_task{
                 margin-top: 20px;
+                button{
+                    border: solid rgba(128, 128, 128, 0.582);
+                    border-radius: 4px;
+                }
                 #change{
                     display: none;
                     &:hover{

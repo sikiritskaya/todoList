@@ -7,7 +7,8 @@ document.addEventListener('click',(e)=>{
     }
     if(e.target.closest('.edit_sch')){
         modal_cal.classList.remove('er_message')
-        document.querySelector('.modal_window_cal').style.opacity="0.5"
+        modal_show.classList.add('preloader-show')
+        //document.querySelector('.modal_window_cal').style.opacity="0.5"
         document.querySelector('#schedule').style.opacity="0"
         document.querySelector('#add_newtask_cal').style.display="none"
         document.querySelector('#edit_cal').style.display="flex"
@@ -37,7 +38,8 @@ document.addEventListener('click',(e)=>{
 })
 function closeModalCal(){
     modal_cal.classList.add('er_message')
-    document.querySelector('.modal_window_cal').style.opacity="0"
+    modal_show.classList.remove('preloader-show')
+   // document.querySelector('.modal_window_cal').style.opacity="0"
     taskCal.value=''
     taskCalDescr.value =''
     clicked=null
@@ -61,14 +63,7 @@ const getTaskCal = async(dayString,daySquare) =>{
     const data = await res.json()
     let containerDay = document.querySelectorAll('.day')
     data.forEach(item => {
-        /* containerDay.forEach(day=>{
-            if(item.date === dayString){
-                day.innerHTML=`
-                <div data-id="${item.id}">${item.title}</div>
-                `
-               
-            }
-        }) */
+    
         if(item.date === dayString){
               const eventDiv = document.createElement('div');
                 eventDiv.innerText = item.title;
@@ -137,7 +132,7 @@ const getDayTasks=async()=>{
                 </div>    
                 `
             }
-            if(item.priority === ""){
+            if(item.priority === "Priority 4"){
                 container.innerHTML+=`
                 <div class="task_list task_list_sch">
                     <div data-show="${item.id}">
@@ -157,15 +152,15 @@ const getDayTasks=async()=>{
         }
 
     })
-    if(container.innerHTML===''){
+    /* if(container.innerHTML===''){
         container.innerHTML+=`
         <div class="noPlans">All clear! You don't have plans for this day yet</div>
         `
-    }
-
-    /* if(container.hasChildNodes()=== false){
-        closeSchedule()
     } */
+
+    if(container.hasChildNodes()=== false){
+        closeSchedule()
+    }
 }
 const getIdSch=(e)=>{
     if(e.target.closest('.check_sch')){
@@ -283,6 +278,7 @@ function load(){
             daySquare.classList.add('padding')
         }
         calendar.appendChild(daySquare)
+        
     }
 }
 
@@ -290,7 +286,8 @@ function load(){
 const showModal=(date)=>{
         clicked=date
         modal_cal.classList.remove('er_message')
-        document.querySelector('.modal_window_cal').style.opacity="0.5"
+        modal_show.classList.add('preloader-show')
+       // document.querySelector('.modal_window_cal').style.opacity="0.5"
         getDayTasks()
 /*         let allTask= document.querySelectorAll('.task_list_sch')
         if(allTask.length===0){
@@ -307,12 +304,14 @@ const showModal=(date)=>{
 const showSchedule =()=>{
         modal_cal.classList.add('er_message')
         allSchedule.classList.remove('er_message')
+        modal_show.classList.add('preloader-show')
         //document.querySelector('.modal_window_cal').style.opacity="0.5"
 }
 const closeSchedule=()=>{
     //modal_cal.classList.remove('er_message')
     allSchedule.classList.add('er_message')
-    document.querySelector('.modal_window_cal').style.opacity="0" 
+    modal_show.classList.remove('preloader-show')
+   // document.querySelector('.modal_window_cal').style.opacity="0" 
     document.querySelector('#add_newtask_cal').style.display="flex"
     document.querySelector('#edit_cal').style.display="none"
     document.querySelector('#schedule').style.opacity="1"
@@ -334,6 +333,12 @@ allSchedule.addEventListener('click', (e)=>{
  const postDataCal = async () => {
     let label = getChecked()
     let priority = getCheckedPriority()
+    let dt = new Date()
+    let date_created = dt.toLocaleDateString('en-gb',{
+        year: 'numeric',
+        month: 'numeric',
+        day: 'numeric',
+    })
     await fetch('http://localhost:3000/tasks',
     {
         method: 'POST',
@@ -343,7 +348,8 @@ allSchedule.addEventListener('click', (e)=>{
                 "description": taskCalDescr.value,
                 "date": clicked,
                 "label": label,
-                "priority": priority
+                "priority": priority,
+                "created" : date_created
             }
         ),
         headers: {

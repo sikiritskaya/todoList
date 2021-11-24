@@ -30,6 +30,12 @@ const postData = async (title,descr,date) => {
     document.querySelector('#calendar2').value=''
     let label = getChecked()
     let priority = getCheckedPriority()
+    let dt = new Date()
+    let date_created = dt.toLocaleDateString('en-gb',{
+        year: 'numeric',
+        month: 'numeric',
+        day: 'numeric',
+    })
         await fetch('http://localhost:3000/tasks',
         {
             method: 'POST',
@@ -39,7 +45,8 @@ const postData = async (title,descr,date) => {
                     "description": descr_input,
                     "date": date_input,
                     "label": label,
-                    "priority": priority
+                    "priority": priority,
+                    "created" : date_created
                     
                 }
             ),
@@ -68,7 +75,7 @@ document.querySelector('#add_newtask2').addEventListener('click',()=>{
 document.querySelector('#add_newtask').addEventListener('click',()=>{ 
     if(document.querySelector('#editor1').value.trim()!==''){
         postData('#editor1', '#editor2','#calendar2')
-        document.querySelector('.modal_window').style.opacity="0"
+        modal_show.classList.remove('preloader-show')
         addTask.classList.add('er_message')
     }
     clearCheckbox()
@@ -78,10 +85,12 @@ document.querySelector('#add_newtask').addEventListener('click',()=>{
 //загрузить с сервера
 
 const getData = async(term) =>{
+    togglePreloader() 
     let URL_DATA = 'http://localhost:3000/tasks'
     if(term){
         URL_DATA += `?_sort=id&_order=desc&q=${term}`
     }
+    
     const res = await fetch(URL_DATA)
     const data = await res.json()
     console.log(data)
@@ -144,7 +153,7 @@ const getData = async(term) =>{
       
               `
         }
-        if( item.priority === ""){
+        if( item.priority === "Priority 4"){
             containerTasks.innerHTML += `
             <div class="task_list task_list_inbox">
                 <div data-id="${item.id}">
@@ -163,6 +172,7 @@ const getData = async(term) =>{
               `
         }
     })
+    setTimeout(togglePreloader, 1000) 
     counter(data.length)
 } 
 
@@ -232,7 +242,7 @@ const getDataSearch =async(term) =>{
       
               `
         }
-        if( item.priority === ""){
+        if( item.priority === "Priority 4"){
             containerTasks.innerHTML += `
             <div class="task_list task_list_inbox">
                 <div data-id="${item.id}">
@@ -317,18 +327,163 @@ const getDataFiltr = async(filtr) =>{
               
                       `
                 }
+                if( item.priority === "Priority 4"){
+                    containerTasks.innerHTML += `
+                    <div class="task_list task_list_inbox">
+                        <div data-id="${item.id}">
+                            <span class="check check_inbox"><input type="checkbox" class="done" id="${item.priority}"></span>
+                            <span class="title_task">${item.title}</span>
+                            <span class="info_label">${item.label}</span> 
+                            <p class="descr_task">${item.description}</p>
+                        </div>
+                        <div class="edit edit_inbox">
+                            <a href=#>
+                                <i class="far fa-edit"></i>
+                            </a>
+                        </div>
+                    </div>
+              
+                      `
+                }
         }
     })
+    if(containerTasks.innerHTML ===''){
+        containerTasks.innerHTML = `<div>There are no tasks with your condition</div>`
+    }
 }
 //sort label
+const getSortTaskUp = async(condition,filtr)=>{
+    let URL_DATA = 'http://localhost:3000/tasks'
+    let containerTasks = document.querySelector('#list_inbox')
+    containerTasks.innerHTML = ''
+    togglePreloader() 
+    const res = await fetch(URL_DATA)
+    const data = await res.json()
+    if(condition === 'date'){
+        data.sort(function(a, b){
+            let aa = a.date.split('/').reverse().join(),
+                bb = b.date.split('/').reverse().join()
+            if(filtr === 'dateUp'){
+                return aa < bb ? -1 : (aa > bb ? 1 : 0)
+            }
+            if(filtr === 'dateDown'){
+                return aa > bb ? -1 : (aa < bb ? 1 : 0)
+            }
+        })
+    }
+    if(condition === 'creation'){
+            data.sort(function(a, b){
+            let aa = a.created.split('/').reverse().join(),
+                bb = b.created.split('/').reverse().join()
+            if(filtr === 'createdUp'){
+                return aa < bb ? -1 : (aa > bb ? 1 : 0)
+            }
+            if(filtr === 'createdDown'){
+                return aa > bb ? -1 : (aa < bb ? 1 : 0)
+            }
+        })
+    }
+    if(condition === 'priority'){
+        data.sort(function(a, b){
+            let aa = a.priority.split('/').reverse().join(),
+                bb = b.priority.split('/').reverse().join()
+            if(filtr && data.priority!==''){
+                return aa < bb ? -1 : (aa > bb ? 1 : 0)
+            }
+        })
+    }
+    console.log(data)
+    data.forEach((item)=>{
+        if(item.priority === "Priority 1"){
+        containerTasks.innerHTML += `
+                <div class="task_list task_list_inbox">
+                    <div data-id="${item.id}">
+                        <span class="check check_inbox"><input type="checkbox" class="done color_red" id="${item.priority}"></span>
+                        <span class="title_task">${item.title}</span>
+                        <span class="info_label">${item.label}</span>
+                        <p class="descr_task">${item.description}</p>
+                    </div>
+                    <div class="edit edit_inbox">
+                        <a href=#>
+                            <i class="far fa-edit"></i>
+                        </a>
+                    </div>
+                </div>
+          
+                  `
+        }
+        if(item.priority === "Priority 2"){
+            containerTasks.innerHTML += `
+            <div class="task_list task_list_inbox">
+                <div data-id="${item.id}">
+                    <span class="check check_inbox"><input type="checkbox" class="done color_orange" id="${item.priority}"></span>
+                    <span class="title_task">${item.title}</span>
+                    <span class="info_label">${item.label}</span>   
+                    <p class="descr_task">${item.description}</p>
+                </div>
+                <div class="edit edit_inbox">
+                    <a href=#>
+                        <i class="far fa-edit"></i>
+                    </a>
+                </div>
+            </div>
+      
+              `
+
+        }
+        if(item.priority ==="Priority 3"){
+            containerTasks.innerHTML += `
+            <div class="task_list task_list_inbox">
+                <div data-id="${item.id}">
+                    <span class="check check_inbox"><input type="checkbox" class="done color_blue" id="${item.priority}"></span>
+                    <span class="title_task">${item.title}</span>
+                    <span class="info_label">${item.label}</span> 
+                    <p class="descr_task">${item.description}</p>
+                </div>
+                <div class="edit edit_inbox">
+                    <a href=#>
+                        <i class="far fa-edit"></i>
+                    </a>
+                </div>
+            </div>
+      
+              `
+        }
+        if( item.priority === "Priority 4"){
+            containerTasks.innerHTML += `
+            <div class="task_list task_list_inbox">
+                <div data-id="${item.id}">
+                    <span class="check check_inbox"><input type="checkbox" class="done" id="${item.priority}"></span>
+                    <span class="title_task">${item.title}</span>
+                    <span class="info_label">${item.label}</span> 
+                    <p class="descr_task">${item.description}</p>
+                </div>
+                <div class="edit edit_inbox">
+                    <a href=#>
+                        <i class="far fa-edit"></i>
+                    </a>
+                </div>
+            </div>
+      
+              `
+        }
+    })
+    
+    setTimeout(togglePreloader,700)
+} 
+    
+
+
+
 const getSortLabel = async(label) =>{
     let URL_DATA = 'http://localhost:3000/tasks'
     const res = await fetch(URL_DATA)
     const data = await res.json()
-    let containerTasks = document.querySelector('#list_inbox');
-    containerTasks.innerHTML = '';
+    let containerTasks = document.querySelector('#list_inbox')
+    containerTasks.innerHTML = ''
+    console.log(data)
     data.forEach((item)=>{
-        if (item.label === label){
+        if (item.label.includes(label)){
             if(item.priority === "Priority 1"){
                 containerTasks.innerHTML += `
                         <div class="task_list task_list_inbox">
@@ -346,7 +501,7 @@ const getSortLabel = async(label) =>{
                         </div>
                   
                           `
-                }
+            }
                 if(item.priority === "Priority 2"){
                     containerTasks.innerHTML += `
                     <div class="task_list task_list_inbox">
@@ -384,8 +539,30 @@ const getSortLabel = async(label) =>{
               
                       `
                 }
+                if( item.priority === "Priority 4"){
+                    containerTasks.innerHTML += `
+                    <div class="task_list task_list_inbox">
+                        <div data-id="${item.id}">
+                            <span class="check check_inbox"><input type="checkbox" class="done" id="${item.priority}"></span>
+                            <span class="title_task">${item.title}</span>
+                            <span class="info_label">${item.label}</span> 
+                            <p class="descr_task">${item.description}</p>
+                        </div>
+                        <div class="edit edit_inbox">
+                            <a href=#>
+                                <i class="far fa-edit"></i>
+                            </a>
+                        </div>
+                    </div>
+              
+                      `
+                }
+                console.log(item)
         }
     })
+    if(containerTasks.innerHTML ===''){
+        containerTasks.innerHTML = `<div>There are no tasks with your condition</div>`
+    }
 }
 
 let currentId = 0;
@@ -435,6 +612,8 @@ const putData = async(curId) => {
     document.querySelector('#editor3').value=''
     document.querySelector('#editor4').value=''
     document.querySelector('.tcal').value=""
+    
+    console.log(date_created)
     let label = getChecked()
     let priority = getCheckedPriority() 
     await fetch(`http://localhost:3000/tasks/${curId}`,
@@ -482,6 +661,7 @@ const deleteId = (e) =>{
 document.querySelector('#main_inbox').addEventListener('click', (e)=>{
     if(e.target.closest('.check_inbox')){
         currentId = deleteId(e);
+
         deleteData(currentId)
     }
     
@@ -505,39 +685,26 @@ search.addEventListener('input',()=>{
 
 
 //sort
-var array = [{title: 'vbbb', description: '', date: '19/11/2022', label: 'q'},
-{title: 'hjj', description: '', date: '21/11/2021', label: '222'},
-{title: 'hhhhhh', description: '', date: '28/11/2021', label: 'q'},
+var array = [{title: 'vbbb', description: 'priority 1', date: '19/11/2022', label: 'q'},
+{title: 'hjj', description: 'priority 1', date: '21/11/2021', label: '222'},
+{title: 'hhhhhh', description: 'priority 2', date: '28/11/2021', label: 'q'},
 {title: 'nnn', description: '', date: '21/08/2023', label: 'q'},
-{title: 'nnn', description: '', date: '21/01/2025', label: 'q'},
-{title: '777', description: '', date: '14/11/2021', label: ''}]
+{title: 'nnn', description: 'priority 2', date: '21/01/2025', label: 'q'},
+{title: '777', description: 'priority 2', date: '14/11/2021', label: ''},
+{title: '177', description: 'priority 3', date: '', label: ''}]
 var dates = ['14/11/2021','01/10/2000','14/11/2031','14/11/2011']
- let arrSort = array.sort(function(a, b) {
-    var c = new Date(a.date);
-    var d = new Date(b.date);
-    return c-d;
-    });
-
-
-console.log(arrSort)
-
-
-
-//array.sort((prev,next)=> prev.date.split('/')-next.date.split('/'))
-//console.log(array)
-
-dates.sort((a,b)=>{
-     var aa = b.split('/').reverse().join(),
-     bb = a.split('/').reverse().join(); 
-   return aa.split('/').reverse().join() - bb.split('/').reverse().join()
-})
-
-
-/* dates.sort(function(a, b){
-    var aa = a.split('/').reverse().join(),
-        bb = b.split('/').reverse().join();
+//date
+/* array.sort(function(a, b){
+    var aa = a.date.split('/').reverse().join(),
+        bb = b.date.split('/').reverse().join();
     return aa < bb ? -1 : (aa > bb ? 1 : 0);
 }) */
 
-//console.log(dates)
+//приоритет
+/* array.sort(function(a, b){
+    var aa = a.description.split(' ').reverse().join(),
+        bb = b.description.split(' ').reverse().join();
+    return aa < bb ? -1 : (aa > bb ? 1 : 0);
+}) */
+console.log(array)
 

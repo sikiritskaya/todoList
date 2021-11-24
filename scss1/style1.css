@@ -368,6 +368,31 @@ body .main .er_message {
   display: none;
 }
 
+body .modal-wrapper {
+  position: absolute;
+  display: none;
+  width: 100%;
+  background-color: rgba(212, 209, 209, 0.5);
+  text-align: center;
+  height: 100vh;
+  z-index: 20;
+  top: 0;
+}
+
+body .wrap-preloader {
+  position: absolute;
+  display: none;
+  width: 100%;
+  background-color: rgba(212, 209, 209, 0.8);
+  text-align: center;
+  height: 100vh;
+  padding-top: 24%;
+}
+
+body .preloader-show {
+  display: block;
+}
+
 body .main_page {
   padding-top: 30px;
   width: 100%;
@@ -397,9 +422,34 @@ body .main_page .header_main #name_today {
   font-size: 20px;
 }
 
+body .main_page .header_main .sort_task {
+  position: relative;
+}
+
 body .main_page .header_main .sort_task a {
   text-decoration: none;
   color: #000;
+  cursor: pointer;
+}
+
+body .main_page .header_main .sort_task .sortBy {
+  display: none;
+  position: absolute;
+  left: -100px;
+  background-color: #fff;
+  border: #d4d1d1 solid;
+  top: 20px;
+  width: 8rem;
+}
+
+body .main_page .header_main .sort_task .sortBy a {
+  display: block;
+  padding: 0.3rem;
+  border-bottom: solid #f1f1f1;
+}
+
+body .main_page .header_main .sort_task .show_sort {
+  display: block;
 }
 
 body .main_page .lists .task_list {
@@ -618,6 +668,11 @@ body .main_page .add_task2 .add_descr_task .add_signs .filter_label:hover .prior
 
 body .main_page .add_task2 .btn_task {
   margin-top: 20px;
+}
+
+body .main_page .add_task2 .btn_task button {
+  border: solid rgba(128, 128, 128, 0.582);
+  border-radius: 4px;
 }
 
 body .main_page .add_task2 .btn_task #change {

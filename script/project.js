@@ -69,11 +69,11 @@ document.addEventListener('click',(e)=>{
     if(e.target === btnAdd){
         console.log('222')
         adDTask.classList.remove('er_message')
-        document.querySelector('.over_modal').style.opacity="0.5"
+        modal_show.classList.add('preloader-show')
     }
     if(e.target.closest('#cancel3')){
         adDTask.classList.add('er_message')
-        document.querySelector('.over_modal').style.opacity="0"
+        modal_show.classList.remove('preloader-show')
     }
 })
  document.querySelector('#add_newtask3').addEventListener('click',()=>{
@@ -82,7 +82,8 @@ document.addEventListener('click',(e)=>{
 } ) 
  function closeTodo(){
     adDTask.classList.add('er_message')
-    document.querySelector('.over_modal').style.opacity="0"
+    modal_show.classList.remove('preloader-show')
+  
 } 
 
 /* function createTodo(){

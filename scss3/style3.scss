@@ -127,11 +127,12 @@ $color_i:rgb(77, 74, 74);
             border: solid 1px $color_hover;
             margin: -570px auto;
         // z-index: 300;
-            width: 40%;
+            width: 45%;
             background-color: $color_form;
             font-size: 14px;
             padding: 2rem;
             position: relative;
+            border-radius: 6px;
         // margin: -450px auto;
             z-index: 400;
             #editor9{
@@ -151,6 +152,17 @@ $color_i:rgb(77, 74, 74);
             .add_descr_task{
                 display:flex;
                 justify-content: space-between;
+                button{
+                    opacity: 1;
+                    border: solid rgba(128, 128, 128, 0.582);
+                    border-radius: 4px;
+                    height: 2rem;
+                    width: 7rem;
+                    &:hover{
+                        background-color: $color_background;
+                    }
+                    
+                }
                 .add_signs{
                     //position: relative;
                     display: flex;
@@ -162,14 +174,20 @@ $color_i:rgb(77, 74, 74);
                         .labelList{
                             display: none;
                             position: absolute;
-                            top:10px;
+                            top:15px;
                             z-index: 20;
                             right: 0;
+                            
+                            border-radius: 4px;
                             background-color:$color_hover;
                             height: fit-content;
                             min-width: 40px;
                             .icon-label{
                                 display: flex;
+                                padding: 2px;
+                                input{
+                                    cursor: pointer;
+                                }
                             }
                             /* &:hover{
                                 opacity: 1;
@@ -186,18 +204,24 @@ $color_i:rgb(77, 74, 74);
                         }
                     }
                     .filter_label{
+                        padding-left: 0.7rem;
                         position: relative;
                         .priorityList{
                             display: none;
                             position: absolute;
-                            top:10px;
+                            top:15px;
                             z-index: 20;
                             right: 0;
-                            //left: 0;
-                            //left: -10px;
+                            
+                            border-radius: 4px;
                             background-color:$color_hover;
+                            width: 5rem;
                             .icon-label{
                                 display: flex;
+                                padding: 2px;
+                                input{
+                                    cursor: pointer;
+                                }
                             }
                         }
                         a{
@@ -284,6 +308,14 @@ $color_i:rgb(77, 74, 74);
                 &:hover{
                     background-color: $color_background;
                 }
+                border: solid rgba(128, 128, 128, 0.582);
+                border-radius: 4px;
+                //height: 1rem;
+               // width: 1.5rem;
+                
+            }
+            #cancel_cal{
+                margin-left: 0.5rem;
             }
             #edit_cal{
                 display: none;

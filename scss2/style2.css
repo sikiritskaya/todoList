@@ -114,6 +114,8 @@ table {
 
 .modals #regist_form .btn_enter #btn_enter {
   background-color: #f7c5cdee;
+  border: solid rgba(128, 128, 128, 0.582);
+  border-radius: 4px;
 }
 
 .modals #regist_form .remember {
@@ -188,6 +190,8 @@ table {
 
 .modals #regist_form2 .btn_enter #btn_submit {
   background-color: #f7c5cdee;
+  border: solid rgba(128, 128, 128, 0.582);
+  border-radius: 4px;
 }
 
 .modals #regist_form2 .remember {
@@ -335,6 +339,11 @@ table {
   margin-top: 20px;
 }
 
+.modals .add_task .btn_task button {
+  border: solid rgba(128, 128, 128, 0.582);
+  border-radius: 4px;
+}
+
 .modals .add_task .btn_task #add_newtask:hover {
   background-color: #f7c5cdee;
 }
@@ -369,6 +378,11 @@ table {
   display: flex;
 }
 
+.modals #label .btn_task button {
+  border: solid rgba(128, 128, 128, 0.582);
+  border-radius: 4px;
+}
+
 .modals #label .btn_task button:hover {
   background-color: #f7c5cdee;
 }
@@ -401,7 +415,7 @@ table {
 }
 
 .modals .error2 p {
-  color: red;
+  color: #000;
 }
 
 .modals .notifications {
@@ -424,7 +438,7 @@ table {
 }
 
 .modals .notifications p {
-  color: red;
+  color: #000;
 }
 
 .modals .error3 {
@@ -447,7 +461,7 @@ table {
 }
 
 .modals .error3 p {
-  color: red;
+  color: #000;
 }
 
 .modals .error {
@@ -470,7 +484,7 @@ table {
 }
 
 .modals .error p {
-  color: red;
+  color: #000;
 }
 
 .modals .project_name {
@@ -497,6 +511,11 @@ table {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+.modals .project_name .btn_task button {
+  border: solid rgba(128, 128, 128, 0.582);
+  border-radius: 4px;
 }
 
 .modals .project_name .btn_task button:hover {
@@ -555,6 +574,11 @@ table {
   margin-top: 20px;
 }
 
+.modals .add_task_todo .btn_task button {
+  border: solid rgba(128, 128, 128, 0.582);
+  border-radius: 4px;
+}
+
 .modals .add_task_todo .btn_task #add_newtask3:hover {
   background-color: #f7c5cdee;
 }
@@ -575,6 +599,7 @@ table {
   position: relative;
   margin: -570px auto;
   z-index: 400;
+  border-radius: 6px;
 }
 
 .modals #hello span {

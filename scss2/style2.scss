@@ -113,6 +113,8 @@ $color_i:rgb(77, 74, 74);
             margin: 20px;
             #btn_enter{
                 background-color: $color_background;
+                border: solid rgba(128, 128, 128, 0.582);
+                border-radius: 4px;
             }
         }
         .remember{
@@ -174,6 +176,8 @@ $color_i:rgb(77, 74, 74);
             margin: 20px;
             #btn_submit{
                 background-color: $color_background;
+                border: solid rgba(128, 128, 128, 0.582);
+                border-radius: 4px;
             }
         }
         .remember{
@@ -291,6 +295,10 @@ $color_i:rgb(77, 74, 74);
             }
             .btn_task{
                 margin-top: 20px;
+                button{
+                    border: solid rgba(128, 128, 128, 0.582);
+                    border-radius: 4px;
+                }
                 #add_newtask{
                     &:hover{
                         background-color: $color_background;
@@ -322,10 +330,13 @@ $color_i:rgb(77, 74, 74);
         .btn_task{
             margin-top: 20px;
             display: flex;
+           
             button{
                 &:hover{
                     background-color: $color_background;
                 }
+                border: solid rgba(128, 128, 128, 0.582);
+                border-radius: 4px;
             }
             #edit_label{
                 display: none;
@@ -352,7 +363,7 @@ $color_i:rgb(77, 74, 74);
             cursor: pointer;
         }
         p{
-            color: red;
+            color:$color_text;
         }
     }
     .notifications{
@@ -372,7 +383,7 @@ $color_i:rgb(77, 74, 74);
             cursor: pointer;
         }
         p{
-            color: red;
+            color: $color_text;
         }
     }
     .error3{
@@ -392,7 +403,7 @@ $color_i:rgb(77, 74, 74);
             cursor: pointer;
         }
         p{
-            color: red;
+            color: $color_text;
         }
     }
     .error{
@@ -412,7 +423,7 @@ $color_i:rgb(77, 74, 74);
             cursor: pointer;
         }
         p{
-            color: red;
+            color: $color_text;
         }
     }
      .project_name{
@@ -434,10 +445,13 @@ $color_i:rgb(77, 74, 74);
         .btn_task{
             margin-top: 20px;
             display: flex;
+            
             button{
                 &:hover{
                     background-color: $color_background;
                 }
+                border: solid rgba(128, 128, 128, 0.582);
+                border-radius: 4px;
             }
             #edit_project{
                 display: none;
@@ -484,6 +498,10 @@ $color_i:rgb(77, 74, 74);
                 }
                 .btn_task{
                     margin-top: 20px;
+                    button{
+                        border: solid rgba(128, 128, 128, 0.582);
+                        border-radius: 4px;
+                    }
                     #add_newtask3{
                         &:hover{
                             background-color: $color_background;
@@ -509,6 +527,7 @@ $color_i:rgb(77, 74, 74);
         position: relative;
         margin: -570px auto;
         z-index: 400;
+        border-radius: 6px;
         span{
             position: absolute;
             font-size: 25px;

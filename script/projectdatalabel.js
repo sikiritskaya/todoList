@@ -2,7 +2,8 @@ document.addEventListener('click',(e)=>{
     if(e.target === document.querySelector('#cancel_project') || e.target.closest('#cancel_pr')|| e.target === document.querySelector('#delete_project')){
         document.querySelector('#inputProject').value=''
         document.querySelector('.project_name').classList.add('er_message')
-        document.querySelector('.over_modal').style.opacity="0"
+        modal_show.classList.remove('preloader-show')
+        //document.querySelector('.over_modal').style.opacity="0"
         document.querySelector('#delete_project').style.display="none"
         document.querySelector('#edit_project').style.display="none"
         document.querySelector('#btn_project').style.display="flex"
@@ -34,7 +35,8 @@ document.querySelector('#btn_project').addEventListener('click',()=>{
     if(document.querySelector('#inputProject').value.trim()!==''){
         postInfo()
         document.querySelector('.project_name').classList.add('er_message')
-        document.querySelector('.over_modal').style.opacity="0"
+        //document.querySelector('.over_modal').style.opacity="0"
+        modal_show.classList.remove('preloader-show')
         document.querySelector('.drag_drop').style.display="flex"
         document.querySelector('#main_inbox').style.display="none"
         document.querySelector('#main_today').style.display='none'
@@ -49,13 +51,17 @@ const getDataInfo = async() =>{
     const data = await res.json()
     const container= document.querySelector('#project_container')
     container.innerHTML=''
-    data.forEach((item,index)=>{
+    data.forEach((item)=>{
         container.innerHTML +=`
-            <p data-id="projects${index+1}"><a href="#projects${index+1}" class="project_collection">${item.title}</a><span data-id="${item.id}" class="more_info">...</span></p>
+            <p data-id="projects1"><a href="#projects1" class="project_collection">${item.title}</a><span data-id="${item.id}" class="more_info">...</span></p>
         `
         
     })
-
+    /*  container.innerHTML +=`
+        <p data-id="projects1"><a href="#projects1" class="project_collection">${data[0].title}</a><span data-id="${data[0].id}" class="more_info">...</span></p>
+        <p data-id="projects2"><a href="#projects2" class="project_collection">${data[1].title}</a><span data-id="${data[1].id}" class="more_info">...</span></p>
+        <p data-id="projects3"><a href="#projects" class="project_collection">${data[2].title}</a><span data-id="${data[2].id}" class="more_info">...</span></p>
+    ` */
 } 
 let projectNum = 0
 document.querySelector('#project_container').addEventListener('click', (e) => {
@@ -85,7 +91,7 @@ document.querySelector('#project_container').addEventListener('click',(e)=>{
         if(e.target.closest('.more_info')){
         document.querySelector('#inputProject').value = e.target.previousElementSibling.textContent
         document.querySelector('.project_name').classList.remove('er_message')
-        document.querySelector('.over_modal').style.opacity="0.5"
+        modal_show.classList.add('preloader-show')
         document.querySelector('#delete_project').style.display="flex"
         document.querySelector('#edit_project').style.display="flex"
         document.querySelector('#btn_project').style.display="none"
@@ -112,7 +118,7 @@ const putDataProjectLabels = async(curId) => {
         }
     })
         document.querySelector('.project_name').classList.add('er_message')
-        document.querySelector('.over_modal').style.opacity="0"
+        modal_show.classList.remove('preloader-show')
         document.querySelector('#delete_project').style.display="none"
         document.querySelector('#edit_project').style.display="none"
         document.querySelector('#btn_project').style.display="flex"

@@ -154,11 +154,12 @@ table {
 .main_cal .container_cal .add_task {
   border: solid 1px #d4d1d1;
   margin: -570px auto;
-  width: 40%;
+  width: 45%;
   background-color: #fff;
   font-size: 14px;
   padding: 2rem;
   position: relative;
+  border-radius: 6px;
   z-index: 400;
 }
 
@@ -189,6 +190,18 @@ table {
           justify-content: space-between;
 }
 
+.main_cal .container_cal .add_task .add_descr_task button {
+  opacity: 1;
+  border: solid rgba(128, 128, 128, 0.582);
+  border-radius: 4px;
+  height: 2rem;
+  width: 7rem;
+}
+
+.main_cal .container_cal .add_task .add_descr_task button:hover {
+  background-color: #f7c5cdee;
+}
+
 .main_cal .container_cal .add_task .add_descr_task .add_signs {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -206,9 +219,10 @@ table {
 .main_cal .container_cal .add_task .add_descr_task .add_signs .sign_label .labelList {
   display: none;
   position: absolute;
-  top: 10px;
+  top: 15px;
   z-index: 20;
   right: 0;
+  border-radius: 4px;
   background-color: #d4d1d1;
   height: -webkit-fit-content;
   height: -moz-fit-content;
@@ -223,6 +237,11 @@ table {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  padding: 2px;
+}
+
+.main_cal .container_cal .add_task .add_descr_task .add_signs .sign_label .labelList .icon-label input {
+  cursor: pointer;
 }
 
 .main_cal .container_cal .add_task .add_descr_task .add_signs .sign_label a {
@@ -235,22 +254,30 @@ table {
 }
 
 .main_cal .container_cal .add_task .add_descr_task .add_signs .filter_label {
+  padding-left: 0.7rem;
   position: relative;
 }
 
 .main_cal .container_cal .add_task .add_descr_task .add_signs .filter_label .priorityList {
   display: none;
   position: absolute;
-  top: 10px;
+  top: 15px;
   z-index: 20;
   right: 0;
+  border-radius: 4px;
   background-color: #d4d1d1;
+  width: 5rem;
 }
 
 .main_cal .container_cal .add_task .add_descr_task .add_signs .filter_label .priorityList .icon-label {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  padding: 2px;
+}
+
+.main_cal .container_cal .add_task .add_descr_task .add_signs .filter_label .priorityList .icon-label input {
+  cursor: pointer;
 }
 
 .main_cal .container_cal .add_task .add_descr_task .add_signs .filter_label a {
@@ -341,8 +368,17 @@ table {
   display: flex;
 }
 
+.main_cal .container_cal .btn_task button {
+  border: solid rgba(128, 128, 128, 0.582);
+  border-radius: 4px;
+}
+
 .main_cal .container_cal .btn_task button:hover {
   background-color: #f7c5cdee;
+}
+
+.main_cal .container_cal .btn_task #cancel_cal {
+  margin-left: 0.5rem;
 }
 
 .main_cal .container_cal .btn_task #edit_cal {

@@ -32,7 +32,7 @@ document.querySelector('#btn_label').addEventListener('click',()=>{
     if(document.querySelector('#inputLabel').value.trim()!==''){
         postDataLabels()
         document.querySelector('#label').classList.add('er_message')
-        document.querySelector('.modal_window').style.opacity="0"
+        modal_show.classList.remove('preloader-show')
     }
 })
 
@@ -80,7 +80,7 @@ containerLabels.addEventListener('click',(e)=>{
     if(e.target.closest('.more_info')){
         document.querySelector('#inputLabel').value = e.target.previousElementSibling.textContent
         document.querySelector('#label').classList.remove('er_message')
-        document.querySelector('.modal_window').style.opacity="0.5"
+        modal_show.classList.add('preloader-show')
         document.querySelector('#delete_label').style.display="flex"
         document.querySelector('#edit_label').style.display="flex"
         document.querySelector('#btn_label').style.display="none"
@@ -106,7 +106,7 @@ const putDataLabels = async(curId) => {
         }
     })
         document.querySelector('#label').classList.add('er_message')
-        document.querySelector('.modal_window').style.opacity="0"
+        modal_show.classList.remove('preloader-show')
         document.querySelector('#delete_label').style.display="none"
         document.querySelector('#edit_label').style.display="none"
         document.querySelector('#btn_label').style.display="flex"

@@ -45,7 +45,8 @@ const postDataToday = async () => {
                 "description": descr_input,
                 "date": date,
                 "label": label,
-                "priority": priority
+                "priority": priority,
+                "created" : date
             }
         ),
         headers: {
@@ -68,6 +69,7 @@ document.querySelector('#add_newtask_today').addEventListener('click',()=>{
 
 //загрузить с сервера
 const getDataToday = async() =>{
+    
     let URL_TODAY = 'http://localhost:3000/tasks'
     const res = await fetch(URL_TODAY)
     const data = await res.json()
@@ -133,7 +135,7 @@ const getDataToday = async() =>{
                 </div>
                 `
             }
-            if(item.priority === ""){
+            if(item.priority === "Priority 4"){
                 containerTasks.innerHTML += `
                 <div class="task_list task_list_today">
                     <div data-id="${item.id}">
@@ -223,12 +225,119 @@ const deleteDataToday = async(curId) => {
     load()
 
 }
-//поиск
- 
-/* search.addEventListener('input',()=>{
-    getData(search.value.trim())
-}) */
+const getSortTaskUpToday = async(condition,filtr)=>{
+    let URL_DATA = 'http://localhost:3000/tasks'
+    let containerTasks = document.querySelector('#list_today')
+    containerTasks.innerHTML = ''
+    let dt = new Date()
+    let date = dt.toLocaleDateString('en-gb',{
+        year: 'numeric',
+        month: 'numeric',
+        day: 'numeric',
+    })
+    togglePreloader() 
+    const res = await fetch(URL_DATA)
+    const data = await res.json()
+    if(condition === 'creation'){
+            data.sort(function(a, b){
+            let aa = a.created.split('/').reverse().join(),
+                bb = b.created.split('/').reverse().join()
+            if(filtr === 'createdUp'){
+                return aa < bb ? -1 : (aa > bb ? 1 : 0)
+            }
+            if(filtr === 'createdDown'){
+                return aa > bb ? -1 : (aa < bb ? 1 : 0)
+            }
+        })
+    }
+    if(condition === 'priority'){
+        data.sort(function(a, b){
+            let aa = a.priority.split('/').reverse().join(),
+                bb = b.priority.split('/').reverse().join()
+            if(filtr && data.priority!==''){
+                return aa < bb ? -1 : (aa > bb ? 1 : 0)
+            }
+        })
+    }
+    
+    data.forEach((item)=>{
+        if(item.date === date){
+            if(item.priority === "Priority 1"){
+            containerTasks.innerHTML += `
+                    <div class="task_list task_list_inbox">
+                        <div data-id="${item.id}">
+                            <span class="check check_inbox"><input type="checkbox" class="done color_red" id="${item.priority}"></span>
+                            <span class="title_task">${item.title}</span>
+                            <span class="info_label">${item.label}</span>
+                            <p class="descr_task">${item.description}</p>
+                        </div>
+                        <div class="edit edit_inbox">
+                            <a href=#>
+                                <i class="far fa-edit"></i>
+                            </a>
+                        </div>
+                    </div>
+            
+                    `
+            }
+            if(item.priority === "Priority 2"){
+                containerTasks.innerHTML += `
+                <div class="task_list task_list_inbox">
+                    <div data-id="${item.id}">
+                        <span class="check check_inbox"><input type="checkbox" class="done color_orange" id="${item.priority}"></span>
+                        <span class="title_task">${item.title}</span>
+                        <span class="info_label">${item.label}</span>   
+                        <p class="descr_task">${item.description}</p>
+                    </div>
+                    <div class="edit edit_inbox">
+                        <a href=#>
+                            <i class="far fa-edit"></i>
+                        </a>
+                    </div>
+                </div>
+        
+                `
 
-/* document.querySelector('#main_today').addEventListener('click', ()=>{
-    getDataToday()
-}) */
+            }
+            if(item.priority ==="Priority 3"){
+                containerTasks.innerHTML += `
+                <div class="task_list task_list_inbox">
+                    <div data-id="${item.id}">
+                        <span class="check check_inbox"><input type="checkbox" class="done color_blue" id="${item.priority}"></span>
+                        <span class="title_task">${item.title}</span>
+                        <span class="info_label">${item.label}</span> 
+                        <p class="descr_task">${item.description}</p>
+                    </div>
+                    <div class="edit edit_inbox">
+                        <a href=#>
+                            <i class="far fa-edit"></i>
+                        </a>
+                    </div>
+                </div>
+        
+                `
+            }
+            if( item.priority === "Priority 4"){
+                containerTasks.innerHTML += `
+                <div class="task_list task_list_inbox">
+                    <div data-id="${item.id}">
+                        <span class="check check_inbox"><input type="checkbox" class="done" id="${item.priority}"></span>
+                        <span class="title_task">${item.title}</span>
+                        <span class="info_label">${item.label}</span> 
+                        <p class="descr_task">${item.description}</p>
+                    </div>
+                    <div class="edit edit_inbox">
+                        <a href=#>
+                            <i class="far fa-edit"></i>
+                        </a>
+                    </div>
+                </div>
+        
+                `
+            }
+        }
+    })
+    
+    setTimeout(togglePreloader,700)
+} 
+    

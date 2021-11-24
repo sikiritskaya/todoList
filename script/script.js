@@ -1,4 +1,8 @@
+
+/* MONGODB_URL=mongodb+srv://christina:<test1234>@cluster0.02yak.mongodb.net/todo-project?retryWrites=true&w=majority
+ */
 //modals
+let modal_show = document.querySelector('.modal-wrapper')
 let user = document.querySelector('#user')
 let header = document.querySelector('header')
 let search = document.querySelector('#search')
@@ -156,7 +160,8 @@ document.addEventListener('click',(e)=>{
     }
     if(e.target.closest('#user')){
         modalLogin.classList.remove('er_message')
-        document.querySelector('.modal_window').style.opacity="0.5"
+        modal_show.classList.add('preloader-show')
+        //document.querySelector('.modal_window').style.opacity="0.5"
     }
     if(e.target.closest('#registration')){
         modalLogin.classList.add('er_message')
@@ -164,23 +169,28 @@ document.addEventListener('click',(e)=>{
     }
     if(e.target.closest('#plus')){
         addTask.classList.remove('er_message')
-        document.querySelector('.modal_window').style.opacity="0.5"
+        modal_show.classList.add('preloader-show')
+        //document.querySelector('.modal_window').style.opacity="0.5"
     }
     if(e.target.closest('#cancel')){
         addTask.classList.add('er_message')
-        document.querySelector('.modal_window').style.opacity="0"
+        modal_show.classList.remove('preloader-show')
+        //document.querySelector('.modal_window').style.opacity="0"
     }
     if(e.target.closest('#closeModal1')){
         modalLogin.classList.add('er_message')
-        document.querySelector('.modal_window').style.opacity="0"
+        modal_show.classList.remove('preloader-show')
+       // document.querySelector('.modal_window').style.opacity="0"
     }
     if(e.target.closest('#closeModal2')){
         modalRegist.classList.add('er_message')
-        document.querySelector('.modal_window').style.opacity="0"
+        modal_show.classList.remove('preloader-show')
+        //document.querySelector('.modal_window').style.opacity="0"
     }
     if(e.target.closest('#closeModal3')){
         helloModal.classList.add('er_message')
-        document.querySelector('.modal_window').style.opacity="0"
+        modal_show.classList.remove('preloader-show')
+       // document.querySelector('.modal_window').style.opacity="0"
     }
     if(e.target.closest('#inbox') || e.target.closest('.home')){
         document.querySelector('.drag_drop').style.display="none"
@@ -204,7 +214,8 @@ document.addEventListener('click',(e)=>{
         addTask2.classList.remove('add_task')
         document.querySelector('#editor3').value=''
         document.querySelector('#editor4').value=''
-        document.querySelector('.modal_window').style.opacity="0"
+        modal_show.classList.remove('preloader-show')
+        //document.querySelector('.modal_window').style.opacity="0"
     }
     if(e.target === search.nextElementSibling){
         search.style.width = 'auto'
@@ -241,30 +252,36 @@ document.addEventListener('click',(e)=>{
     if(e.target.closest('#marks')){
         if( document.querySelector('#label_container').children.length<5){
             document.querySelector('#label').classList.remove('er_message')
-            document.querySelector('.modal_window').style.opacity="0.5"
+            modal_show.classList.add('preloader-show')
+           // document.querySelector('.modal_window').style.opacity="0.5"
         }
         if(document.querySelector('#label_container').children.length>=5){
             document.querySelector('.error2').classList.remove('er_message')
-            document.querySelector('.modal_window').style.opacity="0.5"
+            modal_show.classList.add('preloader-show')
+            //document.querySelector('.modal_window').style.opacity="0.5"
         }
 
     }
     if(e.target.closest('#cancel_error2')){
         document.querySelector('.error2').classList.add('er_message')
-        document.querySelector('.modal_window').style.opacity="0"
+        modal_show.classList.remove('preloader-show')
+       // document.querySelector('.modal_window').style.opacity="0"
     }
     if(e.target.closest('#statistics')){
         document.querySelector('.error3').classList.remove('er_message')
-        document.querySelector('.modal_window').style.opacity="0.5"
+        modal_show.classList.add('preloader-show')
+       // document.querySelector('.modal_window').style.opacity="0.5"
     }
     if(e.target.closest('#cancel_error3')){
         document.querySelector('.error3').classList.add('er_message')
-        document.querySelector('.modal_window').style.opacity="0"
+        modal_show.classList.remove('preloader-show')
+       // document.querySelector('.modal_window').style.opacity="0"
     }
     if(e.target.closest('#cancel_label') || e.target.closest('#cancel_label2') || e.target.closest('#delete_label')){
         document.querySelector('#inputLabel').value=''
         document.querySelector('#label').classList.add('er_message')
-        document.querySelector('.modal_window').style.opacity="0"
+        modal_show.classList.remove('preloader-show')
+        //document.querySelector('.modal_window').style.opacity="0"
         document.querySelector('#delete_label').style.display="none"
         document.querySelector('#edit_label').style.display="none"
         document.querySelector('#btn_label').style.display="flex"
@@ -275,11 +292,13 @@ document.addEventListener('click',(e)=>{
     if(e.target.closest('#projects')){
         if( document.querySelector('#project_container').children.length<3){
         document.querySelector('.project_name').classList.remove('er_message')
-        document.querySelector('.over_modal').style.opacity="0.5"
+        modal_show.classList.add('preloader-show')
+       // document.querySelector('.over_modal').style.opacity="0.5"
         }
         if(document.querySelector('#project_container').children.length>=3){
             document.querySelector('.error').classList.remove('er_message')
-            document.querySelector('.over_modal').style.opacity="0.5"
+            modal_show.classList.add('preloader-show')
+            //document.querySelector('.over_modal').style.opacity="0.5"
         }
         /* document.querySelector('.drag_drop').style.display="flex"
         document.querySelector('#main_inbox').style.display="none"
@@ -288,17 +307,26 @@ document.addEventListener('click',(e)=>{
     }
     if(e.target.closest('#cancel_error')){
         document.querySelector('.error').classList.add('er_message')
-        document.querySelector('.over_modal').style.opacity="0"
+        modal_show.classList.remove('preloader-show')
+        //document.querySelector('.over_modal').style.opacity="0"
     }
 
     if(e.target.closest('#bell')){
         document.querySelector('.notifications').classList.remove('er_message')
-        document.querySelector('.over_modal').style.opacity="0.5"
+        modal_show.classList.add('preloader-show')
+        //document.querySelector('.over_modal').style.opacity="0.5"
     }
         
     if(e.target.closest('#cancel_error4')){
         document.querySelector('.notifications').classList.add('er_message')
-        document.querySelector('.over_modal').style.opacity="0"
+        modal_show.classList.remove('preloader-show')
+       // document.querySelector('.over_modal').style.opacity="0"
+    }
+    if(e.target.closest('#filtr_icon')){
+        document.querySelector('#main_inbox').querySelector('.sortBy').classList.toggle('show_sort')
+    }
+    if(e.target.closest('#filtr_icon2')){
+        document.querySelector('#main_today').querySelector('.sortBy').classList.toggle('show_sort')
     }
     
 })
@@ -335,7 +363,12 @@ let getCheckedPriority = ()=>{
         }
         console.log(arr.toString())
         
+        
     })
+    if(arr===[]){
+        arr=["Priority 4"]
+    }
+  
     return arr.toString()
 }
 
@@ -367,17 +400,60 @@ window.addEventListener('DOMContentLoaded', ()=>{
 
 let arrHello=['"Не составлять планов - значит запланировать своё поражение" (Бенджамин Франклин)', '"Натурально, не доедешь, ежели не знаешь, куда едешь!"(Михаил Булгаков)', '"Тот, кто никогда не теряет время,не будет иметь повода жаловаться на его нехватку"(Т. Джеферсон)', '"Я должна управлять часами, а не часы - мною(Гольда Меир)"']
 
-/* let hello =()=>{ setTimeout(()=>{
+let hello =()=>{ setTimeout(()=>{
     helloModal.classList.remove('er_message')
-    document.querySelector('.modal_window').style.opacity="0.5"
+    modal_show.classList.add('preloader-show')
     let container = document.querySelector('#hello')
     let num = Math.floor(Math.random()*arrHello.length)
     container.lastElementChild.textContent=arrHello[num]
 }, 6000)}
-document.addEventListener('DOMContentLoaded', hello) */
+document.addEventListener('DOMContentLoaded', hello)
 
-/* const togglePreloader = ()=>{
-    let container = document.querySelector('.preloader-wrap')
+ const togglePreloader = ()=>{
+    let container = document.querySelector('.wrap-preloader')
     container.classList.toggle('preloader-show')
 }
-togglePreloader() */
+//togglePreloader() 
+
+//filtr
+const filterUp = (e)=>{
+    if(e.target.classList.contains('dateSort')){
+        let condition = "date"
+        const currentSort = e.target.dataset.sort
+        console.log(currentSort)
+        getSortTaskUp(condition, currentSort)
+       
+    }
+    if(e.target.classList.contains('createSort')){
+        let condition = "creation"
+        const currentSort = e.target.dataset.sort
+        console.log(currentSort)
+        getSortTaskUp(condition, currentSort)
+    }
+    if(e.target.classList.contains('prioritySort')){
+        let condition = "priority"
+        const currentSort = e.target.dataset.sort
+        console.log(currentSort)
+        getSortTaskUp(condition, currentSort)
+    }
+    document.querySelector('#main_inbox').querySelector('.sortBy').classList.remove('show_sort')
+}
+document.querySelector('#main_inbox').querySelector('.sortBy').addEventListener('click', filterUp)
+
+//filtr today
+const filterUpToday = (e)=>{
+    if(e.target.classList.contains('createSort')){
+        let condition = "creation"
+        const currentSort = e.target.dataset.sort
+        console.log(currentSort)
+        getSortTaskUpToday(condition, currentSort)
+    }
+    if(e.target.classList.contains('prioritySort')){
+        let condition = "priority"
+        const currentSort = e.target.dataset.sort
+        console.log(currentSort)
+        getSortTaskUpToday(condition, currentSort)
+    }
+    document.querySelector('#main_today').querySelector('.sortBy').classList.remove('show_sort')
+}
+document.querySelector('#main_today').querySelector('.sortBy').addEventListener('click', filterUpToday)

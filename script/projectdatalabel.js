@@ -50,18 +50,17 @@ const getDataInfo = async() =>{
     const res = await fetch(URL_LABEL)
     const data = await res.json()
     const container= document.querySelector('#project_container')
+    const container1 = document.querySelector(`[data-id="projects1"]`)
+    const container2 = document.querySelector(`[data-id="projects2"]`)
+    const container3 = document.querySelector(`[data-id="projects3"]`)
     container.innerHTML=''
-    data.forEach((item)=>{
+    data.forEach((item,index)=>{
         container.innerHTML +=`
-            <p data-id="projects1"><a href="#projects1" class="project_collection">${item.title}</a><span data-id="${item.id}" class="more_info">...</span></p>
+            <p data-id="projects${index+1}"><a href="#projects${index+1}" class="project_collection">${item.title}</a><span data-id="${item.id}" class="more_info">...</span></p>
         `
         
     })
-    /*  container.innerHTML +=`
-        <p data-id="projects1"><a href="#projects1" class="project_collection">${data[0].title}</a><span data-id="${data[0].id}" class="more_info">...</span></p>
-        <p data-id="projects2"><a href="#projects2" class="project_collection">${data[1].title}</a><span data-id="${data[1].id}" class="more_info">...</span></p>
-        <p data-id="projects3"><a href="#projects" class="project_collection">${data[2].title}</a><span data-id="${data[2].id}" class="more_info">...</span></p>
-    ` */
+
 } 
 let projectNum = 0
 document.querySelector('#project_container').addEventListener('click', (e) => {

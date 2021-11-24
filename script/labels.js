@@ -133,6 +133,7 @@ const deleteIdLabel = (e) =>{
     deleteDataLabel(currentId)
     
     
+    
 }) 
 const deleteDataLabel = async(curId) => {
   await fetch(`http://localhost:3000/labels/${curId}`,

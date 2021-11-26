@@ -211,6 +211,7 @@ const deleteIdToday = (e) =>{
 document.querySelector('#main_today').addEventListener('click', (e)=>{
     if(e.target.closest('.check_today')){
         currentId = deleteIdToday(e);
+        getInfo(currentId)
         deleteDataToday(currentId)
     }
     

@@ -49,37 +49,33 @@ let accord = document.querySelectorAll('.accordeon')
 //валидация первой формы
 function firstValid(){
     if(inputName.value.length < 1){
-        error1.classList.remove('er_message')
-        inputName.style.borderColor="red"
+        error1.classList.add('message-show')
+        
     }
     if(inputName.value[0] && !letters.test(inputName.value)){
-        error9.classList.remove('er_message')
-        inputName.style.borderColor="red"
+        error9.classList.add('message-show')
+       
     }
 }
 function secondValid(){
     if(inputPas.value.length < 6){
-        error2.classList.remove('er_message')
-        inputPas.style.borderColor="red"
+        error2.classList.add('message-show')
+       
     }
 }
 
 inputName.addEventListener('blur', firstValid)
 inputPas.addEventListener('blur', secondValid)
 inputName.addEventListener('focus',()=>{
-    error1.classList.add('er_message')
-    error9.classList.add('er_message')
-    inputName.style.borderColor="black"
+    error1.classList.remove('message-show')
+    error9.classList.remove('message-show')
+    
 })
 inputPas.addEventListener('focus',()=>{
-    error2.classList.add('er_message')
-    inputPas.style.borderColor="black"
+    error2.classList.remove('message-show')
+    
 })
-btnEnter.addEventListener('click',(e)=>{
-    firstValid()
-    secondValid()
-    e.preventDefault()
-})
+
 
 //валидация 2 формы
 creator.addEventListener('blur', firstValid2)
@@ -88,75 +84,67 @@ inputPassword.addEventListener('blur', passwordValid)
 repeatPassword.addEventListener('blur', passwordRepeat)
 function firstValid2(){
     if(creator.value.length < 3){
-        error3.classList.remove('er_message')
-        creator.style.borderColor="red"
+        error3.classList.add('message-show')
+        
     }
 }
 function secondValid2(){
     if(inputEmail.value.length < 1){
-        error4.classList.remove('er_message')
-        inputEmail.style.borderColor="red"
+        error4.classList.add('message-show')
+        
     }
     if(inputEmail.value[0] && !letters.test(inputEmail.value)){
-        error10.classList.remove('er_message')
-        inputEmail.style.borderColor="red"
+        error10.classList.add('message-show')
+        
     }
 }
 function passwordValid(){
     if(inputPassword.value.length < 6){
-        error5.classList.remove('er_message')
-        inputPassword.style.borderColor ="red"
+        error5.classList.add('message-show')
+        
     }
 }
 function passwordRepeat(){
     if(repeatPassword.value.length < 1){
-        error6.classList.remove('er_message')
-        repeatPassword.style.borderColor="red"
+        error6.classList.add('message-show')
+        
     }
 }
 function passwordRepeat2(){
     if(repeatPassword.value !== inputPassword.value){
-        error7.classList.remove('er_message')
-        repeatPassword.style.borderColor="red"
+        error7.classList.add('message-show')
+        
     }
 }
 function agreement(){
     if(!confirmUser.checked){
-        error8.classList.remove('er_message')
+        error8.classList.add('message-show')
     }
 }
 creator.addEventListener('focus',()=>{
-    error3.classList.add('er_message')
-    creator.style.borderColor="black"
+    error3.classList.remove('message-show')
+    
 })
 inputEmail.addEventListener('focus',()=>{
-    error4.classList.add('er_message')
-    error10.classList.add('er_message')
-    inputEmail.style.borderColor="black"
+    error4.classList.remove('message-show')
+    error10.classList.remove('message-show')
+    
 })
 inputPassword.addEventListener('focus',()=>{
-    error5.classList.add('er_message')
-    inputPassword.style.borderColor="black"
+    error5.classList.remove('message-show')
+    
 })
 repeatPassword.addEventListener('focus',()=>{
-    error6.classList.add('er_message')
-    error7.classList.add('er_message')
-    inputPassword.style.borderColor="black"
-})
-btnSubmit.addEventListener('click',(e)=>{
-    e.preventDefault()
-    firstValid2()
-    secondValid2()
-    passwordValid()
-    passwordRepeat()
-    passwordRepeat2()
-    agreement()
+    error6.classList.remove('message-show')
+    error7.classList.remove('message-show')
+    
 })
 
 
 document.addEventListener('click',(e)=>{
     if(e.target.closest('.burger')){
         document.querySelector('.menu').classList.toggle('close_menu')
+        document.querySelector('.menu').classList.toggle('mobile')
     }
     if(e.target.closest('#user')){
         modalLogin.classList.remove('er_message')
@@ -178,6 +166,8 @@ document.addEventListener('click',(e)=>{
         //document.querySelector('.modal_window').style.opacity="0"
     }
     if(e.target.closest('#closeModal1')){
+        inputName.value=""
+        inputPas.value =""
         modalLogin.classList.add('er_message')
         modal_show.classList.remove('preloader-show')
        // document.querySelector('.modal_window').style.opacity="0"
@@ -199,6 +189,9 @@ document.addEventListener('click',(e)=>{
         document.querySelector('#task_cal').style.display="none"
         document.querySelector('#main_statistics').classList.add('er_message')
         getData()
+    }
+    if(e.target.closest('.choose_task') || e.target.closest('.accord') || e.target.closest('.plus_acc')){
+        document.querySelector('.menu').classList.toggle('mobile')
     }
     if(e.target.closest('#plus2')){
         addTask2.classList.remove('er_message')
@@ -419,16 +412,16 @@ window.addEventListener('DOMContentLoaded', ()=>{
 
 //приветствие
 
-let arrHello=['"Не составлять планов - значит запланировать своё поражение" (Бенджамин Франклин)', '"Натурально, не доедешь, ежели не знаешь, куда едешь!"(Михаил Булгаков)', '"Тот, кто никогда не теряет время,не будет иметь повода жаловаться на его нехватку"(Т. Джеферсон)', '"Я должна управлять часами, а не часы - мною(Гольда Меир)"']
+let arrHello=['"Не составлять планов - значит запланировать своё поражение" (Бенджамин Франклин)', '"Натурально, не доедешь, ежели не знаешь, куда едешь!" (Михаил Булгаков)', '"Тот, кто никогда не теряет время,не будет иметь повода жаловаться на его нехватку" (Т. Джеферсон)', '"Я должна управлять часами, а не часы - мною" (Гольда Меир)']
 
-/* let hello =()=>{ setTimeout(()=>{
+let hello =()=>{ setTimeout(()=>{
     helloModal.classList.remove('er_message')
     modal_show.classList.add('preloader-show')
     let container = document.querySelector('#hello')
     let num = Math.floor(Math.random()*arrHello.length)
     container.lastElementChild.textContent=arrHello[num]
 }, 6000)}
-document.addEventListener('DOMContentLoaded', hello) */
+document.addEventListener('DOMContentLoaded', hello)
 
  const togglePreloader = ()=>{
     let container = document.querySelector('.wrap-preloader')

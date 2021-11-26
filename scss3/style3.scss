@@ -76,6 +76,19 @@ $color_i:rgb(77, 74, 74);
             display: flex;
             justify-content: space-between;
         }
+        /* .cut{
+            display: none;
+        } */
+        #weekdays2{
+            width: 100%;
+            display: none;
+            color: $color_text;
+            justify-content: space-around;
+            margin-bottom: 0.5rem;
+            div{
+                width: 11%;
+            }
+        }
        #weekdays{
             width: 100%;
             display: flex;
@@ -125,7 +138,7 @@ $color_i:rgb(77, 74, 74);
         }
         .add_task{
             border: solid 1px $color_hover;
-            margin: -570px auto;
+            margin: -500px auto;
         // z-index: 300;
             width: 45%;
             background-color: $color_form;
@@ -135,6 +148,13 @@ $color_i:rgb(77, 74, 74);
             border-radius: 6px;
         // margin: -450px auto;
             z-index: 400;
+            #seeAll{
+                .noPlans{
+                    font-size: 16px;
+                    text-align: center;
+                    font-weight: 500;
+                }
+            }
             #editor9{
                 border: none;
                 width: 99%;
@@ -176,8 +196,7 @@ $color_i:rgb(77, 74, 74);
                             position: absolute;
                             top:15px;
                             z-index: 20;
-                            right: 0;
-                            
+                            right: 0;  
                             border-radius: 4px;
                             background-color:$color_hover;
                             height: fit-content;
@@ -189,9 +208,7 @@ $color_i:rgb(77, 74, 74);
                                     cursor: pointer;
                                 }
                             }
-                            /* &:hover{
-                                opacity: 1;
-                            } */
+                       
                             
                         }
                         a{
@@ -212,7 +229,6 @@ $color_i:rgb(77, 74, 74);
                             top:15px;
                             z-index: 20;
                             right: 0;
-                            
                             border-radius: 4px;
                             background-color:$color_hover;
                             width: 5rem;
@@ -326,4 +342,40 @@ $color_i:rgb(77, 74, 74);
 }
 #task_cal{
    display: none;     
+}
+@media screen and (max-width: 991.98px){
+   .main_cal{
+       .container_cal{
+           .add_task{
+               width: 60%;
+           }
+       }
+   } 
+}
+@media  screen and (max-width: 767.98px){
+    .main_cal{
+        .container_cal{
+            .add_task{
+                width: 65%;
+            }
+        }
+    } 
+}
+@media  screen and (max-width: 575.98px){
+    .main_cal{
+        .container_cal{
+            .add_task{
+                width: 90%;
+            }
+        }
+    } 
+}
+@media  screen and (max-width: 375px){
+    .main_cal{
+        .container_cal{
+            .add_task{
+                width: 100%;
+            }
+        }
+    } 
 }

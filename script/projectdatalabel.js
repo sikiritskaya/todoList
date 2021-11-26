@@ -54,6 +54,17 @@ const getDataInfo = async() =>{
     const container2 = document.querySelector(`[data-id="projects2"]`)
     const container3 = document.querySelector(`[data-id="projects3"]`)
     container.innerHTML=''
+   /*  const res1 = await fetch('http://localhost:3000/projects1');
+    const res2 = await fetch('http://localhost:3000/projects2');
+    const res3 = await fetch('http://localhost:3000/projects3');
+    const data = await res.json()
+    const data1 = await res1.json()
+    const data2 = await res2.json()
+    const data3 = await res3.json()
+    console.log(data1);
+    container1.innerHTML = `<a href="#projects1" class="project_collection">${data1[0].title}</a><span data-id="${data1[0].id}" class="more_info">...</span>`
+    container2.innerHTML = `<a href="#projects1" class="project_collection">${data2[0].title}</a><span data-id="${data2[0].id}" class="more_info">...</span>`
+    container3.innerHTML = `<a href="#projects1" class="project_collection">${data3[0].title}</a><span data-id="${data3[0].id}" class="more_info">...</span>` */
     data.forEach((item,index)=>{ 
         /* if(item[0]){
             container1.innerHTML=`<a href="#projects1" class="project_collection">${item[0].title}</a><span data-id="${item[0].id}" class="more_info">...</span>`

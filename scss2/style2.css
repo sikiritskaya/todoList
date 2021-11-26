@@ -65,8 +65,8 @@ table {
 }
 
 .modals #regist_form {
-  margin: -570px auto;
-  border-radius: 5px;
+  margin: -825px auto;
+  border-radius: 6px;
   position: relative;
   width: 40%;
   background-color: #fff;
@@ -94,6 +94,12 @@ table {
 
 .modals #regist_form h2 i {
   padding-left: 10px;
+}
+
+.modals #regist_form .message {
+  display: none;
+  color: red;
+  font-size: 15px;
 }
 
 .modals #regist_form .er_message {
@@ -141,14 +147,14 @@ table {
 }
 
 .modals #regist_form2 {
-  border-radius: 5px;
+  border-radius: 6px;
   width: 40%;
   background-color: #fff;
   font-size: 14px;
   text-align: center;
   padding: 40px;
   position: relative;
-  margin: -570px auto;
+  margin: -825px auto;
   z-index: 200;
 }
 
@@ -170,6 +176,12 @@ table {
 
 .modals #regist_form2 h2 i {
   padding-left: 10px;
+}
+
+.modals #regist_form2 .message {
+  display: none;
+  color: red;
+  font-size: 16px;
 }
 
 .modals #regist_form2 .er_message {
@@ -226,7 +238,8 @@ table {
 
 .modals .add_task {
   border: solid 1px #d4d1d1;
-  margin: -570px auto;
+  margin: -755px auto;
+  border-radius: 4px;
   width: 40%;
   background-color: #fff;
   font-size: 14px;
@@ -279,23 +292,26 @@ table {
 .modals .add_task .add_descr_task .add_signs .sign_label .labelList {
   display: none;
   position: absolute;
-  top: 10px;
+  top: 15px;
   z-index: 20;
   right: 0;
+  border-radius: 4px;
   background-color: #d4d1d1;
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
   min-width: 40px;
-  /* &:hover{
-                                opacity: 1;
-                            } */
 }
 
 .modals .add_task .add_descr_task .add_signs .sign_label .labelList .icon-label {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  padding: 2px;
+}
+
+.modals .add_task .add_descr_task .add_signs .sign_label .labelList .icon-label input {
+  cursor: pointer;
 }
 
 .modals .add_task .add_descr_task .add_signs .sign_label a {
@@ -309,14 +325,17 @@ table {
 
 .modals .add_task .add_descr_task .add_signs .filter_label {
   position: relative;
+  padding-left: 10px;
 }
 
 .modals .add_task .add_descr_task .add_signs .filter_label .priorityList {
   display: none;
   position: absolute;
-  top: 10px;
+  top: 15px;
   z-index: 20;
   right: 0;
+  width: 5rem;
+  border-radius: 4px;
   background-color: #d4d1d1;
 }
 
@@ -324,6 +343,11 @@ table {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  padding: 2px;
+}
+
+.modals .add_task .add_descr_task .add_signs .filter_label .priorityList .icon-label input {
+  cursor: pointer;
 }
 
 .modals .add_task .add_descr_task .add_signs .filter_label a {
@@ -354,14 +378,20 @@ table {
 
 .modals #label {
   border-radius: 5px;
-  width: 35%;
+  width: 38%;
   background-color: #fff;
   font-size: 14px;
   text-align: center;
   padding: 40px;
   position: relative;
-  margin: -570px auto;
+  margin: -660px auto;
   z-index: 200;
+}
+
+.modals #label label {
+  font-size: 16px;
+  font-weight: 700;
+  padding-right: 5px;
 }
 
 .modals #label span {
@@ -369,6 +399,10 @@ table {
   top: 0;
   right: 0;
   cursor: pointer;
+}
+
+.modals #label input {
+  margin-top: 10px;
 }
 
 .modals #label .btn_task {
@@ -387,23 +421,28 @@ table {
   background-color: #f7c5cdee;
 }
 
+.modals #label .btn_task #btn_label {
+  margin-right: 10px;
+}
+
 .modals #label .btn_task #edit_label {
   display: none;
 }
 
 .modals #label .btn_task #delete_label {
+  margin-right: 10px;
   display: none;
 }
 
 .modals .error2 {
   border-radius: 5px;
-  width: 38%;
+  width: 40%;
   background-color: #fff;
   font-size: 14px;
   text-align: center;
   padding: 40px;
   position: relative;
-  margin: -570px auto;
+  margin: -700px auto;
   z-index: 200;
 }
 
@@ -416,17 +455,18 @@ table {
 
 .modals .error2 p {
   color: #000;
+  font-size: 18px;
 }
 
 .modals .notifications {
   border-radius: 5px;
-  width: 38%;
+  width: 40%;
   background-color: #fff;
   font-size: 14px;
   text-align: center;
   padding: 40px;
   position: relative;
-  margin: -570px auto;
+  margin: -725px auto;
   z-index: 200;
 }
 
@@ -439,6 +479,7 @@ table {
 
 .modals .notifications p {
   color: #000;
+  font-size: 18px;
 }
 
 .modals .error3 {
@@ -466,13 +507,13 @@ table {
 
 .modals .error {
   border-radius: 5px;
-  width: 38%;
+  width: 42%;
   background-color: #fff;
   font-size: 14px;
   text-align: center;
   padding: 40px;
   position: relative;
-  margin: -570px auto;
+  margin: -700px auto;
   z-index: 200;
 }
 
@@ -485,6 +526,7 @@ table {
 
 .modals .error p {
   color: #000;
+  font-size: 18px;
 }
 
 .modals .project_name {
@@ -495,8 +537,14 @@ table {
   text-align: center;
   padding: 40px;
   position: relative;
-  margin: -570px auto;
+  margin: -660px auto;
   z-index: 200;
+}
+
+.modals .project_name label {
+  font-size: 16px;
+  font-weight: 700;
+  padding-right: 5px;
 }
 
 .modals .project_name span {
@@ -504,6 +552,10 @@ table {
   top: 0;
   right: 0;
   cursor: pointer;
+}
+
+.modals .project_name input {
+  margin-top: 10px;
 }
 
 .modals .project_name .btn_task {
@@ -522,12 +574,17 @@ table {
   background-color: #f7c5cdee;
 }
 
+.modals .project_name .btn_task #btn_project {
+  margin-right: 10px;
+}
+
 .modals .project_name .btn_task #edit_project {
   display: none;
 }
 
 .modals .project_name .btn_task #delete_project {
   display: none;
+  margin-right: 10px;
 }
 
 .modals .over_modal {
@@ -597,7 +654,7 @@ table {
   font-size: 14px;
   padding: 40px;
   position: relative;
-  margin: -570px auto;
+  margin: -800px auto;
   z-index: 400;
   border-radius: 6px;
 }
@@ -611,5 +668,10 @@ table {
 
 .modals #hello span:hover {
   cursor: pointer;
+}
+
+.modals #hello p {
+  color: #000;
+  font-size: 18px;
 }
 /*# sourceMappingURL=style2.css.map */

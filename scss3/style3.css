@@ -68,6 +68,9 @@ table {
 
 .main_cal .container_cal {
   width: 100%;
+  /* .cut{
+            display: none;
+        } */
 }
 
 .main_cal .container_cal #header_cal {
@@ -80,6 +83,19 @@ table {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+}
+
+.main_cal .container_cal #weekdays2 {
+  width: 100%;
+  display: none;
+  color: #000;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  margin-bottom: 0.5rem;
+}
+
+.main_cal .container_cal #weekdays2 div {
+  width: 11%;
 }
 
 .main_cal .container_cal #weekdays {
@@ -153,7 +169,7 @@ table {
 
 .main_cal .container_cal .add_task {
   border: solid 1px #d4d1d1;
-  margin: -570px auto;
+  margin: -500px auto;
   width: 45%;
   background-color: #fff;
   font-size: 14px;
@@ -161,6 +177,12 @@ table {
   position: relative;
   border-radius: 6px;
   z-index: 400;
+}
+
+.main_cal .container_cal .add_task #seeAll .noPlans {
+  font-size: 16px;
+  text-align: center;
+  font-weight: 500;
 }
 
 .main_cal .container_cal .add_task #editor9 {
@@ -228,9 +250,6 @@ table {
   height: -moz-fit-content;
   height: fit-content;
   min-width: 40px;
-  /* &:hover{
-                                opacity: 1;
-                            } */
 }
 
 .main_cal .container_cal .add_task .add_descr_task .add_signs .sign_label .labelList .icon-label {
@@ -387,5 +406,29 @@ table {
 
 #task_cal {
   display: none;
+}
+
+@media screen and (max-width: 991.98px) {
+  .main_cal .container_cal .add_task {
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 767.98px) {
+  .main_cal .container_cal .add_task {
+    width: 65%;
+  }
+}
+
+@media screen and (max-width: 575.98px) {
+  .main_cal .container_cal .add_task {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .main_cal .container_cal .add_task {
+    width: 100%;
+  }
 }
 /*# sourceMappingURL=style3.css.map */

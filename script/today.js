@@ -14,7 +14,7 @@ document.addEventListener('click',(e)=>{
         }
         addTaskToday.classList.add('er_message')
         addTaskToday.classList.remove('add_task')
-        document.querySelector('.modal_window').style.opacity="0"
+        modal_show.classList.remove('preloader-show')
     }
 })
 document.querySelector('#main_today').addEventListener('click',(e)=>{
@@ -67,6 +67,6 @@ const todayDate=()=>{
         day: 'numeric',
     })
     container.textContent = dtToday
-    container2.textContent = dtButton
+   // container2.textContent = dtButton
 }
 todayDate()

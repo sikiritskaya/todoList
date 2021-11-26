@@ -20,6 +20,7 @@ const postDeleted = async(name, descr)=>{
             "Content-type": "application/json; charset=utf-8"
         }
     })
+    getDeletedData()
     
 }
 
@@ -36,11 +37,11 @@ const getDeletedData =async()=>{
     let containerDeleted = document.querySelector('#list_deleted');
     containerDeleted.innerHTML = '';
     //count=data.length
-    data.forEach((item)=>{ 
+    data.forEach((item, index)=>{ 
         containerDeleted.innerHTML += `
                 <div>
                     <div data-id="${item.id}">
-                        <span class="title_task"> - ${item.title}</span>
+                        <span class="title_task"> ${index+1} ${item.title}</span>
                         <p class="descr_task"> ${item.description}</p>
                     </div>
                 </div>

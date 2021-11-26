@@ -468,18 +468,19 @@ body .main_page .header_main .sort_task .show_sort {
 }
 
 body .main_page .countTask {
-  margin-top: 2%;
-  font-size: 15px;
+  padding: 2%;
+  font-size: 23px;
 }
 
 body .main_page .showAll {
-  margin-top: 2%;
+  font-size: 19px;
 }
 
 body .main_page .showAll a {
   text-decoration: none;
   color: #000;
   cursor: pointer;
+  padding: 1%;
 }
 
 body .main_page .showAll a:hover {
@@ -565,6 +566,33 @@ body .main_page .lists .task_list .edit:hover .done {
   opacity: 1;
 }
 
+body .main_page .lists .noTasks {
+  padding-top: 20px;
+  font-size: 20px;
+  font-weight: 700;
+  padding-bottom: 20px;
+  text-align: center;
+}
+
+body .main_page #list_deleted {
+  padding: 1%;
+}
+
+body .main_page #list_deleted div {
+  padding-bottom: 6px;
+}
+
+body .main_page #list_deleted div .title_task {
+  font-size: 16px;
+}
+
+body .main_page #list_deleted div .descr_task {
+  padding-left: 1%;
+  padding-top: 10px;
+  font-size: 14px;
+  padding-top: 3px;
+}
+
 body .main_page .modal_window {
   pointer-events: none;
   position: fixed;
@@ -580,6 +608,7 @@ body .main_page .modal_window {
 body .main_page .add_task2 {
   margin-top: 10px;
   border: solid 1px #d4d1d1;
+  padding: 20px;
 }
 
 body .main_page .add_task2 #editor3 {
@@ -627,6 +656,10 @@ body .main_page .add_task2 .add_descr_task {
           justify-content: space-between;
 }
 
+body .main_page .add_task2 .add_descr_task #todayDate {
+  font-weight: 700;
+}
+
 body .main_page .add_task2 .add_descr_task .add_signs {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -644,10 +677,11 @@ body .main_page .add_task2 .add_descr_task .add_signs .sign_label {
 body .main_page .add_task2 .add_descr_task .add_signs .sign_label .labelList {
   display: none;
   position: absolute;
-  top: 10px;
+  top: 19px;
   z-index: 20;
   right: 0;
   background-color: #d4d1d1;
+  border-radius: 4px;
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
@@ -661,11 +695,20 @@ body .main_page .add_task2 .add_descr_task .add_signs .sign_label .labelList .ic
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  padding: 2px;
+}
+
+body .main_page .add_task2 .add_descr_task .add_signs .sign_label .labelList .icon-label input {
+  cursor: pointer;
 }
 
 body .main_page .add_task2 .add_descr_task .add_signs .sign_label a {
   text-decoration: none;
   color: #000;
+}
+
+body .main_page .add_task2 .add_descr_task .add_signs .sign_label a i {
+  font-size: 18px;
 }
 
 body .main_page .add_task2 .add_descr_task .add_signs .sign_label:hover .labelList {
@@ -679,9 +722,11 @@ body .main_page .add_task2 .add_descr_task .add_signs .filter_label {
 body .main_page .add_task2 .add_descr_task .add_signs .filter_label .priorityList {
   display: none;
   position: absolute;
-  top: 10px;
+  top: 19px;
   z-index: 20;
   right: 0;
+  width: 5rem;
+  border-radius: 4px;
   background-color: #d4d1d1;
 }
 
@@ -689,11 +734,20 @@ body .main_page .add_task2 .add_descr_task .add_signs .filter_label .priorityLis
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  padding: 2px;
+}
+
+body .main_page .add_task2 .add_descr_task .add_signs .filter_label .priorityList .icon-label input {
+  cursor: pointer;
 }
 
 body .main_page .add_task2 .add_descr_task .add_signs .filter_label a {
   text-decoration: none;
   color: #000;
+}
+
+body .main_page .add_task2 .add_descr_task .add_signs .filter_label a i {
+  font-size: 18px;
 }
 
 body .main_page .add_task2 .add_descr_task .add_signs .filter_label:hover .priorityList {
@@ -941,6 +995,33 @@ body .drag_drop .todo-container .status .todo span:hover {
   body .wrapper .main .main_cal .container_cal #calendar .day {
     width: 12%;
   }
+  body .wrapper .modals #regist_form {
+    width: 50%;
+  }
+  body .wrapper .modals #regist_form2 {
+    width: 50%;
+  }
+  body .wrapper .modals .add_task {
+    width: 50%;
+  }
+  body .wrapper .modals .notifications {
+    width: 50%;
+  }
+  body .wrapper .modals .project_name {
+    width: 50%;
+  }
+  body .wrapper .modals #label {
+    width: 50%;
+  }
+  body .wrapper .modals #hello {
+    width: 50%;
+  }
+  body .wrapper .modals .error {
+    width: 50%;
+  }
+  body .wrapper .modals .error2 {
+    width: 50%;
+  }
 }
 
 @media screen and (max-width: 767.98px) {
@@ -957,9 +1038,8 @@ body .drag_drop .todo-container .status .todo span:hover {
     width: 50%;
   }
   body .wrapper .main .menu {
-    display: none;
     position: absolute;
-    z-index: 1000;
+    z-index: 100;
     min-height: 40%;
     width: 50%;
     border-radius: 4px;
@@ -973,6 +1053,9 @@ body .drag_drop .todo-container .status .todo span:hover {
   body .wrapper .main .close_menu {
     display: block;
   }
+  body .wrapper .main .mobile {
+    display: none;
+  }
   body .wrapper .main .drag_drop .todo-container {
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
@@ -981,7 +1064,20 @@ body .drag_drop .todo-container .status .todo span:hover {
     width: 50%;
   }
   body .wrapper .main #footer_main {
-    display: none;
+    background-image: none;
+    height: 10%;
+  }
+  body .wrapper .main #footer_main p {
+    font-weight: 700;
+    font-size: 18px;
+  }
+  body .wrapper .main #footer_today {
+    background-image: none;
+    height: 10%;
+  }
+  body .wrapper .main #footer_today p {
+    font-weight: 700;
+    font-size: 18px;
   }
   body .wrapper .main .main_cal .container_cal #header_cal {
     width: 97%;
@@ -996,12 +1092,51 @@ body .drag_drop .todo-container .status .todo span:hover {
     width: 14%;
     margin: 0;
   }
+  body .wrapper .modals #regist_form {
+    width: 65%;
+  }
+  body .wrapper .modals #regist_form2 {
+    width: 65%;
+  }
+  body .wrapper .modals .add_task {
+    width: 65%;
+  }
+  body .wrapper .modals .notifications {
+    width: 65%;
+  }
+  body .wrapper .modals .project_name {
+    width: 65%;
+    margin: -725px auto;
+  }
+  body .wrapper .modals #label {
+    width: 65%;
+    margin: -725px auto;
+  }
+  body .wrapper .modals #hello {
+    width: 65%;
+  }
+  body .wrapper .modals .error {
+    width: 65%;
+  }
+  body .wrapper .modals .error2 {
+    width: 65%;
+  }
 }
 
 @media screen and (max-width: 575.98px) {
   body .wrapper .main .menu {
     width: 50%;
     padding-left: 5%;
+  }
+  body .wrapper .main #weekdays2 {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    font-weight: 500;
+    font-size: 16px;
+  }
+  body .wrapper .main #weekdays {
+    display: none;
   }
   body .wrapper .center header {
     width: 100%;
@@ -1020,12 +1155,50 @@ body .drag_drop .todo-container .status .todo span:hover {
   }
   body .wrapper .center header .user {
     width: 35%;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    padding-left: 35px;
   }
   body .wrapper .center header .user #user {
-    padding-left: 35px;
+    padding-left: 0;
+  }
+  body .wrapper .center header .user #bell {
+    padding-left: 0;
   }
   body .wrapper .center header .user p {
     display: none;
+  }
+  body .wrapper .main_page .add_task2 .add_descr_task .add_signs {
+    width: 14%;
+  }
+  body .wrapper .modals #regist_form {
+    width: 91%;
+  }
+  body .wrapper .modals #regist_form2 {
+    width: 91%;
+  }
+  body .wrapper .modals .add_task {
+    width: 90%;
+  }
+  body .wrapper .modals .notifications {
+    width: 90%;
+    padding: 33px;
+  }
+  body .wrapper .modals .project_name {
+    width: 90%;
+  }
+  body .wrapper .modals #label {
+    width: 90%;
+  }
+  body .wrapper .modals #hello {
+    width: 90%;
+  }
+  body .wrapper .modals .error {
+    width: 90%;
+  }
+  body .wrapper .modals .error2 {
+    width: 90%;
   }
 }
 
@@ -1034,6 +1207,33 @@ body .drag_drop .todo-container .status .todo span:hover {
     width: 100%;
     padding-left: 5%;
     padding-right: 5%;
+  }
+  body .wrapper .modals #regist_form {
+    width: 100%;
+  }
+  body .wrapper .modals #regist_form2 {
+    width: 100%;
+  }
+  body .wrapper .modals .add_task {
+    width: 100%;
+  }
+  body .wrapper .modals .notifications {
+    width: 100%;
+  }
+  body .wrapper .modals .project_name {
+    width: 100%;
+  }
+  body .wrapper .modals #label {
+    width: 100%;
+  }
+  body .wrapper .modals #hello {
+    width: 100%;
+  }
+  body .wrapper .modals .error {
+    width: 100%;
+  }
+  body .wrapper .modals .error2 {
+    width: 100%;
   }
 }
 /*# sourceMappingURL=style1.css.map */

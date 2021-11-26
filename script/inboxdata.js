@@ -266,6 +266,7 @@ const getDataSearch =async(term) =>{
 
 //кнопка приоритет
 const getDataFiltr = async(filtr) =>{
+    togglePreloader()
     let URL_DATA = 'http://localhost:3000/tasks'
     const res = await fetch(URL_DATA)
     const data = await res.json()
@@ -349,8 +350,9 @@ const getDataFiltr = async(filtr) =>{
         }
     })
     if(containerTasks.innerHTML ===''){
-        containerTasks.innerHTML = `<div>There are no tasks with your condition</div>`
+        containerTasks.innerHTML = `<div class="noTasks">There are no tasks about your condition</div>`
     }
+    setTimeout(togglePreloader,1000)
 }
 //sort label
 const getSortTaskUp = async(condition,filtr)=>{
@@ -477,6 +479,7 @@ const getSortTaskUp = async(condition,filtr)=>{
 
 
 const getSortLabel = async(label) =>{
+    togglePreloader()
     let URL_DATA = 'http://localhost:3000/tasks'
     const res = await fetch(URL_DATA)
     const data = await res.json()
@@ -562,8 +565,9 @@ const getSortLabel = async(label) =>{
         }
     })
     if(containerTasks.innerHTML ===''){
-        containerTasks.innerHTML = `<div>There are no tasks with your condition</div>`
+        containerTasks.innerHTML = `<div class="noTasks">There are no tasks about your condition</div>`
     }
+    setTimeout(togglePreloader,1000)
 }
 
 let currentId = 0;

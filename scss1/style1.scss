@@ -396,15 +396,16 @@ body{
             }
         }
         .countTask{
-            margin-top: 2%;
-            font-size: 15px;
+            padding: 2%;
+            font-size: 23px;
         }
         .showAll{
-            margin-top: 2%;
             
+            font-size: 19px;
             a{
                 @include a_text($color_text);
                 cursor: pointer;
+                padding: 1%;
                // padding: 1rem;
                 &:hover{
                     background-color: $color_background;
@@ -413,6 +414,7 @@ body{
            
         }
         .lists{
+            
             .task_list{
                 margin-top: 10px;
                 display: flex;
@@ -481,6 +483,28 @@ body{
                     }
                 }
             }
+            .noTasks{
+                padding-top: 20px;
+                font-size: 20px;
+                font-weight: 700;
+                padding-bottom: 20px;
+                text-align: center;
+            }
+        }
+        #list_deleted{
+            padding: 1%;
+            div{
+                padding-bottom: 6px;
+                .title_task{
+                    font-size: 16px;
+                }
+                .descr_task{
+                    padding-left: 1%;
+                    padding-top: 10px;
+                    font-size: 14px;
+                    padding-top: 3px;
+                }
+            }
         }
         .modal_window{
             pointer-events: none;
@@ -497,7 +521,7 @@ body{
         .add_task2{
             margin-top: 10px;
             border: solid 1px $color_hover;
-
+            padding: 20px;
             #editor3{
                 border: none;
                 width: 99%;
@@ -529,6 +553,9 @@ body{
             .add_descr_task{
                 display:flex;
                 justify-content: space-between;
+                #todayDate{
+                    font-weight: 700;
+                }
                 .add_signs{
                     //position: relative;
                     display: flex;
@@ -540,14 +567,19 @@ body{
                         .labelList{
                             display: none;
                             position: absolute;
-                            top:10px;
+                            top:19px;
                             z-index: 20;
                             right: 0;
                             background-color:$color_hover;
+                            border-radius: 4px;
                             height: fit-content;
                             min-width: 40px;
                             .icon-label{
                                 display: flex;
+                                padding: 2px;
+                                input{
+                                    cursor: pointer;
+                                }
                             }
                             /* &:hover{
                                 opacity: 1;
@@ -556,6 +588,9 @@ body{
                         }
                         a{
                             @include a_text($color_text);
+                            i{
+                                font-size: 18px;
+                            }
                         }
                         &:hover{
                             .labelList{
@@ -568,18 +603,25 @@ body{
                         .priorityList{
                             display: none;
                             position: absolute;
-                            top:10px;
+                            top:19px;
                             z-index: 20;
                             right: 0;
-                            //left: 0;
-                            //left: -10px;
+                            width: 5rem;
+                            border-radius: 4px;
                             background-color:$color_hover;
                             .icon-label{
                                 display: flex;
+                                padding: 2px;
+                                input{
+                                    cursor: pointer;
+                                }
                             }
                         }
                         a{
                             @include a_text($color_text);
+                            i{
+                                font-size: 18px;
+                            }
                         }
                         &:hover{
                             .priorityList{
@@ -817,7 +859,36 @@ body{
                         }
                     }
                 }
-
+            .modals{
+                #regist_form{
+                    width: 50%;
+                }
+                #regist_form2{
+                    width: 50%;
+                }
+                .add_task{
+                    width: 50%;
+                }
+                .notifications{
+                    width: 50%;
+                }
+                .project_name{
+                    width: 50%;
+                }
+                #label{
+                    width: 50%;
+                }
+                #hello{
+                    width: 50%;
+                }
+                .error{
+                    width: 50%;
+                }
+                .error2{
+                    width: 50%;
+                }
+        
+            }
         }
     } 
 }
@@ -844,9 +915,9 @@ body{
             }
                 .main{
                     .menu{
-                        display: none;
+                        //display: none;
                         position:absolute;
-                        z-index: 1000;
+                        z-index: 100;
                         min-height:40%;
                         width: 50%;
                         border-radius: 4px;
@@ -864,8 +935,12 @@ body{
                             }
                         } 
                     }
+                  
                     .close_menu{
                         display: block;
+                    }
+                    .mobile{
+                        display: none;
                     }
                     .drag_drop{
                         .todo-container{
@@ -876,8 +951,23 @@ body{
                         }
                     }
                     #footer_main{
-                        display: none;
                        
+                       background-image: none;
+                       height: 10%;
+                       p{
+                       // padding-top: 30px;
+                        font-weight: 700;
+                        font-size: 18px;
+                       }
+                    }
+                    #footer_today{
+                        background-image: none;
+                        height: 10%;
+                        p{
+                        // padding-top: 30px;
+                         font-weight: 700;
+                         font-size: 18px;
+                        }
                     }
                     .main_cal{
                         .container_cal{
@@ -899,7 +989,38 @@ body{
                         }
                     }
                 }
-
+            .modals{
+                #regist_form{
+                    width: 65%;                       
+                }
+                #regist_form2{
+                    width: 65%;                       
+                }
+                .add_task{
+                    width: 65%;
+                }
+                .notifications{
+                    width: 65%;
+                }
+                .project_name{
+                    width: 65%;
+                    margin: -725px auto;
+                }
+                #label{
+                    width: 65%;
+                   
+                    margin: -725px auto;
+                }
+                #hello{
+                    width: 65%;
+                }
+                .error{
+                    width: 65%;
+                }
+                .error2{
+                    width: 65%;
+                }
+            }
         }
     } 
 }
@@ -912,6 +1033,15 @@ body{
                     width: 50%;
                     padding-left: 5%;
                 }
+                #weekdays2{
+                    display: flex;
+                    font-weight: 500;
+                    font-size: 16px;
+                }
+                #weekdays{
+                    display: none;
+                }
+
             }
             .center{
                 header{
@@ -931,13 +1061,57 @@ body{
                     }
                     .user{
                         width: 35%;
+                        justify-content: space-between;
+                        padding-left: 35px;
                         #user{
-                            padding-left: 35px;
+                            padding-left: 0;
+                        }
+                        #bell{
+                            padding-left: 0;
                         }
                         p{
                             display: none;
                         }
                     }
+                }
+            }
+            .main_page{
+                .add_task2{
+                    .add_descr_task{
+                        .add_signs{
+                           width: 14%;
+                        }
+                    }
+                }
+            }
+            .modals{
+                #regist_form{
+                    width: 91%;
+                }
+                #regist_form2{
+                    width: 91%;
+                }
+                .add_task{
+                    width: 90%;
+                }
+                .notifications{
+                    width: 90%;
+                    padding: 33px;
+                }
+                .project_name{
+                   width: 90%;
+                }
+                #label{
+                    width: 90%;
+                }
+                #hello{
+                    width: 90%;
+                }
+                .error{
+                    width: 90%;
+                }
+                .error2{
+                    width: 90%;
                 }
             }
         }
@@ -951,6 +1125,35 @@ body{
                     width: 100%;
                     padding-left: 5%;
                     padding-right: 5%;
+                }
+            }
+            .modals{
+                #regist_form{
+                    width: 100%;
+                }
+                #regist_form2{
+                    width: 100%;
+                }
+                .add_task{
+                    width: 100%;
+                }
+                .notifications{
+                    width: 100%;
+                }
+                .project_name{
+                    width: 100%;
+                 }
+                 #label{
+                    width: 100%;
+                }
+                #hello{
+                    width: 100%;
+                }
+                .error{
+                    width: 100%;
+                }
+                .error2{
+                    width: 100%;
                 }
             }
         }

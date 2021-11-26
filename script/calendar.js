@@ -22,7 +22,7 @@ document.addEventListener('click',(e)=>{
             }
 
         })
-        let check_priority =modal_cal.querySelectorAll('input[name="all_priority"]')
+        let check_priority = modal_cal.querySelectorAll('input[name="all_priority"]')
         check_priority.forEach(item =>{
             if(item.value === e.target.parentElement.parentElement.previousElementSibling.children[0].children[0].id){
                 //console.log(item.value)
@@ -31,8 +31,9 @@ document.addEventListener('click',(e)=>{
             //console.log(item.value)
             //console.log(e.target.parentElement.parentElement.previousElementSibling.children[0].children[0].id)
         })
+        console.log(e.target.parentElement.parentElement.previousElementSibling.children[3].textContent)
         taskCal.value = e.target.parentElement.parentElement.previousElementSibling.children[1].textContent
-        taskCalDescr = e.target.parentElement.parentElement.previousElementSibling.children[3].textContent
+        taskCalDescr.value = e.target.parentElement.parentElement.previousElementSibling.children[3].textContent 
         allSchedule.classList.add('er_message')
     }
    
@@ -63,15 +64,23 @@ const getTaskCal = async(dayString,daySquare) =>{
     const res = await fetch(URL_TODAY)
     const data = await res.json()
     let containerDay = document.querySelectorAll('.day')
-    data.forEach(item => {
+   /*  for(let i=0; i<5;i++){
+        if(data[i].date === dayString){
+            const eventDiv = document.createElement('div');
+              eventDiv.innerText = data[i].title;
+              eventDiv.setAttribute("data-id", data[i].id)
+              daySquare.appendChild(eventDiv); 
+      }
+    } */
+    data.forEach((item,index) => {
     
-        if(item.date === dayString){
+        if(item.date === dayString && index<4){
               const eventDiv = document.createElement('div');
-                eventDiv.innerText = item.title;
+                eventDiv.innerText = item.title.substr(0, 5);
                 eventDiv.setAttribute("data-id", item.id)
                 daySquare.appendChild(eventDiv); 
         }
-})
+    })
 }
 const getDayTasks=async()=>{
     let URL_TODAY = 'http://localhost:3000/tasks'
@@ -79,6 +88,7 @@ const getDayTasks=async()=>{
     const data = await res.json()
     let container = document.querySelector('#seeAll')
     container.innerHTML=""
+    /* for (let i =0; i<4; i++) */
     data.forEach(item => {
        
         if(item.date === clicked){
@@ -150,17 +160,22 @@ const getDayTasks=async()=>{
                 </div>    
                 `
             }
+           // console.log(data.length)
+            
         }
+        
+            
 
     })
-    /* if(container.innerHTML===''){
-        container.innerHTML+=`
-        <div class="noPlans">All clear! You don't have plans for this day yet</div>
-        `
-    } */
+    
 
     if(container.hasChildNodes()=== false){
         closeSchedule()
+    }
+    if(container.innerHTML===''){
+        container.innerHTML=`
+        <div class="noPlans">All clear! You don't have plans for this day yet</div>
+        `
     }
 }
 const getIdSch=(e)=>{
@@ -179,6 +194,7 @@ document.querySelector('#seeAll').addEventListener('click', (e)=>{
      if(e.target.closest('.check_sch')){
         currentId = getIdSch(e);
         //console.log(currentId)
+        getInfo(currentId)
         deleteDataSch(currentId)
     }
     

@@ -52,7 +52,7 @@
     </section>
     <section class="wrapper">
         <div class="main">
-            <div class="menu">
+            <div class="menu mobile">
                 <div class="tasks">
                     <div class="choose_task">
                         <a href="#" id="inbox">
@@ -257,7 +257,7 @@
                     </div>
                     <br><br>
                     <div class="add_descr_task">
-                        <div id="todayDate"></div>
+                        <div id="todayDate">TODAY</div>
                         <!-- <input type="text" name="date" class="tcal" value="" /> -->
                         <div class="add_signs">
                             <div class="sign_label">
@@ -294,7 +294,16 @@
                             <button id="nextButton">Next</button>
                         </div>
                     </div>
-                    <div id="weekdays" class="cut">
+                    <div id="weekdays2" class="cut">
+                        <div>Mo</div>
+                        <div>Tu</div>
+                        <div>We</div>
+                        <div>Th</div>
+                        <div>Fr</div>
+                        <div>Sa</div>
+                        <div>Su</div>
+                    </div>
+                    <div id="weekdays">
                         <div>Monday</div>
                         <div>Tuesday</div>
                         <div>Wednesday</div>
@@ -398,20 +407,20 @@
     <section class="wrapper">
         <div class="center modals">
             <form id="regist_form" class="er_message" name="regist_form">
-                <span id="closeModal1"><i class="fas fa-window-close"></i></span>
+                <span id="closeModal1"><i class="fas fa-times"></i></span>
                 <h2>Login<i class="fas fa-lock"></i></h2>
                 <div class="form_input">
                     <label class="form_ans" name="q1" for="q1"><i class="fas fa-at"></i>
                         <input type="text" id="q1" placeholder="enter your email">
                     </label>
-                    <p class="er_message" id="er-mes9">Введите корректный адрес</p>
-                    <p class="er_message" id="er-mes1">Поле не может быть пустым</p>
+                    <p class="message" id="er-mes9">Введите корректный адрес</p>
+                    <p class="message" id="er-mes1">Поле не может быть пустым</p>
                 </div>
                 <div class="form_input">
                     <label class="form_ans" for="q2"><i class="fas fa-key"></i>
                         <input type="password" id="q2" name="q2" placeholder="enter your password">  
                     </label>
-                    <p class="er_message" id="er-mes2">Необходимо ввести минимум 6 символов</p>
+                    <p class="message" id="er-mes2">Необходимо ввести минимум 6 символов</p>
                 </div>    
                 <div class="btn_enter">
                     <button type="submit" id="btn_enter">Enter</button>
@@ -430,33 +439,33 @@
             </form>
         
             <form id="regist_form2" class="er_message" name="regist_form2">
-                <span id="closeModal2"><i class="fas fa-window-close"></i></span>
+                <span id="closeModal2"><i class="fas fa-times"></i></span>
                 <h2>Sign up</h2>
                 <div class="form_input">
                     <label class="form_ans" for="creator"><i class="fas fa-user"></i>
                         <input type="text" name="creator" id="creator" placeholder="Enter your name">
                     </label>
-                    <p class="er_message" id="er-mes3">Необходимо ввести минимум 3 символа</p>
+                    <p class="message" id="er-mes3">Необходимо ввести минимум 3 символа</p>
                 </div>
                 <div class="form_input">
                     <label class="form_ans" for="q11"><i class="fas fa-at"></i>
                         <input type="email" name="q11" id="q11" placeholder="enter your email">
                     </label>
-                    <p class="er_message" id="er-mes10">Введите корректный адрес</p>
-                    <p class="er_message" id="er-mes4">Поле не может быть пустым</p>
+                    <p class="message" id="er-mes10">Введите корректный адрес</p>
+                    <p class="message" id="er-mes4">Поле не может быть пустым</p>
                 </div>
                 <div class="form_input">
                     <label class="form_ans" for="q21"><i class="fas fa-key"></i>
                         <input type="password" name="q21" id="q21" placeholder="enter your password">  
                     </label>
-                    <p class="er_message" id="er-mes5">Необходимо ввести минимум 6 символов</p>
+                    <p class="message" id="er-mes5">Необходимо ввести минимум 6 символов</p>
                 </div>
                 <div class="form_input">
                     <label class="form_ans" for="q22"><i class="fas fa-key"></i>
                         <input type="password" name="q22" id="q22" placeholder="confirm your password">  
                     </label>
-                    <p class="er_message" id="er-mes6">Поле не может быть пустым</p>
-                    <p class="er_message" id="er-mes7">пароль не совпадает</p>
+                    <p class="message" id="er-mes6">Поле не может быть пустым</p>
+                    <p class="message" id="er-mes7">пароль не совпадает</p>
                 </div>
                 
                 <div class="btn_enter">
@@ -465,7 +474,7 @@
                 <div class="remember">
                     <input type="checkbox" id="confirm" name="agrSign" checked>
                     <label for="confirm">Confirm <a href="#">agreements</a></label>
-                    <p class="er_message" id="er-mes8">Необходимо подписать соглашение</p>
+                    <p class="message" id="er-mes8">Необходимо подписать соглашение</p>
                 </div>
                 <div class="problems">
                     <p>Doesn't work?<a href="#" id="registration">Help<i class="far fa-question-circle"></i></a></p>
@@ -560,7 +569,7 @@
                 <p>You don't have any notifications yet</p>
            </div>
             <div class="er_message" id="hello">
-                <span id="closeModal3"><i class="fas fa-window-close"></i></span>
+                <span id="closeModal3"><i class="fas fa-times"></i></span>
                 <p>"Не составлять планов - значит запланировать своё поражение" (Бенджамин Франклин)</p>
             </div>
 
@@ -582,5 +591,6 @@
     <script src="./script/projectdatalabel.js"></script>
     <script src = "./script/tcal_en.js"></script>
     <script src ="./script/deleted.js"></script>
+   <script src="./script/login.js"></script>
 </body>
 </html>
